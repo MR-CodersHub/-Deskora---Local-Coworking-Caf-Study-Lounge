@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dedicated Desk Pod — Service Details | DESKORA</title>
+  <meta name="description" content="Detailed specifications for Dedicated Resident Desks at DESKORA. Herman Miller Aeron seating, dual 27-inch 4K monitors, 24/7 keycard access, lockable storage, and business mail service.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/deskora-favicon.svg">
+  <style>
+    #service-hero {
+      position: relative;
+      padding: var(--sp-12) 0;
+      border-bottom: 1px solid var(--clr-border);
+      background: var(--clr-bg);
+    }
+    [data-theme="dark"] #service-hero {
+      background: #111110 !important;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-item"><span class="status-dot"></span>&nbsp; Open today · 7:00 AM – 11:00 PM</span>
+          <span class="top-bar-item">📍 12 Crescent Lane, Koramangala, Bengaluru</span>
+          <span class="top-bar-item">📞 +91 98765 43210</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="login.html" class="top-bar-portal-link">Member Portal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link active" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+            <li><a href="user-dashboard.html" class="nav-link" id="nav-dashboard">Dashboard</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)" title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true" aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button (Last Position) -->
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link active">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+          <li><a href="user-dashboard.html" class="mobile-nav-link" id="mobile-nav-dashboard">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking style="width: 100%;">Book a Desk</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- SECTION 1: Service Detail Hero with Breadcrumb & Specs -->
+    <section class="hero" id="service-hero">
+      <div class="container">
+        <div style="margin-bottom:1rem;">
+          <a href="services.html" style="font-size:0.88rem;color:var(--text-tertiary);">← Back to All Services</a>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <div class="hero-badge-group">
+              <span class="eyebrow">Permanent Workstation</span>
+              <span class="feature-pill">✦ 24/7 Access</span>
+              <span class="feature-pill">✦ Dual 4K Displays</span>
+              <span class="feature-pill">✦ Status: 3 Open</span>
+            </div>
+            <h1 class="display-1 hero-title">The Dedicated Desk Pod</h1>
+            <p class="hero-description">
+              A private, permanent harbor for your professional workflow. Your own assigned desk reserved around the clock, outfitted with dual 4K monitors, ergonomic Herman Miller seating, and lockable storage.
+            </p>
+            <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap;">
+              <div>
+                <span class="caption">Pricing</span>
+                <div style="font-family:var(--font-display);font-size:2.4rem;font-weight:800;color:var(--text-primary);">$249 <small style="font-size:1rem;font-weight:400;color:var(--text-tertiary);">/ month</small></div>
+              </div>
+              <div style="border-left:1px solid var(--border-subtle);padding-left:1.5rem;">
+                <span class="caption">Commitment</span>
+                <div style="font-size:1.15rem;font-weight:600;color:var(--text-primary);">Month-to-Month</div>
+              </div>
+              <div style="border-left:1px solid var(--border-subtle);padding-left:1.5rem;">
+                <span class="caption">Zone Placement</span>
+                <div style="font-size:1.15rem;font-weight:600;color:var(--text-primary);">Level 1 East Wing</div>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-lg" data-open-modal="booking-modal" data-service="Dedicated Desk Pod ($249/mo)">
+              Reserve Your Desk Today →
+            </button>
+          </div>
+
+          <div class="horizontal-feature-image">
+            <img src="assets/space-dedicated.jpg" alt="Dedicated Desk Pod with dual monitors at DESKORA" loading="eager">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Comprehensive Features & Hardware Specifications -->
+    <section class="section" id="specs">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Technical Architecture</span>
+          <h2 class="display-2">Engineered For Zero Friction</h2>
+          <p class="lead">Everything configured for plug-and-play productivity the moment you sit down.</p>
+        </div>
+
+        <div class="amenities-grid">
+          <div class="amenity-tile">
+            <div class="amenity-icon-box">🖥️</div>
+            <h4>Dual 27" Dell UltraSharp 4K</h4>
+            <p>Color-calibrated IPS displays mounted on articulated gas-spring arms. Single USB-C cable supplies video and 90W laptop power.</p>
+            <span class="amenity-spec">RESOLUTION: 3840×2160 • 99% sRGB</span>
+          </div>
+
+          <div class="amenity-tile">
+            <div class="amenity-icon-box">🪑</div>
+            <h4>Herman Miller Aeron Chair</h4>
+            <p>Fully adjustable PostureFit SL lumbar support, forward tilt, and breathable Pellicle 8Z mesh keep you cool and fatigue-free.</p>
+            <span class="amenity-spec">SIZE B & C AVAILABLE • ERGONOMIC</span>
+          </div>
+
+          <div class="amenity-tile">
+            <div class="amenity-icon-box">🗄️</div>
+            <h4>Lockable Heavy Steel Pedestal</h4>
+            <p>Three-drawer lockable filing cabinet directly beneath your desk for your mechanical keyboard, external drives, headphones, and notebooks.</p>
+            <span class="amenity-spec">TWO PHYSICAL KEYS PROVIDED</span>
+          </div>
+
+          <div class="amenity-tile">
+            <div class="amenity-icon-box">📬</div>
+            <h4>Registered Commercial Address</h4>
+            <p>Use DESKORA as your official registered company address for Google Business, banking, and physical package deliveries.</p>
+            <span class="amenity-spec">DAILY MAIL RECEIPT & DIGITAL NOTIFICATIONS</span>
+          </div>
+
+          <div class="amenity-tile">
+            <div class="amenity-icon-box">🤝</div>
+            <h4>12 Hours Meeting Room Credits</h4>
+            <p>Host clients or sync with colleagues in our presentation boardrooms at zero additional cost every single month.</p>
+            <span class="amenity-spec">ROLLOVER APPLIES UP TO 24 HOURS</span>
+          </div>
+
+          <div class="amenity-tile">
+            <div class="amenity-icon-box">☕</div>
+            <h4>Unlimited Barista Specialty Drinks</h4>
+            <p>Full access to all single-origin pour-overs, nitro cold brews, flat whites, and ceremonial matcha without touching your wallet.</p>
+            <span class="amenity-spec">VALUED AT $120+ / MONTH IN CAFÉ SAVINGS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Detailed Desk Dimensions & Floorplan Placement -->
+    <section class="section section-bg-alt" id="dimensions">
+      <div class="container">
+        <div class="horizontal-feature reverse">
+          <div class="horizontal-feature-image">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=900&q=80" alt="Floorplan layout of dedicated desk row">
+          </div>
+          <div>
+            <span class="eyebrow">Space Layout & Dimensions</span>
+            <h2 class="display-2" style="margin-bottom:1.25rem;">Generous Physical Proportions</h2>
+            <p class="lead" style="margin-bottom:1.5rem;">
+              Unlike cramped generic hot desk benches, our Dedicated Desk Pods feature custom 60" x 30" solid Appalachian white oak tops with sound-dampening felt privacy surrounds.
+            </p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+              <div>
+                <strong style="display:block;font-size:1.1rem;">Surface Area:</strong>
+                <p style="color:var(--text-secondary);font-size:0.9rem;">1,800 sq. inches (Plenty of room for tablet, notebooks, coffee mug, and desk mat).</p>
+              </div>
+              <div>
+                <strong style="display:block;font-size:1.1rem;">Distance Between Desks:</strong>
+                <p style="color:var(--text-secondary);font-size:0.9rem;">6.5 feet center-to-center for ample personal elbow room.</p>
+              </div>
+              <div>
+                <strong style="display:block;font-size:1.1rem;">Sound Absorption:</strong>
+                <p style="color:var(--text-secondary);font-size:0.9rem;">18mm recycled PET felt acoustic divider blocks 35% of vocal spillover.</p>
+              </div>
+              <div>
+                <strong style="display:block;font-size:1.1rem;">Dedicated Power:</strong>
+                <p style="color:var(--text-secondary);font-size:0.9rem;">4 standard AC outlets + 2x USB-C 100W PD + 1x Gigabit RJ45 Ethernet.</p>
+              </div>
+            </div>
+            <button class="btn btn-primary" data-open-modal="booking-modal" data-service="Dedicated Desk Pod">Reserve A Dedicated Desk</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Flexible Pricing Commitments & Add-ons -->
+    <section class="section" id="pricing-tiers">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Transparent Commitments</span>
+          <h2 class="display-2">Select Your Billing Schedule</h2>
+          <p class="lead">Commit month-to-month or save up to 20% by locking in semi-annual or annual residency.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="caption">Flexible Month-to-Month</span>
+              <h3 class="h3" style="margin-top:4px;">Monthly Residency</h3>
+              <div class="pricing-amount">$249 <small>/ month</small></div>
+            </div>
+            <div class="pricing-features-list">
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> 30-day cancellation notice</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> 24/7 RFID entry pass</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> Dual 27" 4K displays</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> 12h Meeting credits</div>
+            </div>
+            <button class="btn btn-secondary" style="width:100%;" data-open-modal="booking-modal" data-service="Monthly Dedicated Desk ($249)">Select Monthly</button>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="pricing-ribbon">Save 15%</div>
+            <div class="pricing-header">
+              <span class="caption">6-Month Commitment</span>
+              <h3 class="h3" style="margin-top:4px;">Semester / Half-Year</h3>
+              <div class="pricing-amount">$212 <small>/ month</small></div>
+            </div>
+            <div class="pricing-features-list">
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> Billed $1,272 every 6 months</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> Free locker storage included</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> 18h Meeting credits / month</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> 5 Free guest day passes</div>
+            </div>
+            <button class="btn btn-primary" style="width:100%;" data-open-modal="booking-modal" data-service="6-Month Dedicated Desk ($212/mo)">Select 6-Month Plan</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="caption">Annual Residency</span>
+              <h3 class="h3" style="margin-top:4px;">12-Month Resident</h3>
+              <div class="pricing-amount">$199 <small>/ month</small></div>
+            </div>
+            <div class="pricing-features-list">
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> Billed annually ($2,388/yr)</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> Guaranteed same assigned desk</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> 25h Meeting credits / month</div>
+              <div class="pricing-feature-item"><span class="check-icon">✓</span> Dedicated lockable 10U server space option</div>
+            </div>
+            <button class="btn btn-secondary" style="width:100%;" data-open-modal="booking-modal" data-service="Annual Dedicated Desk ($199/mo)">Select Annual</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Frequently Asked Questions (Accordion) -->
+    <section class="section section-bg-alt" id="faq">
+      <div class="container" style="max-width:800px;">
+        <div class="section-header text-center">
+          <span class="eyebrow">Common Inquiries</span>
+          <h2 class="display-2">Dedicated Desk FAQs</h2>
+          <p class="lead">Answers to the most common questions from prospective resident members.</p>
+        </div>
+
+        <div>
+          <div class="accordion-item active">
+            <button class="accordion-trigger" aria-expanded="true">
+              Can I bring my own external keyboard, mouse, and desktop PC?
+              <span class="accordion-icon">▾</span>
+            </button>
+            <div class="accordion-content">
+              <p>Yes, absolutely. Because this is your personal dedicated desk 24 hours a day, 7 days a week, you are welcome to leave your mechanical keyboard, mouse, audio DAC, notebooks, and PC securely in place.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              How does the 24/7 RFID access work outside café hours?
+              <span class="accordion-icon">▾</span>
+            </button>
+            <div class="accordion-content">
+              <p>Resident members receive a physical RFID smartcard and digital Apple/Google Wallet NFC access. The perimeter glass doors unlock automatically for verified credentials at 2:00 AM on Sunday just as easily as noon on Tuesday.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              Can I bring a guest or client to collaborate at my desk?
+              <span class="accordion-icon">▾</span>
+            </button>
+            <div class="accordion-content">
+              <p>Dedicated desk members receive 3 complimentary guest day passes every month. For longer collaborative sessions, we recommend booking one of our conference suites using your monthly included credits.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false">
+              What is the cancellation policy on month-to-month plans?
+              <span class="accordion-icon">▾</span>
+            </button>
+            <div class="accordion-content">
+              <p>We require only a 30-day notice prior to your next billing cycle. There are zero cancellation penalties or termination fees.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Related Workspaces Recommendation Grid -->
+    <section class="section" id="related-spaces">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="eyebrow">Alternative Options</span>
+          <h2 class="display-2">Related Workspaces You Might Like</h2>
+        </div>
+
+        <div class="editorial-grid">
+          <div class="editorial-card">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&w=700&q=80" alt="Hot Desk Flex Plan">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Flex Resident Hot Desk</h3>
+              <p class="card-text">Looking for lower monthly overhead without needing an assigned desk? Grab any open seat anytime for just $189/month.</p>
+              <div class="card-footer">
+                <span class="card-price">$189 <small>/ month</small></span>
+                <a href="services.html" class="btn btn-secondary btn-sm">Explore Flex →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=700&q=80" alt="Private Office Suite">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Private Office Studio</h3>
+              <p class="card-text">Need complete four-wall privacy for team whiteboarding and confidential client meetings? Explore our glass office suites.</p>
+              <div class="card-footer">
+                <span class="card-price">From $650 <small>/ month</small></span>
+                <a href="services.html" class="btn btn-secondary btn-sm">Explore Suites →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="editorial-card">
+            <div class="card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=700&q=80" alt="Silent Study Lounge">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Silent Study Carrels</h3>
+              <p class="card-text">Preparing for high-stakes exams, MCAT, or a PhD defense? Our 2nd-floor silent sanctuary is optimized for zero noise.</p>
+              <div class="card-footer">
+                <span class="card-price">$12 <small>/ day pass</small></span>
+                <a href="home-2.html" class="btn btn-secondary btn-sm">Explore Study →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo" style="color:#ffffff;">
+          <div class="logo-symbol" style="background:#ffffff;color:#0f1012;">▲</div>
+          <span>THE ATELIER</span>
+        </a>
+        <p>A hybrid coworking sanctuary and specialty coffee lounge designed for uninterrupted focus, collaborative energy, and academic excellence.</p>
+        <div class="footer-badge">
+          <span class="status-dot"></span> Open Daily • 7:00 AM – 11:00 PM
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Explore Spaces</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home 1 — Overview</a></li>
+          <li><a href="home-2.html">Home 2 — Student & Focus</a></li>
+          <li><a href="services.html">Workspaces & Desks</a></li>
+          <li><a href="service-details.html">Dedicated Pod Specs</a></li>
+          <li><a href="memberships.html">Memberships & Rates</a></li>
+          <li><a href="amenities.html">Infrastructure & Wi-Fi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Community & Café</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About The Brand</a></li>
+          <li><a href="menu.html">Artisan Drink Menu</a></li>
+          <li><a href="blog.html">Editorial & Research</a></li>
+          <li><a href="blog-details.html">Study Science Guide</a></li>
+          <li><a href="login.html">Member Portal Sign-In</a></li>
+          <li><a href="contact.html">Directions & Parking</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Stay Connected</h4>
+        <p style="font-size:0.86rem;color:var(--text-light-muted);margin-bottom:1rem;">
+          Subscribe for weekly barista single-origin releases, productivity dispatches, and free day pass lotteries.
+        </p>
+        <form class="footer-newsletter-form newsletter-form">
+          <input type="email" placeholder="Your work or student email" required aria-label="Email for newsletter">
+          <button type="submit" class="btn btn-white btn-sm">Join</button>
+        </form>
+        <div style="margin-top:1.5rem;">
+          <p style="font-size:0.8rem;color:var(--text-light-muted);">Direct line: +1 (555) 392-8104</p>
+          <p style="font-size:0.8rem;color:var(--text-light-muted);">hello@theateliercowork.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>© 2026 DESKORA Coworking Café & Study Lounge. All rights reserved. Pure Vanilla HTML5/CSS3/JS.</div>
+      <div class="footer-social-links">
+        <a href="#" class="footer-social-link" aria-label="Instagram">Instagram</a>
+        <a href="#" class="footer-social-link" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" class="footer-social-link" aria-label="Twitter">Twitter / X</a>
+        <a href="#" class="footer-social-link" aria-label="Spotify">Spotify Playlist</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Universal Booking Modal -->
+  <div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-details">
+    <div class="modal-container">
+      <button class="modal-close-btn" data-close-modal aria-label="Close Reservation Window">✕</button>
+      <div style="margin-bottom:1.5rem;">
+        <span class="eyebrow" style="margin-bottom:0.5rem;">Instant Reservation</span>
+        <h3 id="modal-title-details" class="h2">Reserve A Dedicated Desk</h3>
+        <p style="color:var(--text-secondary);font-size:0.9rem;margin-top:4px;">
+          Lock in your desk assignment with instant demo confirmation.
+        </p>
+      </div>
+
+      <form id="quick-booking-form">
+        <div class="form-group">
+          <label class="form-label" for="booking-name-details">Full Name</label>
+          <input type="text" id="booking-name-details" name="full_name" class="form-input" placeholder="e.g. Alex Morgan" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="booking-email-details">Email Address</label>
+          <input type="email" id="booking-email-details" name="email" class="form-input" placeholder="alex@domain.com" required>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label class="form-label" for="booking-space-type-details">Commitment</label>
+            <select id="booking-space-type-details" name="space_type" class="form-select">
+              <option value="Monthly Dedicated Desk ($249/mo)">Monthly Dedicated Desk ($249/mo)</option>
+              <option value="6-Month Dedicated Desk ($212/mo)">6-Month Residency ($212/mo)</option>
+              <option value="Annual Dedicated Desk ($199/mo)">Annual Residency ($199/mo)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="booking-date-details">Preferred Start Date</label>
+            <input type="date" id="booking-date-details" name="booking_date" class="form-input" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem;">
+          Confirm Dedicated Desk Reservation
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

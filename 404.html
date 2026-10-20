@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="404 — Desk Not Found. The workstation or page you are looking for at DESKORA has moved, expired, or does not exist.">
+  <title>404 — Desk Not Found · DESKORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/deskora-favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+
+  <style>
+    /* ══════════════════════════════════════════════
+       404 BESPOKE ARCHITECTURAL STYLING
+    ══════════════════════════════════════════════ */
+    .page-404-wrap {
+      min-height: calc(100vh - var(--nav-h) - 340px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-16) 0 var(--sp-20);
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 25%, rgba(184, 151, 106, 0.06) 0%, transparent 65%);
+    }
+
+    /* Ambient Floor Grid Lines */
+    .blueprint-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 65% 55% at 50% 40%, black 20%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 40%, black 20%, transparent 80%);
+    }
+
+    [data-theme="dark"] .blueprint-bg {
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+
+    .error-container {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Architectural Visual Box */
+    .desk-visual-stage {
+      margin: 0 auto var(--sp-8);
+      position: relative;
+      width: 220px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .desk-art-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Lamp Glow Effect */
+    .lamp-glow {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255, 204, 77, 0.28) 0%, rgba(255, 180, 0, 0.08) 50%, transparent 70%);
+      border-radius: 50%;
+      top: 15px;
+      right: 30px;
+      filter: blur(8px);
+      transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+      pointer-events: none;
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    .lamp-glow.is-off {
+      opacity: 0.05;
+      animation: none;
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.95;
+        transform: scale(1.1);
+      }
+    }
+
+    .interactive-lamp-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      margin-top: -12px;
+      margin-bottom: var(--sp-4);
+      background: var(--clr-bg-card);
+      border: 1px dashed var(--clr-border-med);
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+      transition: all var(--t-fast) var(--ease);
+      cursor: pointer;
+    }
+
+    .interactive-lamp-hint:hover {
+      border-color: var(--clr-gold);
+      color: var(--clr-ink);
+    }
+
+    /* Big 404 Headline */
+    .error-code-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: var(--r-full);
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      color: var(--clr-ink-muted);
+      margin-bottom: var(--sp-5);
+    }
+
+    .error-code-badge .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #E55353;
+      box-shadow: 0 0 0 3px rgba(229, 83, 83, 0.2);
+    }
+
+    .error-title {
+      font-size: clamp(2.8rem, 6.5vw, 4.6rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-4);
+    }
+
+    .error-title em {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--clr-gold);
+    }
+
+    .error-desc {
+      font-size: var(--fs-md);
+      color: var(--clr-ink-muted);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto var(--sp-8);
+    }
+
+    /* Action Buttons Row */
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: var(--sp-10);
+    }
+
+    /* Interactive Live Directory Search */
+    .error-search-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6) var(--sp-6);
+      max-width: 620px;
+      margin: 0 auto var(--sp-10);
+      box-shadow: var(--sh-md);
+      text-align: left;
+      transition: border-color var(--t-base) var(--ease);
+    }
+
+    .error-search-card:focus-within {
+      border-color: var(--clr-ink);
+    }
+
+    .search-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--sp-3);
+    }
+
+    .search-card-label {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      font-weight: 700;
+    }
+
+    .search-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input-wrap svg {
+      position: absolute;
+      left: 14px;
+      color: var(--clr-ink-muted);
+      pointer-events: none;
+    }
+
+    .error-search-input {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-md);
+      font-family: var(--ff-sans);
+      font-size: var(--fs-sm);
+      color: var(--clr-ink);
+      background: var(--clr-bg-subtle);
+      transition: all var(--t-fast) var(--ease);
+    }
+
+    .error-search-input:focus {
+      outline: none;
+      background: var(--clr-paper);
+      border-color: var(--clr-ink);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Instant Results / Quick Links Grid */
+    .directory-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: var(--sp-4);
+    }
+
+    .dir-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      font-size: var(--fs-xs);
+      font-family: var(--ff-sans);
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-sm);
+      color: var(--clr-ink);
+      text-decoration: none;
+      transition: all var(--t-fast) var(--ease);
+    }
+
+    .dir-chip:hover {
+      background: var(--clr-ink);
+      color: var(--clr-paper);
+      border-color: var(--clr-ink);
+      transform: translateY(-1px);
+    }
+
+    .dir-chip span.chip-icon {
+      font-size: 0.95rem;
+    }
+
+    /* Live Hub Status Footer Pill */
+    .campus-live-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      padding: 8px 18px;
+      border-radius: var(--r-full);
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      color: var(--clr-ink-muted);
+    }
+
+    .pulse-indicator {
+      width: 8px;
+      height: 8px;
+      background: var(--clr-success);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .pulse-indicator::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: var(--clr-success);
+      opacity: 0.4;
+      animation: ripple 2s infinite ease-out;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: scale(2.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Brand -->
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark">
+            <svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%">
+              <g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 16V64" />
+                <path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30" />
+                <path d="M16 45H74" />
+                <path d="M22 45V64" stroke-width="4.5" />
+                <path d="M68 45V64" stroke-width="4.5" />
+              </g>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+            <li><a href="user-dashboard.html" class="nav-link" id="nav-dashboard">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)"
+            title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme"
+            title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true"
+              aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button (Last Position) -->
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <!-- Burger Button -->
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"
+              style="width:100%;height:100%">
+              <g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 16V64" />
+                <path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30" />
+                <path d="M16 45H74" />
+                <path d="M22 45V64" stroke-width="4.5" />
+                <path d="M68 45V64" stroke-width="4.5" />
+              </g>
+            </svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav>
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="menu.html" class="mobile-nav-link">Café Menu</a></li>
+          <li><a href="amenities.html" class="mobile-nav-link">Amenities</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+          <li><a href="coming-soon.html" class="mobile-nav-link">Coming Soon</a></li>
+          <li><a href="maintenance.html" class="mobile-nav-link">Maintenance</a></li>
+          <li><a href="404.html" class="mobile-nav-link active">404 Error</a></li>
+          <li><a href="user-dashboard.html" class="mobile-nav-link" id="mobile-nav-dashboard">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking>Book a Desk</button>
+        <button class="btn btn-outline" onclick="window.location.href='tel:+918049208899'">📞 Call Us</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       MAIN CONTENT: 404
+  ══════════════════════════════════════════════ -->
+  <main class="page-404-wrap">
+    <div class="blueprint-bg" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="error-container">
+
+        <!-- Architectural Visual Desk Stage -->
+        <div class="desk-visual-stage">
+          <div class="lamp-glow" id="lampGlow"></div>
+          <div class="desk-art-wrapper" id="lampClickArea" title="Click to toggle desk focus lamp">
+            <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style="width: 100%; height: 100%;">
+              <!-- Base Floor Grid Shadow -->
+              <ellipse cx="100" cy="142" rx="72" ry="12" fill="currentColor" opacity="0.08" />
+
+              <!-- Cantilever Desk -->
+              <rect x="36" y="88" width="128" height="8" rx="3" fill="currentColor" opacity="0.88" />
+              <!-- Left Leg -->
+              <line x1="48" y1="96" x2="48" y2="140" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" />
+              <!-- Right Leg -->
+              <line x1="152" y1="96" x2="152" y2="140" stroke="currentColor" stroke-width="4.5"
+                stroke-linecap="round" />
+              <!-- Foot Rails -->
+              <line x1="42" y1="140" x2="56" y2="140" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+              <line x1="144" y1="140" x2="158" y2="140" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+
+              <!-- Ergonomic Chair Stool Silhouette (Empty) -->
+              <path d="M88 116H112" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+              <line x1="100" y1="116" x2="100" y2="138" stroke="currentColor" stroke-width="3.5" />
+              <path d="M92 138L108 138" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+
+              <!-- Designer Desk Angle Lamp -->
+              <!-- Lamp Base -->
+              <rect x="136" y="83" width="16" height="5" rx="1.5" fill="currentColor" opacity="0.75" />
+              <!-- Lower Arm -->
+              <line x1="144" y1="83" x2="134" y2="52" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+              <!-- Upper Arm -->
+              <line x1="134" y1="52" x2="114" y2="40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Joint Rings -->
+              <circle cx="134" cy="52" r="3" fill="#B8976A" />
+              <circle cx="114" cy="40" r="2.5" fill="#B8976A" />
+              <!-- Lamp Shade Cone -->
+              <polygon points="106,32 120,44 100,56" fill="currentColor" opacity="0.85" />
+              <!-- Warm Bulb Spot -->
+              <circle id="bulbCircle" cx="106" cy="46" r="4" fill="#FFC83B" />
+
+              <!-- Steaming Coffee Cup -->
+              <rect x="52" y="77" width="14" height="11" rx="2" fill="currentColor" opacity="0.6" />
+              <path d="M66 80C68.5 80 69.5 83 67 85" stroke="currentColor" stroke-width="1.8" fill="none" />
+              <!-- Steam curves -->
+              <path d="M55 73C56 70 54 68 56 65" stroke="#B8976A" stroke-width="1.5" stroke-linecap="round"
+                stroke-dasharray="1 2" opacity="0.7" />
+              <path d="M61 72C62 69 60 67 62 64" stroke="#B8976A" stroke-width="1.5" stroke-linecap="round"
+                stroke-dasharray="1 2" opacity="0.7" />
+
+              <!-- Floating Hologram "404" on Desk -->
+              <text x="100" y="32" font-family="'Space Mono', monospace" font-size="16" font-weight="700"
+                fill="currentColor" opacity="0.35" text-anchor="middle" letter-spacing="3">404</text>
+            </svg>
+          </div>
+        </div>
+
+        <button class="interactive-lamp-hint" id="lampToggleBtn" type="button">
+          <span>💡</span> <span id="lampToggleText">Click lamp to switch focus light</span>
+        </button>
+
+        <!-- Badge -->
+        <div>
+          <div class="error-code-badge">
+            <span class="status-dot"></span>
+            <span>HTTP Error 404 · Unreserved Station</span>
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="error-title">
+          Desk <em>Not Found</em>
+        </h1>
+
+        <!-- Description -->
+        <p class="error-desc">
+          The workstation, study nook, or page URL you were looking for doesn't exist on our floor plan or has been
+          relocated to a quieter wing. Let’s get you back into the flow.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="error-actions">
+          <a href="index.html" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Return to Main Hub
+          </a>
+          <button class="btn btn-outline"
+            onclick="window.history.length > 1 ? window.history.back() : window.location.href='index.html'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Step Back
+          </button>
+          <a href="services.html" class="btn btn-secondary">
+            Explore Workspaces
+          </a>
+        </div>
+
+        <!-- Live Instant Directory Search Card -->
+        <div class="error-search-card">
+          <div class="search-card-header">
+            <span class="search-card-label">Quick Space &amp; Menu Directory</span>
+            <span style="font-family:var(--ff-mono);font-size:0.68rem;color:var(--clr-ink-muted);">Instant Jump</span>
+          </div>
+          <div class="search-input-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="dirSearchInput" class="error-search-input"
+              placeholder="Type to filter (e.g. coffee, studio, pass, pricing, podcast, about)..." autocomplete="off">
+          </div>
+
+          <div class="directory-chips" id="directoryChips">
+            <a href="services.html" class="dir-chip" data-keywords="hot desk workspace open seating flex day pass"><span
+                class="chip-icon">🪑</span> Hot Desks</a>
+            <a href="services.html" class="dir-chip"
+              data-keywords="dedicated desk monitor setup private workstation"><span class="chip-icon">🖥️</span>
+              Dedicated Desks</a>
+            <a href="services.html" class="dir-chip" data-keywords="private studio team suite executive room"><span
+                class="chip-icon">🚪</span> Private Studios</a>
+            <a href="menu.html" class="dir-chip"
+              data-keywords="coffee cafe artisan cortado pour-over espresso latte cold brew food"><span
+                class="chip-icon">☕</span> Artisan Café Menu</a>
+            <a href="memberships.html" class="dir-chip"
+              data-keywords="membership pricing plans monthly pass student rates"><span class="chip-icon">💳</span>
+              Memberships</a>
+            <a href="amenities.html" class="dir-chip"
+              data-keywords="wifi fiber podcast booth ergonomic phone booths amenities"><span
+                class="chip-icon">🎙️</span> Podcast &amp; Amenities</a>
+            <a href="about.html" class="dir-chip" data-keywords="story founders mission team about philosophy"><span
+                class="chip-icon">🏛️</span> Our Story &amp; Team</a>
+            <a href="contact.html" class="dir-chip"
+              data-keywords="contact location koramangala phone map directions email"><span class="chip-icon">📍</span>
+              Location &amp; Contact</a>
+          </div>
+        </div>
+
+        <!-- Campus Live Status Bar -->
+        <div>
+          <div class="campus-live-bar">
+            <span class="pulse-indicator"></span>
+            <span>All Physical Campuses Open · 07:00 – 23:00 · High-Speed Wi-Fi Operational</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════════
+       SITE FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Col -->
+        <div>
+          <a href="index.html" class="brand brand-light" style="margin-bottom:var(--sp-4);display:inline-flex">
+            <div class="brand-mark">
+              <svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%">
+                <g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M30 16V64" />
+                  <path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30" />
+                  <path d="M16 45H74" />
+                  <path d="M22 45V64" stroke-width="4.5" />
+                  <path d="M68 45V64" stroke-width="4.5" />
+                </g>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name" style="color:#fff">DESKORA</span>
+              <span class="brand-sub">Coworking &amp; Café</span>
+            </div>
+          </a>
+          <p style="font-size:var(--fs-sm);color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:var(--sp-6)">
+            Where deep focus meets artisan craft. Quiet reading lounges, private studios, and specialty brew bars in
+            Bengaluru.
+          </p>
+          <div class="footer-badge">
+            <span class="badge-dot"></span>
+            <span>All Hubs Active · Koramangala &amp; Indiranagar</span>
+          </div>
+        </div>
+
+        <!-- Navigate -->
+        <div>
+          <p class="footer-col-title">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="memberships.html">Memberships</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Utility & Status Pages -->
+        <div>
+          <p class="footer-col-title">System &amp; Experience</p>
+          <ul class="footer-links">
+            <li><a href="menu.html">Artisan Café Menu</a></li>
+            <li><a href="amenities.html">Building Amenities</a></li>
+            <li><a href="coming-soon.html">Coming Soon / Expansion</a></li>
+            <li><a href="maintenance.html">System Maintenance</a></li>
+            <li><a href="404.html" style="color:var(--clr-gold)">404 Station</a></li>
+            <li><a href="deskora-brand.html">Brand Identity System</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <p class="footer-col-title">Stay in the Loop</p>
+          <p style="font-size:var(--fs-sm);color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-4)">
+            Exclusive invitations to founder roundtables, barista cupping sessions, and private suite releases.
+          </p>
+          <form class="footer-newsletter"
+            onsubmit="event.preventDefault(); showToast('Subscribed! Check your inbox soon.', '✉');">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" required>
+            <button class="btn btn-white btn-sm" type="submit">Subscribe</button>
+          </form>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,.25);margin-top:var(--sp-3)">No spam. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2025 DESKORA Coworking Café · All rights reserved</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Twitter">Twitter</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+        <span>Crafted with architectural precision in Bengaluru</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-bg" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Close booking modal">✕</button>
+      <div style="margin-bottom:var(--sp-6)">
+        <span class="eyebrow">Reserve Your Spot</span>
+        <h2 class="heading-md" id="modalTitle">Book a Desk at DESKORA</h2>
+        <p style="font-size:var(--fs-sm);color:var(--clr-ink-muted);margin-top:var(--sp-2)">We'll confirm your
+          reservation within 30 minutes.</p>
+      </div>
+      <form id="bookingForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="bookName">Full Name</label>
+          <input class="form-input" type="text" id="bookName" name="name" placeholder="Jane Doe" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bookEmail">Email Address</label>
+          <input class="form-input" type="email" id="bookEmail" name="email" placeholder="jane@example.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bookType">Space Type</label>
+          <select class="form-select" id="bookType" name="type">
+            <option>Hot Desk (Day Pass)</option>
+            <option>Dedicated Desk</option>
+            <option>Private Studio</option>
+            <option>Conference Room</option>
+            <option>Quiet Study Lounge</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bookDate">Preferred Date</label>
+          <input class="form-input" type="date" id="bookDate" name="date" required>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Submit Reservation Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    // 404 Bespoke Interactive Script
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Interactive Desk Lamp
+      const lampGlow = document.getElementById('lampGlow');
+      const bulbCircle = document.getElementById('bulbCircle');
+      const lampArea = document.getElementById('lampClickArea');
+      const lampToggleBtn = document.getElementById('lampToggleBtn');
+      const lampToggleText = document.getElementById('lampToggleText');
+      let lampOn = true;
+
+      function toggleDeskLamp() {
+        lampOn = !lampOn;
+        if (lampOn) {
+          lampGlow.classList.remove('is-off');
+          bulbCircle.setAttribute('fill', '#FFC83B');
+          lampToggleText.textContent = 'Turn off desk lamp';
+          if (typeof showToast === 'function') showToast('Desk focus lamp illuminated', '💡');
+        } else {
+          lampGlow.classList.add('is-off');
+          bulbCircle.setAttribute('fill', '#666666');
+          lampToggleText.textContent = 'Turn on desk lamp';
+          if (typeof showToast === 'function') showToast('Focus lamp dimmed', '🌙');
+        }
+      }
+
+      if (lampArea) lampArea.addEventListener('click', toggleDeskLamp);
+      if (lampToggleBtn) lampToggleBtn.addEventListener('click', toggleDeskLamp);
+
+      // 2. Real-time Directory Chip Search Filter
+      const searchInput = document.getElementById('dirSearchInput');
+      const chips = document.querySelectorAll('.dir-chip');
+
+      if (searchInput && chips.length > 0) {
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.toLowerCase().trim();
+          chips.forEach(chip => {
+            const keywords = (chip.getAttribute('data-keywords') || '').toLowerCase();
+            const text = chip.textContent.toLowerCase();
+            if (!query || keywords.includes(query) || text.includes(query)) {
+              chip.style.display = 'inline-flex';
+            } else {
+              chip.style.display = 'none';
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

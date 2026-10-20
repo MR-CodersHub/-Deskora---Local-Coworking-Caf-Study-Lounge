@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive Amenities & Infrastructure — DESKORA Coworking Café</title>
+  <meta name="description"
+    content="Explore the physical and digital infrastructure at DESKORA: 1 Gbps symmetric fiber, Herman Miller chairs, acoustic phone booths, unlimited pour-over coffee, and laser printing.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/deskora-favicon.svg">
+  <style>
+    /* =========================================================
+       AMENITIES PAGE — UNIQUE MODERN STYLES
+    ========================================================= */
+
+    /* Hero */
+    .am-hero {
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      background: var(--clr-bg);
+      border-bottom: 1px solid var(--clr-border);
+    }
+    @media (min-width: 993px) {
+      .am-hero {
+        min-height: var(--hero-unified-height);
+        height: auto;
+        padding: var(--sp-8) 0 !important;
+      }
+    }
+    [data-theme="dark"] .am-hero {
+      background: #111110;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .am-hero-desc {
+      color: #242420 !important;
+      font-weight: 500;
+    }
+    [data-theme="dark"] .am-hero-desc {
+      color: #d8d8d0 !important;
+      font-weight: 400;
+    }
+
+    .am-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-12);
+      align-items: center;
+    }
+
+    .am-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--clr-border);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-5);
+    }
+
+    [data-theme="dark"] .am-hero-badge {
+      background: rgba(26, 26, 26, 0.85);
+      color: rgba(255, 255, 255, 0.9);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .am-hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -.03em;
+      margin-bottom: var(--sp-5);
+    }
+
+    .am-hero-title em {
+      font-style: normal;
+      color: var(--clr-ink-muted);
+    }
+
+    .am-hero-desc {
+      font-size: var(--fs-lg);
+      color: var(--clr-ink-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-8);
+      max-width: 480px;
+    }
+
+    .am-hero-actions {
+      display: flex;
+      gap: var(--sp-3);
+      flex-wrap: wrap;
+    }
+
+    .am-hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3);
+    }
+
+    .am-stat-pill {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-md);
+      padding: var(--sp-5) var(--sp-6);
+      transition: all var(--t-base) var(--ease);
+    }
+
+    [data-theme="dark"] .am-stat-pill {
+      background: rgba(26, 26, 26, 0.82);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .am-stat-pill:hover {
+      border-color: var(--clr-ink);
+      transform: translateY(-2px);
+      box-shadow: var(--sh-md);
+    }
+
+    .am-stat-pill-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .am-stat-pill-label {
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+    }
+
+    /* Filter bar */
+    .am-filter-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-10);
+    }
+
+    .am-filter-label {
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      margin-right: var(--sp-2);
+    }
+
+    .am-filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: 999px;
+      padding: 7px 18px;
+      font-size: var(--fs-sm);
+      font-family: var(--ff-base);
+      color: var(--clr-ink-muted);
+      cursor: pointer;
+      transition: all var(--t-base) var(--ease);
+    }
+
+    .am-filter-btn:hover,
+    .am-filter-btn.active {
+      background: var(--clr-ink);
+      color: var(--clr-paper);
+      border-color: var(--clr-ink);
+    }
+
+    /* Bento grid */
+    .am-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+
+    .am-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-7);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--t-slow) var(--ease);
+    }
+
+    .am-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sh-lg);
+      border-color: var(--clr-ink);
+    }
+
+    .am-card.span-2 {
+      grid-column: span 2;
+    }
+
+    .am-card.span-3 {
+      grid-column: span 3;
+    }
+
+    .am-card.hidden {
+      display: none;
+    }
+
+    .am-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-md);
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-4);
+      transition: all var(--t-fast) var(--ease);
+    }
+
+    .am-card-icon svg {
+      color: inherit;
+      stroke: currentColor;
+    }
+
+    .am-card:hover .am-card-icon {
+      background: var(--clr-ink);
+      border-color: var(--clr-ink);
+      color: var(--clr-paper);
+      transform: scale(1.05);
+    }
+
+    .am-card:hover .am-card-icon svg {
+      stroke: var(--clr-paper);
+    }
+
+    [data-theme="dark"] .am-card:hover .am-card-icon {
+      background: #ffffff;
+      border-color: #ffffff;
+      color: #111110;
+    }
+
+    [data-theme="dark"] .am-card:hover .am-card-icon svg {
+      stroke: #111110;
+    }
+
+    .am-card-eyebrow {
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      margin-bottom: var(--sp-2);
+    }
+
+    .am-card-title {
+      font-size: var(--fs-lg);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin-bottom: var(--sp-3);
+    }
+
+    .am-card-desc {
+      font-size: var(--fs-sm);
+      color: var(--clr-ink-muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .am-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: var(--sp-5);
+      padding: 5px 12px;
+      background: rgba(18, 18, 18, .06);
+      border-radius: 999px;
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: .06em;
+      color: var(--clr-ink-muted);
+      align-self: flex-start;
+    }
+
+    .am-card-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3);
+      margin-top: var(--sp-4);
+    }
+
+    .am-spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .am-spec-val {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+
+    .am-spec-key {
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      color: var(--clr-ink-muted);
+      letter-spacing: .05em;
+    }
+
+    /* Live Infrastructure Status */
+    .infra-section {
+      background: #111110;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--r-xl);
+      padding: var(--sp-16) var(--sp-12);
+      overflow: hidden;
+      position: relative;
+    }
+    [data-theme="dark"] .infra-section {
+      background: #141412;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .infra-section::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .03);
+      pointer-events: none;
+    }
+
+    .infra-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--sp-8);
+      margin-bottom: var(--sp-10);
+      flex-wrap: wrap;
+    }
+
+    .infra-header-text .eyebrow {
+      color: rgba(255, 255, 255, .45);
+    }
+
+    .infra-header-text h2 {
+      color: #ffffff;
+      margin-bottom: 0;
+    }
+
+    .infra-live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .7);
+      flex-shrink: 0;
+    }
+
+    .infra-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse-green 1.5s ease infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-green {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: .6;
+        transform: scale(1.3)
+      }
+    }
+
+    .infra-rows {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .infra-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr auto;
+      align-items: center;
+      gap: var(--sp-6);
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--r-md);
+      padding: var(--sp-5) var(--sp-6);
+      transition: background var(--t-base) var(--ease);
+    }
+
+    .infra-row:hover {
+      background: rgba(255, 255, 255, .09);
+    }
+
+    .infra-row-left {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+    }
+
+    .infra-row-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--r-sm);
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .infra-row-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    .infra-row-name {
+      font-size: var(--fs-base);
+      font-weight: 600;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .infra-row-detail {
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      color: rgba(255, 255, 255, .4);
+      margin-top: 2px;
+    }
+
+    .infra-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .infra-bar-track {
+      height: 5px;
+      background: rgba(255, 255, 255, .12);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .infra-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #fff, rgba(255, 255, 255, .6));
+    }
+
+    .infra-bar-pct {
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      color: rgba(255, 255, 255, .5);
+      text-align: right;
+    }
+
+    .infra-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      font-weight: 600;
+      letter-spacing: .05em;
+      white-space: nowrap;
+    }
+
+    .infra-status-pill.online {
+      background: rgba(34, 197, 94, .15);
+      color: #86efac;
+    }
+
+    .infra-status-pill.nominal {
+      background: rgba(250, 204, 21, .1);
+      color: #fde047;
+    }
+
+    /* Member Perks Timeline */
+    .perks-section-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-12);
+      align-items: start;
+    }
+
+    .perks-intro h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      margin-bottom: var(--sp-4);
+    }
+
+    .perks-intro p {
+      font-size: var(--fs-base);
+      color: var(--clr-ink-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-8);
+    }
+
+    .perks-access-bands {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+
+    .perks-band {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-sm);
+      font-size: var(--fs-sm);
+    }
+
+    .perks-band-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .perks-band-dot.plan-flex {
+      background: var(--clr-ink-muted);
+    }
+
+    .perks-band-dot.plan-dedicated {
+      background: var(--clr-ink);
+    }
+
+    .perks-band-dot.plan-studio {
+      background: var(--clr-ink);
+      box-shadow: 0 0 0 3px rgba(18, 18, 18, .15);
+    }
+
+    .perks-band-name {
+      font-weight: 600;
+    }
+
+    .perks-band-sub {
+      font-size: var(--fs-xs);
+      color: var(--clr-ink-muted);
+      margin-left: auto;
+      font-family: var(--ff-mono);
+    }
+
+    .perks-timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .perks-timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--clr-border);
+      border-radius: 99px;
+    }
+
+    .perks-tl-item {
+      position: relative;
+      margin-bottom: var(--sp-6);
+    }
+
+    .perks-tl-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .perks-tl-dot {
+      position: absolute;
+      left: -26px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--clr-bg);
+      border: 2px solid var(--clr-ink);
+      z-index: 1;
+    }
+
+    .perks-tl-dot.filled {
+      background: var(--clr-ink);
+    }
+
+    .perks-tl-label {
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      margin-bottom: 4px;
+    }
+
+    .perks-tl-title {
+      font-size: var(--fs-base);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .perks-tl-desc {
+      font-size: var(--fs-sm);
+      color: var(--clr-ink-muted);
+      line-height: 1.6;
+    }
+
+    /* Comparison table */
+    .compare-wrap {
+      overflow-x: auto;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--clr-border);
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+    }
+
+    .compare-table thead tr {
+      background: var(--clr-ink);
+      color: var(--clr-paper);
+    }
+
+    .compare-table th {
+      padding: var(--sp-4) var(--sp-6);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .compare-table th:first-child {
+      width: 200px;
+      font-family: var(--ff-mono);
+      font-size: var(--fs-xs);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .compare-table td {
+      padding: var(--sp-4) var(--sp-6);
+      font-size: var(--fs-sm);
+      color: var(--clr-ink-muted);
+      border-bottom: 1px solid var(--clr-border);
+      vertical-align: middle;
+    }
+
+    .compare-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .compare-table tbody tr:hover td {
+      background: var(--clr-bg-card);
+    }
+
+    .compare-table td:first-child {
+      font-weight: 600;
+      color: var(--clr-ink);
+    }
+
+    .compare-check.yes {
+      color: var(--clr-ink);
+    }
+
+    .compare-check.partial {
+      color: var(--clr-ink-muted);
+    }
+
+    .compare-check.no {
+      opacity: .25;
+    }
+
+    /* CTA panel */
+    .am-cta-panel {
+      background: #111110;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--r-xl);
+      padding: var(--sp-16) var(--sp-12);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .am-cta-panel {
+      background: #141412;
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .am-cta-panel::before {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .04);
+      pointer-events: none;
+    }
+
+    .am-cta-panel .eyebrow {
+      color: rgba(255, 255, 255, .5);
+      justify-content: center;
+    }
+
+    .am-cta-panel h2 {
+      color: #ffffff;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: var(--sp-5);
+    }
+
+    .am-cta-panel p {
+      color: rgba(255, 255, 255, .6);
+      max-width: 500px;
+      margin: 0 auto var(--sp-10);
+      font-size: var(--fs-lg);
+      line-height: 1.65;
+    }
+
+    .am-cta-actions {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media(max-width:1024px) {
+      .am-bento-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .am-card.span-2,
+      .am-card.span-3 {
+        grid-column: span 2;
+      }
+
+      .infra-section {
+        padding: var(--sp-12) var(--sp-8);
+      }
+    }
+
+    @media(max-width:800px) {
+
+      .am-hero-inner,
+      .perks-section-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .am-hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .infra-row {
+        grid-template-columns: 1fr auto;
+      }
+
+      .infra-bar-wrap {
+        display: none;
+      }
+    }
+
+    @media(max-width:600px) {
+      .am-bento-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .am-card.span-2,
+      .am-card.span-3 {
+        grid-column: span 1;
+      }
+
+      .am-cta-panel {
+        padding: var(--sp-10) var(--sp-6);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-item"><span class="status-dot"></span>&nbsp; Open today · 7:00 AM – 11:00 PM</span>
+          <span class="top-bar-item">📍 12 Crescent Lane, Koramangala, Bengaluru</span>
+          <span class="top-bar-item">📞 +91 98765 43210</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="login.html" class="top-bar-portal-link">Member Portal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+            <li class="nav-item-dropdown" id="navDashboardDropdown">
+              <a href="user-dashboard.html" class="nav-link nav-dropdown-toggle" id="nav-dashboard" aria-haspopup="true" aria-expanded="false">
+                <span>Dashboard</span>
+                <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="nav-dropdown-menu" id="dashboardDropdownMenu" role="menu" aria-label="Dashboard options">
+                <a href="admin-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">Admin Dashboard</span>
+                    <span class="nav-dropdown-sub">Management &amp; occupancy</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">User Dashboard</span>
+                    <span class="nav-dropdown-sub">Bookings &amp; membership</span>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)" title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true" aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button (Last Position) -->
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+          <li class="mobile-nav-item-dropdown">
+            <button class="mobile-nav-link mobile-nav-dropdown-toggle" id="mobile-nav-dashboard" type="button" aria-haspopup="true" aria-expanded="false">
+              <span>Dashboard</span>
+              <svg class="mobile-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-nav-submenu" id="mobileDashboardSubmenu">
+              <a href="admin-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                    <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                    <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span>Admin Dashboard</span>
+              </a>
+              <a href="user-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <span>User Dashboard</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking style="width: 100%;">Book a Desk</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== HERO ====== -->
+  <section class="am-hero" aria-label="Amenities hero">
+    <div class="container">
+      <div class="am-hero-inner">
+        <div>
+          <div class="am-hero-badge">
+            <span class="infra-live-dot"></span>
+            All Systems Operational
+          </div>
+          <h1 class="am-hero-title">Everything You Need<br><em>to Do Your Best Work.</em></h1>
+          <p class="am-hero-desc">We obsess over every detail — from the speed of your internet to the temperature of
+            your coffee — so you can obsess over what you do best.</p>
+          <div class="am-hero-actions">
+            <button class="btn btn-primary" data-open-booking>Claim Free Day Pass</button>
+            <a href="#amenity-grid" class="btn btn-outline">Explore Amenities ↓</a>
+          </div>
+        </div>
+        <div class="am-hero-stats">
+          <div style="grid-column: 1 / -1; border-radius: var(--r-lg); overflow: hidden; height: 160px; margin-bottom: var(--sp-2); border: 1px solid var(--clr-border);">
+            <img src="assets/conf-focus.jpg" alt="Acoustic focus booth and workspace infrastructure at DESKORA" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="eager">
+          </div>
+          <div class="am-stat-pill" data-reveal>
+            <div class="am-stat-pill-num">1 Gbps</div>
+            <div class="am-stat-pill-label">Symmetric Fibre</div>
+          </div>
+          <div class="am-stat-pill" data-reveal data-delay="1">
+            <div class="am-stat-pill-num">8</div>
+            <div class="am-stat-pill-label">Acoustic Pods</div>
+          </div>
+          <div class="am-stat-pill" data-reveal data-delay="2">
+            <div class="am-stat-pill-num">7AM</div>
+            <div class="am-stat-pill-label">Doors Open Daily</div>
+          </div>
+          <div class="am-stat-pill" data-reveal data-delay="3">
+            <div class="am-stat-pill-num">99.9%</div>
+            <div class="am-stat-pill-label">Network Uptime</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FILTERABLE BENTO GRID ====== -->
+  <section class="section" id="amenity-grid" style="padding-top:var(--sp-10)">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:var(--sp-6)">
+        <div>
+          <span class="eyebrow">What's Included</span>
+          <h2 class="display-section" style="margin-bottom:0">Every Amenity,<br><em>In Detail</em></h2>
+        </div>
+        <p class="section-intro">Every plan includes full access to all 12 core amenities. No hidden extras, no premium
+          gates.</p>
+      </div>
+      <!-- Filter bar -->
+      <div class="am-filter-wrap" role="group" aria-label="Filter amenities by category">
+        <span class="am-filter-label">Filter:</span>
+        <button class="am-filter-btn active" data-filter="all" id="filter-all">All Amenities</button>
+        <button class="am-filter-btn" data-filter="tech" id="filter-tech">Tech &amp; Internet</button>
+        <button class="am-filter-btn" data-filter="comfort" id="filter-comfort">Comfort &amp; Space</button>
+        <button class="am-filter-btn" data-filter="cafe" id="filter-cafe">Café &amp; Wellness</button>
+        <button class="am-filter-btn" data-filter="security" id="filter-security">Security</button>
+        <button class="am-filter-btn" data-filter="community" id="filter-community">Community</button>
+      </div>
+      <!-- Bento grid -->
+      <div class="am-bento-grid" id="amenityBento">
+
+        <!-- 1 Internet (span-2, tech) -->
+        <div class="am-card span-2" data-cat="tech" data-reveal>
+          <span class="am-card-eyebrow">Tech &amp; Internet</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+              <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+              <line x1="12" y1="20" x2="12.01" y2="20" />
+            </svg></span>
+          <h3 class="am-card-title">1 Gbps Symmetric Fibre Internet</h3>
+          <p class="am-card-desc">Dual ISP enterprise trunk with automatic failover. Private team VLANs available.
+            Sub-5ms ping ensures crystal-clear global video calls with zero buffering.</p>
+          <div class="am-card-specs">
+            <div class="am-spec-item"><span class="am-spec-val">1 Gbps</span><span class="am-spec-key">Up + Down</span>
+            </div>
+            <div class="am-spec-item"><span class="am-spec-val">&lt;5ms</span><span class="am-spec-key">Ping</span>
+            </div>
+            <div class="am-spec-item"><span class="am-spec-val">2×</span><span class="am-spec-key">ISP Redundancy</span>
+            </div>
+            <div class="am-spec-item"><span class="am-spec-val">99.9%</span><span class="am-spec-key">SLA Uptime</span>
+            </div>
+          </div>
+          <span class="am-card-badge">Dual-ISP · Auto-Failover · Private VLAN</span>
+        </div>
+
+        <!-- 2 Charging (tech) -->
+        <div class="am-card" data-cat="tech" data-reveal data-delay="1">
+          <span class="am-card-eyebrow">Tech &amp; Internet</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg></span>
+          <h3 class="am-card-title">100W USB-C at Every Seat</h3>
+          <p class="am-card-desc">Built-in 100W USB-C Power Delivery ports, universal AC sockets, and surge-protected
+            circuits across all desks. No hunting for adapters.</p>
+          <span class="am-card-badge">100W USB-C PD · Universal AC</span>
+        </div>
+
+        <!-- 3 Seating (comfort) -->
+        <div class="am-card" data-cat="comfort" data-reveal>
+          <span class="am-card-eyebrow">Comfort &amp; Space</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 6V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3" />
+              <path d="M6 10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v3z" />
+              <path d="M12 12v6" />
+              <path d="M8 21l4-3 4 3" />
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="16" cy="21" r="1" />
+            </svg></span>
+          <h3 class="am-card-title">Herman Miller Ergonomic Seating</h3>
+          <p class="am-card-desc">Aeron chairs, Steelcase Leap task chairs, and motorized sit-to-stand desks —
+            engineered for 8+ hour spinal comfort without fatigue.</p>
+          <span class="am-card-badge">Posture Certified · Sit-Stand Desks</span>
+        </div>
+
+        <!-- 4 AV (span-2, comfort) -->
+        <div class="am-card span-2" data-cat="comfort" data-reveal data-delay="1">
+          <span class="am-card-eyebrow">Comfort &amp; Space</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg></span>
+          <h3 class="am-card-title">A/V Meeting Rooms &amp; Focus Pods</h3>
+          <p class="am-card-desc">Executive boardrooms and intimate focus pods with 4K interactive touchscreens, Poly
+            Studio video bars, and acoustic panel dampening. Walk in, plug in, present.</p>
+          <div class="am-card-specs">
+            <div class="am-spec-item"><span class="am-spec-val">4K</span><span class="am-spec-key">Display</span></div>
+            <div class="am-spec-item"><span class="am-spec-val">3</span><span class="am-spec-key">Boardrooms</span>
+            </div>
+            <div class="am-spec-item"><span class="am-spec-val">8</span><span class="am-spec-key">Focus Pods</span>
+            </div>
+            <div class="am-spec-item"><span class="am-spec-val">Yes</span><span class="am-spec-key">Zoom / Teams
+                Cert.</span></div>
+          </div>
+          <span class="am-card-badge">Zoom &amp; Teams Certified · HDMI + USB-C</span>
+        </div>
+
+        <!-- 5 Phone Pods (comfort) -->
+        <div class="am-card" data-cat="comfort" data-reveal>
+          <span class="am-card-eyebrow">Comfort &amp; Space</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg></span>
+          <h3 class="am-card-title">Acoustic Phone Pods</h3>
+          <p class="am-card-desc">Eight private soundproofed booths for sensitive client calls, podcast recordings, or
+            heads-down focus sprints. Drop-in, no booking needed.</p>
+          <span class="am-card-badge">Drop-In · Fully Soundproofed</span>
+        </div>
+
+        <!-- 6 Rooftop (comfort) -->
+        <div class="am-card" data-cat="comfort" data-reveal data-delay="1">
+          <span class="am-card-eyebrow">Comfort &amp; Space</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg></span>
+          <h3 class="am-card-title">Rooftop Garden Terrace</h3>
+          <p class="am-card-desc">Landscaped open-sky workspace with shaded timber tables, outdoor power sockets, and
+            extended mesh Wi-Fi. The perfect place to think big.</p>
+          <span class="am-card-badge">Open 7AM–10PM · Wi-Fi Covered</span>
+        </div>
+
+        <!-- 7 Coffee (span-2, cafe) -->
+        <div class="am-card span-2" data-cat="cafe" data-reveal>
+          <span class="am-card-eyebrow">Café &amp; Wellness</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
+            </svg></span>
+          <h3 class="am-card-title">Unlimited Artisan Coffee &amp; Drinks</h3>
+          <p class="am-card-desc">Your membership includes unlimited manual pour-overs from single-origin beans, nitro
+            draft cold brew on tap, seasonal herbal infusions, and filtered still &amp; sparkling water — all day, every
+            day.</p>
+          <div class="am-card-specs">
+            <div class="am-spec-item"><span class="am-spec-val">∞</span><span class="am-spec-key">Pour-Overs /
+                Day</span></div>
+            <div class="am-spec-item"><span class="am-spec-val">4+</span><span class="am-spec-key">Brew Methods</span>
+            </div>
+            <div class="am-spec-item"><span class="am-spec-val">Free</span><span class="am-spec-key">For All
+                Members</span></div>
+            <div class="am-spec-item"><span class="am-spec-val">7AM</span><span class="am-spec-key">Bar Opens</span>
+            </div>
+          </div>
+          <span class="am-card-badge">Free Barista Counter · Single-Origin Beans</span>
+        </div>
+
+        <!-- 8 HEPA (cafe) -->
+        <div class="am-card" data-cat="cafe" data-reveal data-delay="1">
+          <span class="am-card-eyebrow">Café &amp; Wellness</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+            </svg></span>
+          <h3 class="am-card-title">Medical-Grade Air &amp; Climate</h3>
+          <p class="am-card-desc">Daikin VRV variable cooling with continuous HEPA-13 filtration and live CO₂ monitoring
+            maintained below 600 ppm. Breathe easy, focus deeply.</p>
+          <span class="am-card-badge">HEPA-13 · CO₂ &lt;600 ppm</span>
+        </div>
+
+        <!-- 9 Showers (cafe) -->
+        <div class="am-card" data-cat="cafe" data-reveal>
+          <span class="am-card-eyebrow">Café &amp; Wellness</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h7a4 4 0 0 1 4 4v12" />
+              <path d="M11 20h8" />
+              <path d="M15 15l2 2" />
+              <path d="M15 11l4 4" />
+              <circle cx="15" cy="5" r="2" />
+            </svg></span>
+          <h3 class="am-card-title">Showers &amp; Bike Storage</h3>
+          <p class="am-card-desc">Private hot shower suites with organic body wash, fresh towels, and grooming stations.
+            Secure indoor bike racks for commuters.</p>
+          <span class="am-card-badge">Private Grooming Suites · Cycle Racks</span>
+        </div>
+
+        <!-- 10 Security (security) -->
+        <div class="am-card" data-cat="security" data-reveal data-delay="1">
+          <span class="am-card-eyebrow">Security</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg></span>
+          <h3 class="am-card-title">24/7 NFC Smart Access</h3>
+          <p class="am-card-desc">Encrypted smartphone NFC entry, individual keycard lockers, and round-the-clock HD
+            CCTV surveillance covering all areas.</p>
+          <span class="am-card-badge">Keycard + Mobile NFC · 24/7 CCTV</span>
+        </div>
+
+        <!-- 11 Print (security) -->
+        <div class="am-card" data-cat="security" data-reveal>
+          <span class="am-card-eyebrow">Security</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 6 2 18 2 18 9" />
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+              <rect x="6" y="14" width="12" height="8" />
+            </svg></span>
+          <h3 class="am-card-title">Production Print &amp; Scan Suite</h3>
+          <p class="am-card-desc">Canon imageRUNNER A3 color laser printing, high-res scanning, heavy-duty binding, and
+            on-site shredder. 50 pages per day complimentary.</p>
+          <span class="am-card-badge">50 Pages/Day Free · Secure Shred</span>
+        </div>
+
+        <!-- 12 Community (span-3, community) -->
+        <div class="am-card span-3" data-cat="community" data-reveal>
+          <span class="am-card-eyebrow">Community</span>
+          <span class="am-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg></span>
+          <h3 class="am-card-title">Member Events &amp; Community Network</h3>
+          <p class="am-card-desc">Weekly founder standups, Friday specialty coffee cuppings, expert lightning talks,
+            pitch masterclasses, and skill-share workshops — all free for active members. Our Slack community connects
+            you 24/7 with 200+ local professionals.</p>
+          <div class="am-card-specs" style="max-width:540px">
+            <div class="am-spec-item"><span class="am-spec-val">4+</span><span class="am-spec-key">Events / Month</span>
+            </div>
+            <div class="am-spec-item"><span class="am-spec-val">200+</span><span class="am-spec-key">Active
+                Members</span></div>
+            <div class="am-spec-item"><span class="am-spec-val">Free</span><span class="am-spec-key">Member
+                Admission</span></div>
+            <div class="am-spec-item"><span class="am-spec-val">Slack</span><span class="am-spec-key">24/7
+                Network</span></div>
+          </div>
+          <span class="am-card-badge">Free Member Access · Slack Community</span>
+        </div>
+
+      </div><!-- /am-bento-grid -->
+    </div>
+  </section>
+
+  <!-- ====== NEW SECTION 1: LIVE INFRASTRUCTURE STATUS ====== -->
+  <section class="section" aria-label="Live infrastructure status">
+    <div class="container">
+      <div class="infra-section" data-reveal>
+        <div class="infra-header">
+          <div class="infra-header-text">
+            <span class="eyebrow">Real-Time Monitoring</span>
+            <h2 class="display-section" style="margin-bottom:0">Live Infrastructure<br><em>Status Dashboard</em></h2>
+          </div>
+          <div class="infra-live-pill">
+            <span class="infra-live-dot"></span>
+            All Systems Online
+          </div>
+        </div>
+        <div class="infra-rows">
+          <div class="infra-row">
+            <div class="infra-row-left">
+              <div class="infra-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg></div>
+              <div>
+                <div class="infra-row-name">Primary Fibre Trunk (ISP A)</div>
+                <div class="infra-row-detail">BSNL Enterprise · Koramangala PoP</div>
+              </div>
+            </div>
+            <div class="infra-bar-wrap">
+              <div class="infra-bar-track">
+                <div class="infra-bar-fill" style="width:98%"></div>
+              </div>
+              <div class="infra-bar-pct">98% utilization</div>
+            </div>
+            <span class="infra-status-pill online">● Online</span>
+          </div>
+          <div class="infra-row">
+            <div class="infra-row-left">
+              <div class="infra-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg></div>
+              <div>
+                <div class="infra-row-name">Failover Trunk (ISP B)</div>
+                <div class="infra-row-detail">Jio Enterprise · Auto-failover standby</div>
+              </div>
+            </div>
+            <div class="infra-bar-wrap">
+              <div class="infra-bar-track">
+                <div class="infra-bar-fill" style="width:20%"></div>
+              </div>
+              <div class="infra-bar-pct">Standby · Ready</div>
+            </div>
+            <span class="infra-status-pill nominal">● Standby</span>
+          </div>
+          <div class="infra-row">
+            <div class="infra-row-left">
+              <div class="infra-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17.7 7.7A7.5 7.5 0 0 0 5 10.5a4.5 4.5 0 0 0 .5 9h13a4 4 0 0 0 0-8h-.8z"></path>
+                </svg></div>
+              <div>
+                <div class="infra-row-name">HEPA-13 Air Filtration</div>
+                <div class="infra-row-detail">CO₂ 512 ppm · Temp 22°C · RH 48%</div>
+              </div>
+            </div>
+            <div class="infra-bar-wrap">
+              <div class="infra-bar-track">
+                <div class="infra-bar-fill" style="width:93%"></div>
+              </div>
+              <div class="infra-bar-pct">93% filter capacity</div>
+            </div>
+            <span class="infra-status-pill online">● Optimal</span>
+          </div>
+          <div class="infra-row">
+            <div class="infra-row-left">
+              <div class="infra-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg></div>
+              <div>
+                <div class="infra-row-name">NFC Access Control</div>
+                <div class="infra-row-detail">All 6 entry points secure · Last audit 06:00</div>
+              </div>
+            </div>
+            <div class="infra-bar-wrap">
+              <div class="infra-bar-track">
+                <div class="infra-bar-fill" style="width:100%"></div>
+              </div>
+              <div class="infra-bar-pct">All doors secured</div>
+            </div>
+            <span class="infra-status-pill online">● Secure</span>
+          </div>
+          <div class="infra-row">
+            <div class="infra-row-left">
+              <div class="infra-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg></div>
+              <div>
+                <div class="infra-row-name">A/V Systems — All Rooms</div>
+                <div class="infra-row-detail">Boardroom A, B, C + 8 Focus Pods</div>
+              </div>
+            </div>
+            <div class="infra-bar-wrap">
+              <div class="infra-bar-track">
+                <div class="infra-bar-fill" style="width:100%"></div>
+              </div>
+              <div class="infra-bar-pct">All operational</div>
+            </div>
+            <span class="infra-status-pill online">● Online</span>
+          </div>
+          <div class="infra-row">
+            <div class="infra-row-left">
+              <div class="infra-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg></div>
+              <div>
+                <div class="infra-row-name">Artisan Café Bar</div>
+                <div class="infra-row-detail">Espresso · Nitro tap · Pour-over · Open since 7AM</div>
+              </div>
+            </div>
+            <div class="infra-bar-wrap">
+              <div class="infra-bar-track">
+                <div class="infra-bar-fill" style="width:85%"></div>
+              </div>
+              <div class="infra-bar-pct">85% bean supply</div>
+            </div>
+            <span class="infra-status-pill online">● Brewing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== NEW SECTION 2: MEMBER PERKS TIMELINE ====== -->
+  <section class="section" aria-label="Member perks and plan comparison">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:var(--sp-14)">
+        <div>
+          <span class="eyebrow">What You Get</span>
+          <h2 class="display-section" style="margin-bottom:0">Perks That Grow<br><em>With Your Plan</em></h2>
+        </div>
+        <p class="section-intro">Every tier unlocks more. Start free and upgrade as your needs grow — your amenity
+          access expands seamlessly.</p>
+      </div>
+      <div class="perks-section-wrap">
+        <!-- Left: plan bands + comparison table -->
+        <div>
+          <div class="perks-access-bands" style="margin-bottom:var(--sp-8)">
+            <p
+              style="font-size:var(--fs-xs);color:var(--clr-ink-muted);margin-bottom:var(--sp-3);font-family:var(--ff-mono);letter-spacing:.05em;text-transform:uppercase">
+              Plan Tiers</p>
+            <div class="perks-band"><span class="perks-band-dot plan-flex"></span><span class="perks-band-name">Day Pass
+                / Flex</span><span class="perks-band-sub">₹199–₹299 / day</span></div>
+            <div class="perks-band"><span class="perks-band-dot plan-dedicated"></span><span
+                class="perks-band-name">Dedicated Desk</span><span class="perks-band-sub">₹2,499 / mo</span></div>
+            <div class="perks-band"><span class="perks-band-dot plan-studio"></span><span
+                class="perks-band-name">Private Studio</span><span class="perks-band-sub">₹6,499 / mo</span></div>
+          </div>
+          <div class="compare-wrap">
+            <table class="compare-table" aria-label="Amenity plan comparison">
+              <thead>
+                <tr>
+                  <th>Amenity</th>
+                  <th>Day Pass</th>
+                  <th>Dedicated</th>
+                  <th>Studio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 Gbps Wi-Fi</td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:3px">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>+ VLAN</span></td>
+                </tr>
+                <tr>
+                  <td>Coffee &amp; Drinks</td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                </tr>
+                <tr>
+                  <td>Meeting Rooms</td>
+                  <td><span class="compare-check partial">2 hrs / day</span></td>
+                  <td><span class="compare-check yes">5 hrs / day</span></td>
+                  <td><span class="compare-check yes">Unlimited</span></td>
+                </tr>
+                <tr>
+                  <td>Phone Pods</td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                </tr>
+                <tr>
+                  <td>Printing</td>
+                  <td><span class="compare-check partial">10 pages</span></td>
+                  <td><span class="compare-check yes">50 pages</span></td>
+                  <td><span class="compare-check yes">100 pages</span></td>
+                </tr>
+                <tr>
+                  <td>Locker Storage</td>
+                  <td><span class="compare-check no">–</span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:3px">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>Permanent</span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:3px">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>Large</span></td>
+                </tr>
+                <tr>
+                  <td>Community Events</td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:3px">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>+ VIP</span></td>
+                </tr>
+                <tr>
+                  <td>Rooftop Terrace</td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg></span></td>
+                  <td><span class="compare-check yes"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:3px">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>Priority</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Right: timeline -->
+        <div class="perks-timeline">
+          <div class="perks-tl-item" data-reveal>
+            <div class="perks-tl-dot filled"></div>
+            <div class="perks-tl-label">Day 1 — Free Trial</div>
+            <div class="perks-tl-title">Walk In, Work Freely</div>
+            <div class="perks-tl-desc">Claim your free day pass and experience the full space. No credit card, no
+              commitment. Use the Wi-Fi, grab a coffee, and explore every corner.</div>
+          </div>
+          <div class="perks-tl-item" data-reveal data-delay="1">
+            <div class="perks-tl-dot filled"></div>
+            <div class="perks-tl-label">Week 1 — Day Pass / Flex</div>
+            <div class="perks-tl-title">Total Flexibility, Zero Lock-In</div>
+            <div class="perks-tl-desc">Book desks daily or in a monthly flex block. Access open seating, café, phone
+              pods, printing quota, and all community events from day one.</div>
+          </div>
+          <div class="perks-tl-item" data-reveal data-delay="2">
+            <div class="perks-tl-dot filled"></div>
+            <div class="perks-tl-label">Month 1 — Dedicated Desk</div>
+            <div class="perks-tl-title">Your Permanent Corner</div>
+            <div class="perks-tl-desc">A reserved desk with nameplate, lockable pedestal, 5 hrs/day of meeting room
+              access, and priority booking for events. Invite clients with confidence.</div>
+          </div>
+          <div class="perks-tl-item" data-reveal data-delay="3">
+            <div class="perks-tl-dot"></div>
+            <div class="perks-tl-label">Month 3+ — Private Studio</div>
+            <div class="perks-tl-title">Your Team's Own HQ</div>
+            <div class="perks-tl-desc">A fully lockable private studio for 2–8 people. Dedicated VLAN, 100 print
+              pages/day, unlimited meeting rooms, large storage locker, VIP event seating, and custom door branding.
+            </div>
+          </div>
+          <div class="perks-tl-item" data-reveal data-delay="4">
+            <div class="perks-tl-dot"></div>
+            <div class="perks-tl-label">Always — Community</div>
+            <div class="perks-tl-title">DESKORA Network</div>
+            <div class="perks-tl-desc">200+ vetted professionals in our Slack workspace. Referrals, collaborations, and
+              friendships that outlast any membership tier.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CTA BANNER ====== -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="am-cta-panel" data-reveal>
+        <span class="eyebrow">Ready to Experience It?</span>
+        <h2>Try Everything Free<br><em style="opacity:.7;font-style:normal;">for a Full Day.</em></h2>
+        <p>No credit card. No commitment. Just show up, find a seat, and discover what a truly great workspace feels
+          like.</p>
+        <div class="am-cta-actions">
+          <button class="btn btn-white btn-xl" data-open-booking>Claim Free Day Pass</button>
+          <a href="contact.html" class="btn btn-dark-outline btn-xl">Schedule a Tour →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand-name" aria-label="DESKORA Home">
+            <div class="footer-brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>DESKORA
+          </a>
+          <p class="footer-brand-blurb">A refined workspace where artisan coffee, focused design, and a like-minded
+            community converge. 12 Crescent Lane, Koramangala, Bengaluru 560034.</p>
+          <div class="flex gap-4"><span class="footer-badge"><span class="status-dot"></span> Open Today</span><span
+              class="footer-badge">7AM–11PM</span></div>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="memberships.html">Memberships</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Spaces & Tech</p>
+          <ul class="footer-links">
+            <li><a href="services.html">Hot Desks & Studios</a></li>
+            <li><a href="menu.html">Artisan Café Menu</a></li>
+            <li><a href="memberships.html">Trial Day Pass</a></li>
+            <li><a href="login.html">Member Portal</a></li>
+            <li><a href="contact.html">Contact & Directions</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Stay in the Loop</p>
+          <p style="font-size:var(--fs-sm);color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-4)">
+            Monthly insights on productivity, community events, and exclusive member offers.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter">
+            <button class="btn btn-white btn-sm">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 DESKORA Coworking Café · All rights reserved</span>
+        <div class="footer-socials"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">WhatsApp</a></div>
+        <span>Crafted with care in Bengaluru</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-bg" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal>✕</button>
+      <div style="margin-bottom:var(--sp-6)"><span class="eyebrow">Reserve Your Spot</span>
+        <h2 class="heading-md" id="modalTitle">Book a Desk or Space Tour</h2>
+      </div>
+      <form id="bookingForm" novalidate>
+        <div class="form-group"><label class="form-label" for="bookName">Full Name</label><input class="form-input"
+            type="text" id="bookName" placeholder="Jane Doe" required></div>
+        <div class="form-group"><label class="form-label" for="bookEmail">Email</label><input class="form-input"
+            type="email" id="bookEmail" placeholder="jane@example.com" required></div>
+        <div class="form-group"><label class="form-label" for="bookType">Select Plan / Space</label><select
+            class="form-select" id="bookType">
+            <option>Complimentary Trial Day (Free)</option>
+            <option>Student Day Pass (₹199)</option>
+            <option>Hot Desk Day Pass (₹299)</option>
+            <option>Flex Membership (₹890/mo)</option>
+            <option>Dedicated Desk (₹2,499/mo)</option>
+          </select></div>
+        <div class="form-group"><label class="form-label" for="bookDate">Preferred Date</label><input class="form-input"
+            type="date" id="bookDate" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:0.85rem">Confirm Reservation →</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="js/script.js"></script>
+
+  <!-- Amenity filter logic -->
+  <script>
+    (function () {
+      const filterBtns = document.querySelectorAll('.am-filter-btn');
+      const cards = document.querySelectorAll('#amenityBento .am-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const cat = this.dataset.filter;
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          cards.forEach(card => {
+            if (cat === 'all' || card.dataset.cat === cat) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>

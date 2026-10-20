@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn the story behind DESKORA — our founders, our philosophy, our team, and why we believe great work needs a great space.">
+  <title>About Us — DESKORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/deskora-favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <style>
+    /* ══════ MODERN ABOUT HERO ══════ */
+    .about-hero {
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      background: var(--clr-bg);
+      border-bottom: 1px solid var(--clr-border);
+      text-align: left;
+    }
+    @media (min-width: 993px) {
+      .about-hero {
+        min-height: var(--hero-unified-height);
+        height: auto;
+        padding: var(--sp-8) 0 !important;
+      }
+    }
+    [data-theme="dark"] .about-hero {
+      background: #111110;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .about-hero-lead {
+      color: #242420 !important;
+      font-weight: 500;
+    }
+    [data-theme="dark"] .about-hero-lead {
+      color: #d8d8d0 !important;
+      font-weight: 400;
+    }
+    .about-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-full);
+      padding: 6px 18px;
+      font-size: var(--fs-xs);
+      font-family: var(--ff-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-6);
+      box-shadow: var(--sh-xs);
+    }
+    .about-hero-title {
+      font-size: clamp(2rem, 3.4vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 0 0 var(--sp-4);
+      color: var(--clr-ink);
+      text-align: left;
+    }
+    .about-hero-title em {
+      font-style: italic;
+      font-family: var(--ff-serif);
+      font-weight: 400;
+      color: var(--clr-ink);
+    }
+    .about-hero-lead {
+      font-size: 0.95rem;
+      color: var(--clr-ink-muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 0 var(--sp-6);
+      text-align: left;
+    }
+    .about-stats-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 100%;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .about-stats-band {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .about-stat-item {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-md);
+      padding: 10px 8px;
+      text-align: center;
+      transition: all var(--t-base) var(--ease);
+    }
+    .about-stat-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--clr-ink);
+      box-shadow: var(--sh-sm);
+    }
+    .about-stat-val {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--clr-ink);
+      line-height: 1.1;
+      margin-bottom: 2px;
+      display: block;
+    }
+    .about-stat-lbl {
+      font-family: var(--ff-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      display: block;
+    }
+    .about-hero-cinematic {
+      position: relative;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--clr-border);
+      aspect-ratio: 26 / 9;
+      max-height: 340px;
+      margin-top: var(--sp-8);
+      background: var(--clr-bg-subtle);
+    }
+    .about-hero-cinematic img {
+      width: 100%;
+      height: 100%;
+      max-height: 340px;
+      object-fit: cover;
+    }
+    .h-feature-img img {
+      width: 100%;
+      max-height: 380px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .h-feature-content .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      max-width: 100%;
+      align-self: flex-start;
+    }
+    .about-hero-overlay-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(14, 14, 14, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: var(--r-full);
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .team-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition: transform var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: var(--sh-lg); }
+    .team-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: var(--clr-bg-subtle);
+    }
+    .team-img img { width:100%;height:100%;object-fit:cover;transition:transform var(--t-smooth) var(--ease); }
+    .team-card:hover .team-img img { transform:scale(1.04); }
+    .team-body {
+      padding: var(--sp-6);
+      border-top: 1px solid var(--clr-border);
+    }
+    .team-name {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-semibold);
+      letter-spacing: -0.02em;
+      color: var(--clr-ink);
+      margin-bottom: 4px;
+    }
+    .team-role {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      margin-bottom: var(--sp-4);
+      display: block;
+    }
+    .team-bio {
+      font-size: var(--fs-sm);
+      color: var(--clr-ink-muted);
+      line-height: var(--lh-loose);
+    }
+    .value-card {
+      padding: var(--sp-8);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-md);
+      background: var(--clr-bg-card);
+      transition: all var(--t-base) var(--ease);
+    }
+    .value-card:hover {
+      border-color: var(--clr-ink);
+      box-shadow: var(--sh-md);
+      transform: translateY(-3px);
+    }
+    .value-num {
+      font-family: var(--ff-serif);
+      font-size: 2.5rem;
+      font-weight: var(--fw-semibold);
+      letter-spacing: -0.04em;
+      color: var(--clr-border-med);
+      line-height: 1;
+      margin-bottom: var(--sp-5);
+      transition: color var(--t-base) var(--ease);
+    }
+    .value-card:hover .value-num { color: var(--clr-ink); }
+    .value-title {
+      font-family: var(--ff-serif);
+      font-size: var(--fs-xl);
+      font-weight: var(--fw-semibold);
+      letter-spacing: -0.02em;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-3);
+    }
+    .value-text {
+      font-size: var(--fs-sm);
+      color: var(--clr-ink-muted);
+      line-height: var(--lh-loose);
+    }
+
+    /* ══════ SECTION SPACING & SCROLL PADDING ══════ */
+    .section-journey {
+      padding: var(--sp-24) 0;
+      scroll-margin-top: 90px;
+    }
+    .journey-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: var(--sp-16);
+      align-items: flex-start;
+    }
+    .journey-sticky-sidebar {
+      position: sticky;
+      top: 110px;
+      display: flex;
+      flex-direction: column;
+    }
+    .journey-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      margin-bottom: var(--sp-3);
+    }
+    .journey-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-5);
+    }
+    .journey-title em {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-weight: 400;
+    }
+    .journey-desc {
+      font-size: var(--fs-base);
+      color: var(--clr-ink-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-8);
+    }
+    .journey-stats-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      box-shadow: var(--sh-sm);
+    }
+    .journey-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--sp-3);
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .journey-stat-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .jsr-val {
+      font-family: var(--ff-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--clr-ink);
+    }
+    .jsr-lbl {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+    }
+
+    /* Timeline Track */
+    .journey-timeline-track {
+      position: relative;
+      padding-left: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-8);
+    }
+    .journey-timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 40px;
+      bottom: 40px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--clr-ink) 0%, var(--clr-border) 80%, transparent 100%);
+      border-radius: 99px;
+    }
+    [data-theme="dark"] .journey-timeline-track::before {
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.25) 80%, transparent 100%);
+    }
+    .journey-card {
+      position: relative;
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: 32px 38px;
+      transition: all var(--t-base) var(--ease);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    }
+    /* Horizontal connector from vertical spine to card */
+    .journey-card::after {
+      content: '';
+      position: absolute;
+      left: -44px;
+      top: 48px;
+      width: 44px;
+      height: 1px;
+      background: var(--clr-border);
+      pointer-events: none;
+      transition: all var(--t-base) var(--ease);
+    }
+    /* Node circle on the spine */
+    .journey-card::before {
+      content: '';
+      position: absolute;
+      left: -51px;
+      top: 41px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--clr-bg-card);
+      border: 2.5px solid var(--clr-ink);
+      z-index: 2;
+      box-shadow: 0 0 0 4px var(--clr-bg);
+      transition: all var(--t-base) var(--ease);
+    }
+    [data-theme="dark"] .journey-card::before {
+      border-color: #ffffff;
+      background: #161614;
+      box-shadow: 0 0 0 4px var(--clr-bg);
+    }
+    .journey-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--clr-ink);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    }
+    [data-theme="dark"] .journey-card:hover {
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+    .journey-card:hover::after {
+      background: var(--clr-ink);
+    }
+    [data-theme="dark"] .journey-card:hover::after {
+      background: #ffffff;
+    }
+    .journey-card:hover::before {
+      background: var(--clr-ink);
+      box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.08);
+      transform: scale(1.15);
+    }
+    [data-theme="dark"] .journey-card:hover::before {
+      background: #ffffff;
+      border-color: #ffffff;
+      box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.15);
+    }
+    .journey-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--sp-4);
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+    }
+    .journey-year {
+      font-family: var(--ff-serif);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--clr-ink);
+      line-height: 1;
+    }
+    .journey-phase {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--clr-ink);
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+    }
+    [data-theme="dark"] .journey-phase {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #f2f2ee;
+    }
+    .journey-card-title {
+      font-family: var(--ff-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-3);
+      line-height: 1.25;
+    }
+    .journey-card-desc {
+      font-size: var(--fs-sm);
+      color: var(--clr-ink-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-5);
+    }
+    .journey-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--clr-border);
+    }
+    .j-tag {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--clr-ink);
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--r-full);
+      white-space: nowrap;
+      transition: all var(--t-fast) var(--ease);
+    }
+    [data-theme="dark"] .j-tag {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.14);
+      color: #e6e6dc;
+    }
+
+    /* ══════ FULL-WIDTH ARCHITECTURAL STANDARDS SHOWCASE ══════ */
+    .section-standards {
+      background: #111110;
+      color: #ffffff;
+      padding: var(--sp-24) 0;
+      position: relative;
+      overflow: hidden;
+      scroll-margin-top: 90px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="dark"] .section-standards {
+      background: #141412;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    .section-standards::before {
+      content: '';
+      position: absolute;
+      top: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .standards-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto var(--sp-16);
+    }
+    .standards-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--r-full);
+      padding: 6px 18px;
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #ffffff !important;
+      margin-bottom: var(--sp-5);
+    }
+    .standards-title {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: var(--sp-4);
+    }
+    .standards-title em {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .standards-lead {
+      font-size: var(--fs-lg);
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin: 0 auto;
+    }
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+    }
+    .standard-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8) var(--sp-7);
+      display: flex;
+      flex-direction: column;
+      transition: all var(--t-base) var(--ease);
+      position: relative;
+    }
+    .standard-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+    .standard-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--sp-5);
+    }
+    .standard-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .standard-pill {
+      font-family: var(--ff-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+      padding: 3px 8px;
+      border-radius: var(--r-full);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .standard-metric {
+      font-family: var(--ff-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .standard-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: var(--sp-3);
+    }
+    .standard-text {
+      font-size: var(--fs-xs);
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.65;
+      margin-bottom: var(--sp-6);
+      flex: 1;
+    }
+    .standard-footer {
+      padding-top: var(--sp-4);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .standard-seal {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    @media(max-width: 1080px) {
+      .journey-layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+      .journey-sticky-sidebar { position: static; max-width: 600px; }
+      .standards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 640px) {
+      .about-stats-band {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-3);
+      }
+      .about-stat-item {
+        padding: var(--sp-4) var(--sp-3);
+        text-align: center;
+      }
+      .about-stat-val {
+        font-size: 1.65rem;
+      }
+      .about-hero-cinematic {
+        margin-top: var(--sp-6);
+        aspect-ratio: 16 / 9;
+      }
+      .journey-timeline-track { padding-left: 42px; }
+      .journey-timeline-track::before { left: 12px; }
+      .journey-card::before { left: -36px; }
+      .journey-card::after { left: -30px; width: 30px; }
+      .journey-card { padding: var(--sp-6); }
+      .standards-grid { grid-template-columns: 1fr; }
+      .section-journey, .section-standards { padding: var(--sp-16) 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-item"><span class="status-dot"></span>&nbsp; Open today · 7:00 AM – 11:00 PM</span>
+          <span class="top-bar-item">📍 12 Crescent Lane, Koramangala, Bengaluru</span>
+          <span class="top-bar-item">📞 +91 98765 43210</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="login.html" class="top-bar-portal-link">Member Portal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link active" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+            <li class="nav-item-dropdown" id="navDashboardDropdown">
+              <a href="user-dashboard.html" class="nav-link nav-dropdown-toggle" id="nav-dashboard" aria-haspopup="true" aria-expanded="false">
+                <span>Dashboard</span>
+                <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="nav-dropdown-menu" id="dashboardDropdownMenu" role="menu" aria-label="Dashboard options">
+                <a href="admin-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">Admin Dashboard</span>
+                    <span class="nav-dropdown-sub">Management &amp; occupancy</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">User Dashboard</span>
+                    <span class="nav-dropdown-sub">Bookings &amp; membership</span>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)" title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true" aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button (Last Position) -->
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link active">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+          <li class="mobile-nav-item-dropdown">
+            <button class="mobile-nav-link mobile-nav-dropdown-toggle" id="mobile-nav-dashboard" type="button" aria-haspopup="true" aria-expanded="false">
+              <span>Dashboard</span>
+              <svg class="mobile-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-nav-submenu" id="mobileDashboardSubmenu">
+              <a href="admin-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                    <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                    <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span>Admin Dashboard</span>
+              </a>
+              <a href="user-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <span>User Dashboard</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking style="width: 100%;">Book a Desk</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       MODERN ABOUT HERO
+  ══════════════════════════════════════════════ -->
+  <section class="about-hero" aria-label="Page hero">
+    <div class="container">
+      <div class="hero-split">
+        <div class="hero-text-pane" data-reveal>
+          <span class="about-hero-badge">
+            <span class="status-dot"></span>
+            Est. 2021 · Koramangala, Bengaluru
+          </span>
+          <h1 class="about-hero-title">We Built the Space<br><em>We Always Wanted to Work In</em></h1>
+          <p class="about-hero-lead">DESKORA began as a personal frustration — too loud cafés, sterile corporate coworking chains, and no great coffee anywhere. So we built something different.</p>
+
+          <div class="about-stats-band">
+            <div class="about-stat-item">
+              <span class="about-stat-val">4+ Yrs</span>
+              <span class="about-stat-lbl">In Operation</span>
+            </div>
+            <div class="about-stat-item">
+              <span class="about-stat-val">220+</span>
+              <span class="about-stat-lbl">Curated Members</span>
+            </div>
+            <div class="about-stat-item">
+              <span class="about-stat-val">4.9★</span>
+              <span class="about-stat-lbl">Google Rating (840+)</span>
+            </div>
+            <div class="about-stat-item">
+              <span class="about-stat-val">100%</span>
+              <span class="about-stat-lbl">Solar &amp; Eco-Certified</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-hero-visual-card" data-reveal data-delay="1">
+          <div class="about-hero-img-wrap">
+            <img src="assets/about-wide.jpg" alt="Panoramic view of DESKORA main floor with members working and artisan café bar" loading="eager">
+            <span class="cafe-hero-overlay-tag">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:4px">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              12 Crescent Lane · Purpose-Built for Deep Focus
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FOUNDERS STORY — Horizontal
+  ══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="h-feature">
+        <div class="h-feature-img" data-reveal>
+          <img src="assets/founders.jpg" alt="DESKORA co-founders Meera and Rahul in the space they built">
+        </div>
+        <div class="h-feature-content" data-reveal data-delay="2">
+          <span class="eyebrow">Our Origin Story</span>
+          <h2 class="display-section" id="story-heading">Built from<br><em>Lived Frustration</em></h2>
+          <p class="lead">In 2021, co-founders Meera Krishnamurthy and Rahul Desai were both working from home — Meera as a product designer, Rahul as a strategy consultant.</p>
+          <p style="font-size:var(--fs-md);color:var(--clr-ink-muted);line-height:var(--lh-loose)">Their shared café was too noisy. Their nearest coworking space looked like a grey airport lounge. The coffee was dreadful. So they signed a lease, hired a Bengaluru architect they admired, and spent six months obsessing over acoustics, light quality, material texture, and a single perfect espresso recipe. DESKORA opened in March 2021 with 40 desks and a waiting list of 200.</p>
+          <div class="flex gap-6" style="padding-top:var(--sp-4);border-top:1px solid var(--clr-border)">
+            <div>
+              <span class="hero-stat-num" style="display:block;font-family:var(--ff-serif);font-size:1.8rem;font-weight:600;letter-spacing:-0.03em;color:var(--clr-ink)">4+ Yrs</span>
+              <span style="font-family:var(--ff-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-ink-muted)">In Operation</span>
+            </div>
+            <div>
+              <span class="hero-stat-num" style="display:block;font-family:var(--ff-serif);font-size:1.8rem;font-weight:600;letter-spacing:-0.03em;color:var(--clr-ink)">220+</span>
+              <span style="font-family:var(--ff-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-ink-muted)">Active Members</span>
+            </div>
+            <div>
+              <span class="hero-stat-num" style="display:block;font-family:var(--ff-serif);font-size:1.8rem;font-weight:600;letter-spacing:-0.03em;color:var(--clr-ink)">4.9★</span>
+              <span style="font-family:var(--ff-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-ink-muted)">Google Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       VALUES
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">What We Stand For</span>
+        <h2 class="display-section" id="values-heading">Our Core <em>Values</em></h2>
+      </div>
+      <div class="grid-3" style="margin-top:var(--sp-10)">
+        <div class="value-card" data-reveal data-delay="1">
+          <div class="value-num">01</div>
+          <h3 class="value-title">Intentional Design</h3>
+          <p class="value-text">Every surface, seat, and corner was chosen with deliberate care — not for aesthetics alone, but to serve the act of thinking deeply.</p>
+        </div>
+        <div class="value-card" data-reveal data-delay="2">
+          <div class="value-num">02</div>
+          <h3 class="value-title">Radical Hospitality</h3>
+          <p class="value-text">We greet every member by name. Our staff are trained not as customer service agents, but as hosts — warm, attentive, and genuinely curious.</p>
+        </div>
+        <div class="value-card" data-reveal data-delay="3">
+          <div class="value-num">03</div>
+          <h3 class="value-title">Curated Community</h3>
+          <p class="value-text">The best coworking spaces are not just rooms with desks — they are ecosystems of collaboration, peer mentorship, and serendipitous opportunity.</p>
+        </div>
+        <div class="value-card" data-reveal data-delay="1">
+          <div class="value-num">04</div>
+          <h3 class="value-title">Coffee as Craft</h3>
+          <p class="value-text">Our head barista sources directly from three estates in Karnataka and Coorg. Coffee is not an afterthought here — it is a cornerstone of the experience.</p>
+        </div>
+        <div class="value-card" data-reveal data-delay="2">
+          <div class="value-num">05</div>
+          <h3 class="value-title">Sustainability First</h3>
+          <p class="value-text">Rainwater harvesting, solar panels, zero single-use plastic, and a full composting programme. We believe beautiful spaces should also be responsible ones.</p>
+        </div>
+        <div class="value-card" data-reveal data-delay="3">
+          <div class="value-num">06</div>
+          <h3 class="value-title">Accessible Excellence</h3>
+          <p class="value-text">Premium should not mean exclusionary. Our student passes and flexible day rates ensure that great workspace is accessible to everyone building something meaningful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       TEAM
+  ══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">The People</span>
+        <h2 class="display-section" id="team-heading">Meet the <em>Team</em></h2>
+        <p class="lead" style="margin-top:var(--sp-4)">A small, thoughtful group of humans obsessed with hospitality, design, and great coffee.</p>
+      </div>
+      <div class="grid-4" style="margin-top:var(--sp-10)">
+        <div class="team-card" data-reveal data-delay="1">
+          <div class="team-img"><img src="assets/team-meera.jpg" alt="Meera Krishnamurthy, Co-founder & CEO"></div>
+          <div class="team-body">
+            <h3 class="team-name">Meera Krishnamurthy</h3>
+            <span class="team-role">Co-founder & CEO</span>
+            <p class="team-bio">Product designer turned space-maker. Meera oversees member experience and every pixel of DESKORA's design language.</p>
+          </div>
+        </div>
+        <div class="team-card" data-reveal data-delay="2">
+          <div class="team-img"><img src="assets/team-rahul.jpg" alt="Rahul Desai, Co-founder & COO"></div>
+          <div class="team-body">
+            <h3 class="team-name">Rahul Desai</h3>
+            <span class="team-role">Co-founder & COO</span>
+            <p class="team-bio">Strategy consultant turned operations architect. Rahul keeps the trains running — and the Wi-Fi blazing fast.</p>
+          </div>
+        </div>
+        <div class="team-card" data-reveal data-delay="3">
+          <div class="team-img"><img src="assets/team-preethi.jpg" alt="Preethi Anand, Head Barista"></div>
+          <div class="team-body">
+            <h3 class="team-name">Preethi Anand</h3>
+            <span class="team-role">Head Barista & Coffee Director</span>
+            <p class="team-bio">Trained in Melbourne and Bengaluru, Preethi sources our beans directly and crafts every signature drink on our menu.</p>
+          </div>
+        </div>
+        <div class="team-card" data-reveal data-delay="4">
+          <div class="team-img"><img src="assets/team-siddharth.jpg" alt="Siddharth Rao, Community Manager"></div>
+          <div class="team-body">
+            <h3 class="team-name">Siddharth Rao</h3>
+            <span class="team-role">Community & Events Manager</span>
+            <p class="team-bio">The social glue of DESKORA. Siddharth curates our monthly mixers, workshops, and skill-share sessions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       MODERN JOURNEY & MILESTONES — Two Column
+  ══════════════════════════════════════════════ -->
+  <section class="section section-journey" id="our-journey" aria-labelledby="journey-heading">
+    <div class="container">
+      <div class="journey-layout">
+        <!-- Sticky Sidebar -->
+        <div class="journey-sticky-sidebar" data-reveal>
+          <span class="journey-eyebrow">✦ Our Evolution</span>
+          <h2 class="journey-title" id="journey-heading">Four Years,<br><em>Many Milestones</em></h2>
+          <p class="journey-desc">
+            What began as a 40-desk experiment to escape sterile corporate spaces has evolved into Bengaluru's sanctuary for deep work and artisan coffee.
+          </p>
+
+          <div class="journey-stats-card">
+            <div class="journey-stat-row">
+              <span class="jsr-val">40 → 220+</span>
+              <span class="jsr-lbl">Active Members</span>
+            </div>
+            <div class="journey-stat-row">
+              <span class="jsr-val">1 → 18</span>
+              <span class="jsr-lbl">Private Studios Added</span>
+            </div>
+            <div class="journey-stat-row">
+              <span class="jsr-val">0 dB</span>
+              <span class="jsr-lbl">Broadcast Acoustic Suite</span>
+            </div>
+            <div class="journey-stat-row">
+              <span class="jsr-val">Indiranagar</span>
+              <span class="jsr-lbl">Second Campus Underway</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Roadmap Timeline Cards -->
+        <div class="journey-timeline-track" data-reveal data-delay="1">
+          <!-- 2021 -->
+          <article class="journey-card">
+            <div class="journey-card-header">
+              <span class="journey-year">2021</span>
+              <span class="journey-phase">Phase 01 · Inception</span>
+            </div>
+            <h3 class="journey-card-title">DESKORA Opens in Koramangala</h3>
+            <p class="journey-card-desc">Forty handcrafted oak desks, our very first dual-boiler espresso machine, and a waiting list of over 200 passionate creators. Sold out in three weeks flat.</p>
+            <div class="journey-tags">
+              <span class="j-tag">☕ 1st Espresso Machine</span>
+              <span class="j-tag">👥 40 Desks</span>
+              <span class="j-tag">⚡ 100% Sold Out</span>
+            </div>
+          </article>
+
+          <!-- 2022 -->
+          <article class="journey-card">
+            <div class="journey-card-header">
+              <span class="journey-year">2022</span>
+              <span class="journey-phase">Phase 02 · Expansion</span>
+            </div>
+            <h3 class="journey-card-title">Second Floor, Studios &amp; Silent Sanctuary</h3>
+            <p class="journey-card-desc">Doubled our square footage. Added 18 sound-insulated private studio suites and Bengaluru's strictest silent study sanctuary with amber library lamps.</p>
+            <div class="journey-tags">
+              <span class="j-tag">🏢 2nd Floor Floorplate</span>
+              <span class="j-tag">🤫 &lt;28 dB Quiet Zone</span>
+              <span class="j-tag">🚪 18 Private Studios</span>
+            </div>
+          </article>
+
+          <!-- 2023 -->
+          <article class="journey-card">
+            <div class="journey-card-header">
+              <span class="journey-year">2023</span>
+              <span class="journey-phase">Phase 03 · Recognition</span>
+            </div>
+            <h3 class="journey-card-title">Best Coworking Space — Bengaluru Design Week</h3>
+            <p class="journey-card-desc">Honoured with the BDW Jury Award for architectural materiality, ergonomic lighting, and zero single-use plastic operations across all floors.</p>
+            <div class="journey-tags">
+              <span class="j-tag">🏆 BDW Design Winner</span>
+              <span class="j-tag">🌱 Zero Single-Use Plastic</span>
+              <span class="j-tag">👥 150 Permanent Members</span>
+            </div>
+          </article>
+
+          <!-- 2024 -->
+          <article class="journey-card">
+            <div class="journey-card-header">
+              <span class="journey-year">2024</span>
+              <span class="journey-phase">Phase 04 · Media &amp; Nature</span>
+            </div>
+            <h3 class="journey-card-title">Broadcast Podcast Booth &amp; Rooftop Garden</h3>
+            <p class="journey-card-desc">Engineered our dual-glazed 0 dB sound leakage recording suite and planted our tropical rooftop terrace for sunset wind-downs and member mixers.</p>
+            <div class="journey-tags">
+              <span class="j-tag">🎙️ 0 dB Broadcast Suite</span>
+              <span class="j-tag">🌿 Tropical Rooftop Garden</span>
+              <span class="j-tag">🍸 Monthly Sunset Mixers</span>
+            </div>
+          </article>
+
+          <!-- 2025 -->
+          <article class="journey-card">
+            <div class="journey-card-header">
+              <span class="journey-year">2025</span>
+              <span class="journey-phase">Phase 05 · The Next Chapter</span>
+            </div>
+            <h3 class="journey-card-title">220+ Members &amp; Second Campus Planned</h3>
+            <p class="journey-card-desc">Celebrating four continuous years at 4.9★ Google rating. Hosting 12 curated weekly rituals every month, while constructing our second flagship sanctuary in Indiranagar.</p>
+            <div class="journey-tags">
+              <span class="j-tag">⭐ 4.9★ Google Rating</span>
+              <span class="j-tag">📍 Indiranagar Expansion</span>
+              <span class="j-tag">🚀 220+ Curated Community</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FULL-WIDTH ARCHITECTURAL STANDARDS SHOWCASE
+  ══════════════════════════════════════════════ -->
+  <section class="section-standards" aria-labelledby="standards-heading">
+    <div class="container">
+      <div class="standards-header" data-reveal>
+        <span class="standards-badge">
+          <span class="status-dot"></span>
+          Recognised for Excellence
+        </span>
+        <h2 class="standards-title" id="standards-heading">Standards That <em>Set Us Apart</em></h2>
+        <p class="standards-lead">
+          From our architectural acoustics to our single-origin roast precision, every dimension is held to uncompromised craft standards.
+        </p>
+      </div>
+
+      <div class="standards-grid" data-reveal data-delay="1">
+        <!-- 01 -->
+        <article class="standard-card">
+          <div class="standard-card-top">
+            <span class="standard-icon">🏆</span>
+            <span class="standard-pill">Award Winner</span>
+          </div>
+          <div class="standard-metric">1st Place</div>
+          <h3 class="standard-name">Best Design Workspace</h3>
+          <p class="standard-text">Awarded by Bengaluru Design Week Jury for sustainable material craftsmanship, human-centric acoustics, and natural daylight orientation.</p>
+          <div class="standard-footer">
+            <span class="standard-seal">✦ Bengaluru Design Week · 2023</span>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="standard-card">
+          <div class="standard-card-top">
+            <span class="standard-icon">⭐</span>
+            <span class="standard-pill">Verified Trust</span>
+          </div>
+          <div class="standard-metric">4.9 / 5.0</div>
+          <h3 class="standard-name">Google Member Rating</h3>
+          <p class="standard-text">Based on 840+ verified member reviews. Highest-rated independent coworking café &amp; study lounge in Koramangala four years running.</p>
+          <div class="standard-footer">
+            <span class="standard-seal">✦ 840+ Authentic Reviews</span>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="standard-card">
+          <div class="standard-card-top">
+            <span class="standard-icon">☕</span>
+            <span class="standard-pill">Artisan Craft</span>
+          </div>
+          <div class="standard-metric">Top 5</div>
+          <h3 class="standard-name">Specialty Coffee Destination</h3>
+          <p class="standard-text">Bengaluru Coffee Week 2023 &amp; 2024. Direct-trade micro-lot Karnataka beans, roasted weekly with barista precision and unlimited pour-overs.</p>
+          <div class="standard-footer">
+            <span class="standard-seal">✦ Bengaluru Coffee Week</span>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="standard-card">
+          <div class="standard-card-top">
+            <span class="standard-icon">🌿</span>
+            <span class="standard-pill">Eco Certified</span>
+          </div>
+          <div class="standard-metric">Platinum</div>
+          <h3 class="standard-name">IGBC Green Certified</h3>
+          <p class="standard-text">Indian Green Building Council Platinum rating. 100% rooftop solar powered, rainwater harvesting, zero single-use plastic, and active composting.</p>
+          <div class="standard-footer">
+            <span class="standard-seal">✦ IGBC Platinum Level</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="promo-panel" data-reveal>
+        <span class="eyebrow" style="justify-content:center">Come Say Hello</span>
+        <h2 class="display-section" style="color:#fff;margin-bottom:var(--sp-5)">We'd Love to Show<br>You Around</h2>
+        <p class="lead" style="max-width:520px;margin:0 auto var(--sp-10)">Book a free tour, grab a coffee on us, and decide if DESKORA feels like home. No pressure, no hard sell.</p>
+        <div class="flex flex-center gap-4" style="flex-wrap:wrap">
+          <a href="contact.html" class="btn btn-white btn-xl">Book a Free Tour</a>
+          <a href="memberships.html" class="btn btn-dark-outline btn-xl">View Memberships</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand-name" aria-label="DESKORA Home"><div class="footer-brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>DESKORA</a>
+          <p class="footer-brand-blurb">A refined workspace where artisan coffee, focused design, and a like-minded community converge. 12 Crescent Lane, Koramangala, Bengaluru 560034.</p>
+          <div class="flex gap-4"><span class="footer-badge"><span class="status-dot"></span> Open Today</span><span class="footer-badge">7AM–11PM</span></div>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li><li><a href="home-2.html">Home 2</a></li>
+            <li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li>
+            <li><a href="memberships.html">Memberships</a></li><li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Spaces</p>
+          <ul class="footer-links">
+            <li><a href="services.html">Hot Desks</a></li><li><a href="services.html">Dedicated Desks</a></li>
+            <li><a href="services.html">Private Studios</a></li><li><a href="services.html">Conference Rooms</a></li>
+            <li><a href="services.html">Quiet Study Lounge</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Stay in the Loop</p>
+          <p style="font-size:var(--fs-sm);color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-4)">Monthly insights on productivity, community events, and exclusive member offers.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter">
+            <button class="btn btn-white btn-sm">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 DESKORA Coworking Café · All rights reserved</span>
+        <div class="footer-socials"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Twitter</a></div>
+        <span>Crafted with care in Bengaluru</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-bg" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal>✕</button>
+      <div style="margin-bottom:var(--sp-6)"><span class="eyebrow">Reserve Your Spot</span><h2 class="heading-md" id="modalTitle">Book a Desk at DESKORA</h2></div>
+      <form id="bookingForm" novalidate>
+        <div class="form-group"><label class="form-label" for="bookName">Full Name</label><input class="form-input" type="text" id="bookName" placeholder="Jane Doe" required></div>
+        <div class="form-group"><label class="form-label" for="bookEmail">Email</label><input class="form-input" type="email" id="bookEmail" placeholder="jane@example.com" required></div>
+        <div class="form-group"><label class="form-label" for="bookType">Space Type</label><select class="form-select" id="bookType"><option>Hot Desk (Day Pass)</option><option>Dedicated Desk</option><option>Private Studio</option><option>Guided Tour</option></select></div>
+        <div class="form-group"><label class="form-label" for="bookDate">Preferred Date</label><input class="form-input" type="date" id="bookDate" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:0.85rem">Confirm →</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

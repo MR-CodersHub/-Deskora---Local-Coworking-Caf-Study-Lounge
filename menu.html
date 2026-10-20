@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artisan Roastery & Café Menu — DESKORA</title>
+  <meta name="description" content="Explore our on-site specialty coffee, single-origin pour-overs, ceremonial matcha, artisan sourdough tartines, and sustained brain fuel combos.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/deskora-favicon.svg">
+  <style>
+    /* Scoped Menu Styles */
+    .cafe-hero-section {
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--clr-border);
+      background: var(--clr-bg);
+    }
+    @media (min-width: 993px) {
+      .cafe-hero-section {
+        min-height: var(--hero-unified-height);
+        height: auto;
+        padding: var(--sp-8) 0 !important;
+      }
+    }
+    [data-theme="dark"] .cafe-hero-section {
+      background: #111110 !important;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+    .menu-cat-bar {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: var(--sp-12);
+    }
+    .menu-product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+    }
+    .menu-product-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--t-base) var(--ease);
+    }
+    .menu-product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sh-md);
+      border-color: var(--clr-ink);
+    }
+    .menu-product-img {
+      height: 200px;
+      overflow: hidden;
+      background: var(--clr-bg-subtle);
+    }
+    .menu-product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--t-smooth) var(--ease);
+    }
+    .menu-product-card:hover .menu-product-img img {
+      transform: scale(1.05);
+    }
+    .menu-product-body {
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .menu-price-tag {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      font-weight: var(--fw-semibold);
+      color: var(--clr-ink);
+    }
+    @media(max-width: 900px) {
+      .menu-product-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media(max-width: 640px) {
+      .menu-product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-item"><span class="status-dot"></span>&nbsp; Open today · 7:00 AM – 11:00 PM</span>
+          <span class="top-bar-item">📍 12 Crescent Lane, Koramangala, Bengaluru</span>
+          <span class="top-bar-item">📞 +91 98765 43210</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="login.html" class="top-bar-portal-link">Member Portal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+            <li class="nav-item-dropdown" id="navDashboardDropdown">
+              <a href="user-dashboard.html" class="nav-link nav-dropdown-toggle" id="nav-dashboard" aria-haspopup="true" aria-expanded="false">
+                <span>Dashboard</span>
+                <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="nav-dropdown-menu" id="dashboardDropdownMenu" role="menu" aria-label="Dashboard options">
+                <a href="admin-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">Admin Dashboard</span>
+                    <span class="nav-dropdown-sub">Management &amp; occupancy</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">User Dashboard</span>
+                    <span class="nav-dropdown-sub">Bookings &amp; membership</span>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)" title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true" aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button (Last Position) -->
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+          <li class="mobile-nav-item-dropdown">
+            <button class="mobile-nav-link mobile-nav-dropdown-toggle" id="mobile-nav-dashboard" type="button" aria-haspopup="true" aria-expanded="false">
+              <span>Dashboard</span>
+              <svg class="mobile-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-nav-submenu" id="mobileDashboardSubmenu">
+              <a href="admin-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                    <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                    <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span>Admin Dashboard</span>
+              </a>
+              <a href="user-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <span>User Dashboard</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking style="width: 100%;">Book a Desk</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="section-sm cafe-hero-section" aria-label="Cafe Hero">
+    <div class="container">
+      <div class="hero-split">
+        <div class="hero-text-pane" data-reveal>
+          <span class="eyebrow"><span class="status-dot"></span> Direct Trade · Roasted On-Site</span>
+          <h1 class="display-section" style="margin-bottom:var(--sp-4)">Artisan Brews &amp; <em>Brain Food</em></h1>
+          <p class="lead" style="margin-bottom:var(--sp-6)">Specialty coffees roasted in small batches, ceremonial matcha, raw organic tonics, and wholesome savory bites formulated to sustain clean, jitter-free cognitive focus.</p>
+          <div class="flex gap-4" style="flex-wrap:wrap">
+            <a href="#menu-grid" class="btn btn-primary">Browse Full Menu ↓</a>
+            <button class="filter-btn" data-cat="combo" style="padding:0.75rem 1.4rem;border-radius:var(--r-full);font-weight:600">Study Combos</button>
+          </div>
+        </div>
+        <div class="cafe-hero-visual-card" data-reveal data-delay="1">
+          <div class="cafe-hero-img-wrap">
+            <img src="assets/hero-coffee.jpg" alt="Barista pouring artisanal specialty brew at DESKORA roastery bar" loading="eager">
+            <span class="cafe-hero-overlay-tag">✦ Single-Origin Roasts · Freshly Brewed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section with Filters -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+
+      <!-- Category Filter Tabs -->
+      <div class="menu-cat-bar" role="tablist">
+        <button class="filter-btn active" data-cat="all">All Items (9)</button>
+        <button class="filter-btn" data-cat="coffee">Espresso & Brews</button>
+        <button class="filter-btn" data-cat="tea">Tea & Tonics</button>
+        <button class="filter-btn" data-cat="food">Breakfast & Meals</button>
+        <button class="filter-btn" data-cat="combo">Work & Study Combos</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-product-grid">
+
+        <!-- Item 1: Pour-Over -->
+        <article class="menu-product-card" data-cat="coffee" data-reveal>
+          <div class="menu-product-img">
+            <img src="assets/hero-coffee.jpg" alt="Ethiopian Single Origin Pour-Over Coffee" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">Ethiopian Guji V60 Pour-Over</h3>
+              <span class="menu-price-tag">₹180</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Light roasted, floral jasmine aroma, peach notes, clean tea-like finish. Free refills for dedicated desk members.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag">Single Origin</span>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Pour-Over added to your café tab!', '☕')">+ Add to Tab</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2: DESKORA White -->
+        <article class="menu-product-card" data-cat="coffee" data-reveal data-delay="1">
+          <div class="menu-product-img">
+            <img src="assets/blog-2.jpg" alt="DESKORA White Flat White" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">DESKORA Oat White</h3>
+              <span class="menu-price-tag">₹190</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Double ristretto from our signature Chikmagalur roast blended with silky Minor Figures oat milk and light nutmeg.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag">House Signature</span>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Oat White added to your café tab!', '☕')">+ Add to Tab</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3: Nitro Cold Brew -->
+        <article class="menu-product-card" data-cat="coffee" data-reveal data-delay="2">
+          <div class="menu-product-img">
+            <img src="assets/space-hotdesk.jpg" alt="Nitro Draft Cold Brew" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">Draft Nitro Cold Brew</h3>
+              <span class="menu-price-tag">₹180</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              18-hour cold steeped single origin charged with pure food-grade nitrogen on tap. Velvety head and cocoa finish.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag">On Tap Daily</span>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Nitro Cold Brew added to your tab!', '☕')">+ Add to Tab</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4: Ceremonial Matcha -->
+        <article class="menu-product-card" data-cat="tea" data-reveal>
+          <div class="menu-product-img">
+            <img src="assets/about-interior.jpg" alt="Kyoto Ceremonial Matcha Latte" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">Kyoto Ceremonial Matcha</h3>
+              <span class="menu-price-tag">₹210</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Whisked Uji Grade-A green tea powder, iced almond milk, organic agave. Clean L-theanine alertness with zero crash.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag">L-Theanine</span>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Ceremonial Matcha added to your tab!', '🍵')">+ Add to Tab</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5: Elderflower Kombucha -->
+        <article class="menu-product-card" data-cat="tea" data-reveal data-delay="1">
+          <div class="menu-product-img">
+            <img src="assets/hero-lounge.jpg" alt="Raw Elderflower Kombucha" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">Raw Elderflower Tonic</h3>
+              <span class="menu-price-tag">₹180</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Small-batch fermented botanical tonic with raw probiotics, elderflower blossom, and sparkling mountain water.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag">Probiotic</span>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Elderflower Tonic added to your tab!', '🌿')">+ Add to Tab</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6: Sourdough Avocado Toast -->
+        <article class="menu-product-card" data-cat="food" data-reveal data-delay="2">
+          <div class="menu-product-img">
+            <img src="assets/conf-lounge.jpg" alt="Artisan Sourdough Avocado Tartine" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">Sourdough Avocado Tartine</h3>
+              <span class="menu-price-tag">₹240</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Thick-cut country sourdough bread, fresh Hass avocado, Egyptian dukkah crunch, chili flakes & micro-coriander.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag">All-Day Breakfast</span>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Avocado Tartine added to your tab!', '🥑')">+ Add to Tab</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 7: Focus Grain Bowl -->
+        <article class="menu-product-card" data-cat="food" data-reveal>
+          <div class="menu-product-img">
+            <img src="assets/study-lounge.jpg" alt="Focus Grain & Protein Bowl" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">Focus Grain & Protein Bowl</h3>
+              <span class="menu-price-tag">₹310</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Organic tri-color quinoa, roasted butternut squash, spiced edamame, pickled ginger, and creamy tahini miso dressing.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag">Superfood Lunch</span>
+              <button class="btn btn-outline btn-sm" onclick="showToast('Focus Grain Bowl added to your tab!', '🥗')">+ Add to Tab</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 8: Morning Scribe Combo -->
+        <article class="menu-product-card" data-cat="combo" data-reveal data-delay="1">
+          <div class="menu-product-img">
+            <img src="assets/hero-coffee.jpg" alt="The Morning Scribe Combo" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">The Morning Scribe Combo</h3>
+              <span class="menu-price-tag">₹269</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Single-origin Ethiopian V60 pour-over paired with a fresh flaky butter croissant. Recommended for 8:00 AM sprint kickoffs.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag" style="background:var(--clr-ink);color:#fff">Combo Deal</span>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Morning Scribe combo added to your tab!', '🥐')">+ Add Combo</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 9: Deep Work Fuel Bundle -->
+        <article class="menu-product-card" data-cat="combo" data-reveal data-delay="2">
+          <div class="menu-product-img">
+            <img src="assets/space-dedicated.jpg" alt="Deep Work Fuel Bundle" loading="lazy">
+          </div>
+          <div class="menu-product-body">
+            <div class="flex flex-between" style="align-items:baseline;margin-bottom:var(--sp-2)">
+              <h3 class="heading-xs">Deep Work Fuel Bundle</h3>
+              <span class="menu-price-tag">₹429</span>
+            </div>
+            <p class="body-sm" style="color:var(--clr-ink-muted);line-height:1.55;margin-bottom:var(--sp-4);flex:1">
+              Nitro draft cold brew + Focus Grain Protein Bowl + house sparkling water. Formulated for continuous 4-hour cognitive sessions.
+            </p>
+            <div class="flex flex-between" style="align-items:center;padding-top:var(--sp-3);border-top:1px solid var(--clr-border)">
+              <span class="badge-tag" style="background:var(--clr-ink);color:#fff">Best Value</span>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Deep Work bundle added to your tab!', '⚡')">+ Add Combo</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="promo-panel" data-reveal>
+        <span class="eyebrow" style="justify-content:center">Specialty Coffee on Us</span>
+        <h2 class="display-section" style="color:#fff;margin-bottom:var(--sp-5)">Drop in for a Pour-Over.<br><em>Stay for the Atmosphere.</em></h2>
+        <p class="lead" style="max-width:540px;margin:0 auto var(--sp-10)">Our café bar is open to both desk members and neighborhood walk-ins every day from 7:00 AM.</p>
+        <div class="flex flex-center gap-4" style="flex-wrap:wrap">
+          <button class="btn btn-white btn-xl" data-open-booking>Claim Free Trial Day</button>
+          <a href="contact.html" class="btn btn-dark-outline btn-xl">Visit The Café →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand-name" aria-label="DESKORA Home"><div class="footer-brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>DESKORA</a>
+          <p class="footer-brand-blurb">A refined workspace where artisan coffee, focused design, and a like-minded community converge. 12 Crescent Lane, Koramangala, Bengaluru 560034.</p>
+          <div class="flex gap-4"><span class="footer-badge"><span class="status-dot"></span> Open Today</span><span class="footer-badge">7AM–11PM</span></div>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li><li><a href="home-2.html">Home 2</a></li>
+            <li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li>
+            <li><a href="memberships.html">Memberships</a></li><li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Café Services</p>
+          <ul class="footer-links">
+            <li><a href="menu.html">Artisan Drink Menu</a></li>
+            <li><a href="services.html#amenities">Comprehensive Amenities</a></li>
+            <li><a href="memberships.html">Trial Day Pass</a></li>
+            <li><a href="login.html">Member Portal Tab</a></li>
+            <li><a href="contact.html">Location & Directions</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Stay in the Loop</p>
+          <p style="font-size:var(--fs-sm);color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-4)">Monthly insights on productivity, community events, and exclusive member offers.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter">
+            <button class="btn btn-white btn-sm">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 DESKORA Coworking Café · All rights reserved</span>
+        <div class="footer-socials"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">WhatsApp</a></div>
+        <span>Crafted with care in Bengaluru</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-bg" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal>✕</button>
+      <div style="margin-bottom:var(--sp-6)"><span class="eyebrow">Reserve Your Spot</span><h2 class="heading-md" id="modalTitle">Book a Desk or Space Tour</h2></div>
+      <form id="bookingForm" novalidate>
+        <div class="form-group"><label class="form-label" for="bookName">Full Name</label><input class="form-input" type="text" id="bookName" placeholder="Jane Doe" required></div>
+        <div class="form-group"><label class="form-label" for="bookEmail">Email</label><input class="form-input" type="email" id="bookEmail" placeholder="jane@example.com" required></div>
+        <div class="form-group"><label class="form-label" for="bookType">Select Plan / Space</label><select class="form-select" id="bookType"><option>Complimentary Trial Day (Free)</option><option>Student Day Pass (₹199)</option><option>Hot Desk Day Pass (₹299)</option><option>Flex Membership (₹890/mo)</option><option>Dedicated Desk (₹2,499/mo)</option></select></div>
+        <div class="form-group"><label class="form-label" for="bookDate">Preferred Date</label><input class="form-input" type="date" id="bookDate" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:0.85rem">Confirm Reservation →</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="js/script.js"></script>
+
+  <!-- Menu Category Filter Script -->
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        document.querySelectorAll('.menu-product-card').forEach(card => {
+          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

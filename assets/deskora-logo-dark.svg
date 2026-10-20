@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&amp;display=swap');
+      .brand-title-dark {
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        fill: #FFFFFF;
+      }
+      .brand-tagline-dark {
+        font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        fill: #A8A79E;
+      }
+    </style>
+  </defs>
+
+  <!-- DESKORA Monogram Icon (White/Light on Dark) -->
+  <g transform="translate(6, 6) scale(0.75)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+    <!-- D Spine -->
+    <path d="M30 14V66" stroke-width="5.5" />
+    <!-- D Arch -->
+    <path d="M30 14H46C62 14 66 26 66 40C66 54 62 66 46 66H30" stroke-width="5.5" />
+    <!-- Desk Cantilever Surface -->
+    <path d="M14 46H76" stroke-width="5.5" />
+    <!-- Desk Legs -->
+    <path d="M22 46V66" stroke-width="5" />
+    <!-- Right Leg -->
+    <path d="M68 46V66" stroke-width="5" />
+  </g>
+
+  <!-- Wordmark & Tagline -->
+  <text x="78" y="40" class="brand-title-dark">DESKORA</text>
+  <text x="80" y="57" class="brand-tagline-dark">Work. Focus. Belong.</text>
+</svg>

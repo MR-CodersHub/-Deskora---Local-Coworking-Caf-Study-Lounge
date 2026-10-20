@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Dashboard — DESKORA Coworking Café</title>
+  <meta name="description"
+    content="Manage your coworking reservations, check remaining hourly credits, purchase day passes, and view member perks at DESKORA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="assets/deskora-favicon.svg">
+</head>
+
+<body class="dash-body">
+
+  <div class="dash-layout">
+
+    <!-- ══════════════════════════════════════════════
+         SIDEBAR NAVIGATION
+    ══════════════════════════════════════════════ -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="dash-brand" aria-label="DESKORA Home">
+          <div class="dash-brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true"
+              style="width:100%;height:100%">
+              <g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 16V64" />
+                <path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30" />
+                <path d="M16 45H74" />
+                <path d="M22 45V64" stroke-width="4.5" />
+                <path d="M68 45V64" stroke-width="4.5" />
+              </g>
+            </svg></div>
+          <div class="dash-brand-text">
+            <span class="dash-brand-title">DESKORA</span>
+            <span class="dash-brand-role">Member Portal</span>
+          </div>
+        </a>
+        <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close sidebar">✕</button>
+      </div>
+
+      <!-- Member Mini Card -->
+      <div class="dash-user-card">
+        <div class="dash-user-avatar" id="dashSidebarAvatar">MK</div>
+        <div class="dash-user-info">
+          <span class="dash-user-name" id="dashSidebarName">Maya Krishnan</span>
+          <span class="dash-user-tag"><span class="dash-live-dot"></span> Dedicated Desk Member</span>
+        </div>
+      </div>
+
+      <!-- Nav Items -->
+      <nav class="dash-nav" aria-label="Member navigation">
+        <span class="dash-nav-category">Main Workspace</span>
+        <a href="#overview" class="dash-nav-item active" data-section="overview">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </span>
+          <span>Overview</span>
+        </a>
+        <a href="#booking" class="dash-nav-item" data-section="booking">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </span>
+          <span>Book Desk &amp; Table</span>
+        </a>
+        <a href="#reservations" class="dash-nav-item" data-section="reservations">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </span>
+          <span>My Reservations</span>
+          <span class="dash-nav-badge" id="navUpcomingBadge">2</span>
+        </a>
+
+        <span class="dash-nav-category">Account &amp; Passes</span>
+        <a href="#membership" class="dash-nav-item" data-section="membership">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>Membership Plan</span>
+        </a>
+        <a href="#daypasses" class="dash-nav-item" data-section="daypasses">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </span>
+          <span>Day Passes</span>
+        </a>
+        <a href="#payments" class="dash-nav-item" data-section="payments">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+              <line x1="1" y1="10" x2="23" y2="10"></line>
+            </svg>
+          </span>
+          <span>Payment History</span>
+        </a>
+
+        <span class="dash-nav-category">Preferences</span>
+        <a href="#profile" class="dash-nav-item" data-section="profile">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+              </path>
+            </svg>
+          </span>
+          <span>Profile Settings</span>
+        </a>
+        <a href="#support" class="dash-nav-item" data-section="support">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </span>
+          <span>Help &amp; Support</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Bottom Actions -->
+      <div class="dash-sidebar-footer">
+        <a href="admin-dashboard.html" class="dash-sidebar-btn" title="Switch to Workspace Operations">
+          <span>⚡ Switch to Admin View</span>
+        </a>
+        <a href="index.html" class="dash-sidebar-btn" title="Return to Main Coworking Café">
+          <span>← Back to Website</span>
+        </a>
+        <button class="dash-sidebar-btn" onclick="demoLogout()" style="color:#ef4444" title="Sign out of demo session">
+          <span>↪ Log Out (Demo)</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ══════════════════════════════════════════════
+         MAIN CONTENT WRAPPER
+    ══════════════════════════════════════════════ -->
+    <div class="dash-main">
+
+      <!-- Top Dashboard Header -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="Open sidebar menu">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="0" y1="1" x2="20" y2="1"></line>
+              <line x1="0" y1="7" x2="14" y2="7"></line>
+              <line x1="0" y1="13" x2="20" y2="13"></line>
+            </svg>
+          </button>
+          <div>
+            <h1 class="dash-greeting-title" id="dashWelcomeTitle">Welcome Back, Maya</h1>
+            <p class="dash-greeting-sub" id="dashWelcomeSub">Dedicated Desk Member · Studio A · Koramangala Sanctuary
+            </p>
+          </div>
+        </div>
+
+        <div class="dash-header-right">
+          <!-- Theme & RTL -->
+          <button class="dash-icon-btn dash-theme-btn" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+          <button class="dash-icon-btn dash-rtl-btn" aria-label="Toggle text direction" title="Switch RTL/LTR"
+            style="font-family:var(--ff-mono);font-size:0.68rem;font-weight:700">
+            ⇄
+          </button>
+
+          <!-- User Profile Dropdown -->
+          <div class="dash-dropdown-wrap">
+            <button class="dash-icon-btn" data-popover-target="popoverProfile" style="border-radius:var(--r-full)"
+              aria-label="User Account">
+              <span id="dashHeaderAvatarText" style="font-weight:700;font-size:0.85rem">MK</span>
+            </button>
+            <div class="dash-popover" id="popoverProfile" style="width:240px">
+              <div style="padding:4px 6px 8px;border-bottom:1px solid var(--clr-border)">
+                <div style="font-weight:700;font-size:0.92rem" id="popoverUserName">Maya Krishnan</div>
+                <div style="font-size:0.75rem;color:var(--clr-ink-muted)" id="popoverUserEmail">maya@theatelier.space
+                </div>
+              </div>
+              <a href="#profile" class="dash-nav-item" data-section="profile" onclick="closePopovers()">👤 Profile
+                Settings</a>
+              <a href="admin-dashboard.html" class="dash-nav-item">⚡ Switch to Admin</a>
+              <a href="index.html" class="dash-nav-item">🏠 Website Home</a>
+              <button class="dash-nav-item" onclick="demoLogout()" style="color:#ef4444;width:100%;text-align:left">↪
+                Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ══════════════════════════════════════════════
+           DASHBOARD CONTENT SECTIONS
+      ══════════════════════════════════════════════ -->
+      <main class="dash-content">
+
+        <!-- ── SECTION 1: OVERVIEW ── -->
+        <section class="dash-section active" id="overview">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Workspace Overview</h2>
+              <p class="dash-section-sub">Real-time status of your coworking membership, available credits, and today's
+                schedule.</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn btn-primary btn-sm" onclick="navigateToSection('booking')">+ Book a Desk</button>
+              <button class="btn btn-secondary btn-sm" onclick="navigateToSection('daypasses')">Get Day Pass</button>
+            </div>
+          </div>
+
+          <!-- 5 Mandatory Summary KPI Cards -->
+          <div class="kpi-grid">
+            <!-- 1. Current Membership Plan -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Current Membership</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                  </svg>
+                </span>
+              </div>
+              <div class="kpi-value" style="font-size:1.6rem" id="kpiPlanName">Dedicated Desk</div>
+              <div class="kpi-footer">
+                <span class="badge badge-active">Active · 24/7 Access</span>
+                <span style="font-size:0.72rem;color:var(--clr-ink-muted)">Renews 01 Nov</span>
+              </div>
+            </div>
+
+            <!-- 2. Remaining Membership Credits / Hours -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Remaining Hours / Credits</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="kpiHoursVal">28.0 <span
+                  style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">/ 40 Hrs</span></div>
+              <div class="kpi-footer">
+                <span>70% Quota Remaining</span>
+                <div class="kpi-progress-bar">
+                  <div class="kpi-progress-fill" style="width:70%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Upcoming Reservations -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Upcoming Reservations</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="kpiUpcomingVal">2 <span
+                  style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">Bookings</span></div>
+              <div class="kpi-footer">
+                <span style="font-size:0.75rem;color:var(--clr-ink-muted)">Next: Tomorrow, 9:00 AM</span>
+              </div>
+            </div>
+
+            <!-- 4. Active Day Passes -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Active Day Passes</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="kpiPassesVal">3 <span
+                  style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">Passes</span></div>
+              <div class="kpi-footer">
+                <span style="font-size:0.75rem;color:var(--clr-ink-muted)">5-Day Flex Bundle valid till Dec</span>
+              </div>
+            </div>
+
+            <!-- 5. Total Bookings -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Total Bookings</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="kpiTotalBookingsVal">18 <span
+                  style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">Sessions</span></div>
+              <div class="kpi-footer">
+                <span class="kpi-delta">+4 this month</span>
+                <span style="font-size:0.72rem;color:var(--clr-ink-muted)">118 hrs focused</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Shortcuts Banner -->
+          <div class="dash-card"
+            style="background:linear-gradient(135deg, var(--clr-bg-card) 0%, var(--clr-bg-subtle) 100%)">
+            <div class="dash-grid-2" style="align-items:center">
+              <div>
+                <span class="eyebrow">Priority Workspace Ready</span>
+                <h3 style="font-family:var(--ff-serif);font-size:1.5rem;margin:6px 0 10px">Silent Study Pod #04 Reserved
+                  For Tomorrow</h3>
+                <p style="font-size:0.88rem;color:var(--clr-ink-muted);line-height:1.6;margin:0">
+                  Your biometric keycard and 4K display profile have been pre-staged. Enjoy unlimited cold brew on tap
+                  and 15% off light breakfast at the counter.
+                </p>
+              </div>
+              <div style="display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap">
+                <button class="btn btn-primary" onclick="showToast('Checked in! Welcome to DESKORA.', '✓')">Check In
+                  Early</button>
+                <button class="btn btn-secondary" onclick="navigateToSection('booking')">Reserve Another Desk</button>
+                <button class="btn btn-secondary" onclick="openWifiModal()">📶 Show Wi-Fi Code</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Overview Grid: Schedule & Recent Transactions -->
+          <div class="dash-grid-2">
+            <!-- Active Bookings Summary -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h3 class="dash-card-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  Upcoming Sessions
+                </h3>
+                <a href="#reservations" onclick="navigateToSection('reservations')"
+                  style="font-size:0.8rem;color:var(--clr-ink);font-weight:600">View All →</a>
+              </div>
+              <div id="overviewUpcomingList" style="display:flex;flex-direction:column;gap:12px">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+
+            <!-- Member Perks & Balance Progress -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h3 class="dash-card-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                  Usage &amp; Perks Balance
+                </h3>
+                <span class="badge badge-active">Gold Tier</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <div>
+                  <div class="flex flex-between" style="font-size:0.85rem;margin-bottom:6px">
+                    <span>Meeting Pod Credits:</span>
+                    <strong>28 / 40 Hours Left</strong>
+                  </div>
+                  <div class="kpi-progress-bar">
+                    <div class="kpi-progress-fill" style="width:70%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex flex-between" style="font-size:0.85rem;margin-bottom:6px">
+                    <span>Laser Print Quota:</span>
+                    <strong>358 / 500 Pages Left</strong>
+                  </div>
+                  <div class="kpi-progress-bar">
+                    <div class="kpi-progress-fill" style="width:71%"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex flex-between" style="font-size:0.85rem;margin-bottom:6px">
+                    <span>Café Discount Balance:</span>
+                    <strong>₹1,450.00 Available</strong>
+                  </div>
+                  <div class="kpi-progress-bar">
+                    <div class="kpi-progress-fill" style="width:48%"></div>
+                  </div>
+                </div>
+                <div style="padding-top:10px;border-top:1px solid var(--clr-border);display:flex;gap:10px">
+                  <button class="btn btn-secondary btn-sm" style="flex:1"
+                    onclick="navigateToSection('membership')">Manage Membership</button>
+                  <button class="btn btn-secondary btn-sm" style="flex:1"
+                    onclick="showToast('₹500 added to Café wallet demo!', '☕')">+ Add Café Credit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── SECTION 2: DESK AND TABLE BOOKING ── -->
+        <section class="dash-section" id="booking">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Reserve a Desk or Meeting Pod</h2>
+              <p class="dash-section-sub">Select your preferred focus zone, choose your time slot and duration, and lock
+                in your workspace.</p>
+            </div>
+          </div>
+
+          <!-- Zone Category Tabs -->
+          <div class="workspace-category-tabs" role="tablist">
+            <button class="workspace-cat-btn active" data-zone="all">All Focus Zones (12)</button>
+            <button class="workspace-cat-btn" data-zone="pod">Silent Study Pods (4)</button>
+            <button class="workspace-cat-btn" data-zone="cafe">Hot Desk Café Zone (3)</button>
+            <button class="workspace-cat-btn" data-zone="standing">Standing Desks (3)</button>
+            <button class="workspace-cat-btn" data-zone="meeting">Discussion Pods (1)</button>
+            <button class="workspace-cat-btn" data-zone="booth">Phone Booths (1)</button>
+          </div>
+
+          <div class="desk-booking-layout">
+            <!-- Left Side: Interactive Desks Grid & Filters -->
+            <div>
+              <!-- Booking Controls: Date, Slot, Duration -->
+              <div class="dash-card" style="margin-bottom:20px;padding:20px">
+                <div class="dash-grid-3">
+                  <div class="dash-form-group" style="margin-bottom:0">
+                    <label class="dash-label" for="bookingDateInput">Reservation Date</label>
+                    <input type="date" id="bookingDateInput" class="dash-input">
+                  </div>
+                  <div class="dash-form-group" style="margin-bottom:0">
+                    <label class="dash-label" for="bookingSlotSelect">Time Slot</label>
+                    <select id="bookingSlotSelect" class="dash-select">
+                      <option value="08:00 – 11:00">Morning Session (08:00 – 11:00 AM)</option>
+                      <option value="11:30 – 14:30">Midday Focus (11:30 AM – 02:30 PM)</option>
+                      <option value="15:00 – 18:00" selected>Afternoon Peak (03:00 – 06:00 PM)</option>
+                      <option value="18:30 – 21:30">Evening Study (06:30 – 09:30 PM)</option>
+                      <option value="08:00 – 20:00">Full Day Access (08:00 AM – 08:00 PM)</option>
+                    </select>
+                  </div>
+                  <div class="dash-form-group" style="margin-bottom:0">
+                    <label class="dash-label" for="bookingHoursSelect">Duration (Hours)</label>
+                    <select id="bookingHoursSelect" class="dash-select">
+                      <option value="1">1 Hour</option>
+                      <option value="2">2 Hours</option>
+                      <option value="3" selected>3 Hours</option>
+                      <option value="4">4 Hours</option>
+                      <option value="6">6 Hours</option>
+                      <option value="8">8 Hours (Full Day)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Available Desks Grid -->
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <div>
+                    <h3 class="dash-card-title">Available Desks &amp; Pods</h3>
+                    <p style="font-size:0.78rem;color:var(--clr-ink-muted);margin:3px 0 0">Click any green Available
+                      desk card to select it for your session.</p>
+                  </div>
+                  <div class="flex gap-4" style="font-size:0.75rem">
+                    <span style="display:inline-flex;align-items:center;gap:4px"><span
+                        class="badge badge-available">●</span> Available</span>
+                    <span style="display:inline-flex;align-items:center;gap:4px"><span
+                        class="badge badge-occupied">●</span> Occupied</span>
+                  </div>
+                </div>
+
+                <div class="desks-grid" id="userDesksContainer">
+                  <!-- Rendered dynamically by JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Booking Summary & Checkout Box -->
+            <div>
+              <div class="booking-summary-box">
+                <h3
+                  style="font-family:var(--ff-serif);font-size:1.35rem;margin:0 0 10px;padding-bottom:12px;border-bottom:1px solid var(--clr-border)">
+                  Session Summary
+                </h3>
+
+                <div class="summary-row">
+                  <span style="color:var(--clr-ink-muted)">Selected Space:</span>
+                  <strong id="summaryDeskName">Silent Study Pod #04</strong>
+                </div>
+                <div class="summary-row">
+                  <span style="color:var(--clr-ink-muted)">Space ID:</span>
+                  <span class="badge badge-active" id="summaryDeskId">POD-04</span>
+                </div>
+                <div class="summary-row">
+                  <span style="color:var(--clr-ink-muted)">Date:</span>
+                  <span id="summaryDateDisplay">Tomorrow, Oct 2</span>
+                </div>
+                <div class="summary-row">
+                  <span style="color:var(--clr-ink-muted)">Time Slot:</span>
+                  <span id="summarySlotDisplay">03:00 – 06:00 PM</span>
+                </div>
+                <div class="summary-row">
+                  <span style="color:var(--clr-ink-muted)">Duration:</span>
+                  <span id="summaryDurationDisplay">3 Hours</span>
+                </div>
+                <div class="summary-row">
+                  <span style="color:var(--clr-ink-muted)">Hourly Rate:</span>
+                  <span id="summaryRateDisplay">₹250 / hr</span>
+                </div>
+                <div class="summary-row">
+                  <span style="color:var(--clr-ink-muted)">Base Total:</span>
+                  <span id="summaryBasePrice">₹750.00</span>
+                </div>
+                <div class="summary-row" style="color:#10b981">
+                  <span>Member Discount (15% Off):</span>
+                  <span id="summaryDiscount">- ₹112.50</span>
+                </div>
+
+                <div class="summary-row total">
+                  <span>Total Payable:</span>
+                  <span id="summaryFinalPrice" style="font-size:1.4rem">₹637.50</span>
+                </div>
+
+                <div
+                  style="font-size:0.75rem;color:var(--clr-ink-muted);background:var(--clr-bg-subtle);padding:10px;border-radius:var(--r-sm)">
+                  🔒 <strong>Instant Confirmation:</strong> No upfront charge for active Dedicated Desk members; hours
+                  are logged towards your monthly allowance.
+                </div>
+
+                <button class="btn btn-primary btn-lg" id="btnConfirmBooking" style="width:100%">
+                  Confirm Demo Booking →
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── SECTION 3: MY RESERVATIONS ── -->
+        <section class="dash-section" id="reservations">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">My Reservations</h2>
+              <p class="dash-section-sub">Review upcoming visits, past focus sessions, and manage cancellations or
+                rescheduling.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="navigateToSection('booking')">+ New Reservation</button>
+          </div>
+
+          <div class="table-filter-bar">
+            <div class="flex gap-2">
+              <button class="btn-action active res-filter-btn" data-filter="all">All Bookings</button>
+              <button class="btn-action res-filter-btn" data-filter="upcoming">Upcoming</button>
+              <button class="btn-action res-filter-btn" data-filter="completed">Completed</button>
+              <button class="btn-action res-filter-btn" data-filter="cancelled">Cancelled</button>
+            </div>
+            <input type="text" id="resSearchInput" class="table-search-input"
+              placeholder="Search by reference or space...">
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table" id="reservationsTable">
+              <thead>
+                <tr>
+                  <th>Booking Ref</th>
+                  <th>Workspace Type</th>
+                  <th>Date &amp; Time</th>
+                  <th>Duration</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reservationsTableBody">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 4: MEMBERSHIP MANAGEMENT ── -->
+        <section class="dash-section" id="membership">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Membership Management</h2>
+              <p class="dash-section-sub">View your current subscription tier, track your benefits, and explore
+                upgrades.</p>
+            </div>
+          </div>
+
+          <div class="dash-grid-2">
+            <!-- Active Plan Hero -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <span class="eyebrow">Active Plan</span>
+                  <h3 class="dash-card-title">Dedicated Desk Member</h3>
+                </div>
+                <span class="badge badge-active">Renewing Automatically</span>
+              </div>
+              <div style="margin-bottom:20px">
+                <div style="font-family:var(--ff-serif);font-size:2.4rem;font-weight:700">₹2,499 <span
+                    style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">/ month</span></div>
+                <p style="font-size:0.85rem;color:var(--clr-ink-muted);margin:4px 0 0">Billing Cycle: 01 Sep 2026 – 31
+                  Oct 2026 · Next auto-charge on Nov 01, 2026</p>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+                <div class="membership-benefit-item flex items-start gap-2" style="font-size:0.88rem;line-height:1.5">
+                  <span style="color:#10b981;flex-shrink:0;margin-top:2px">✓</span>
+                  <span><strong>24/7 RFID Biometric Keycard Access</strong> to Koramangala flagship</span>
+                </div>
+                <div class="membership-benefit-item flex items-start gap-2" style="font-size:0.88rem;line-height:1.5">
+                  <span style="color:#10b981;flex-shrink:0;margin-top:2px">✓</span>
+                  <span><strong>40 Hours / Month</strong> Meeting Pod &amp; Studio Access</span>
+                </div>
+                <div class="membership-benefit-item flex items-start gap-2" style="font-size:0.88rem;line-height:1.5">
+                  <span style="color:#10b981;flex-shrink:0;margin-top:2px">✓</span>
+                  <span><strong>500 Pages / Month</strong> High-Speed Network Laser Printing</span>
+                </div>
+                <div class="membership-benefit-item flex items-start gap-2" style="font-size:0.88rem;line-height:1.5">
+                  <span style="color:#10b981;flex-shrink:0;margin-top:2px">✓</span>
+                  <span><strong>15% Member Discount</strong> across all specialty espresso &amp; bakery items</span>
+                </div>
+                <div class="membership-benefit-item flex items-start gap-2" style="font-size:0.88rem;line-height:1.5">
+                  <span style="color:#10b981;flex-shrink:0;margin-top:2px">✓</span>
+                  <span><strong>500 Mbps Dedicated Symmetrical Fiber</strong> with private VLAN</span>
+                </div>
+                <div class="membership-benefit-item flex items-start gap-2" style="font-size:0.88rem;line-height:1.5">
+                  <span style="color:#10b981;flex-shrink:0;margin-top:2px">✓</span>
+                  <span><strong>Lockable Oak Pedestal Storage</strong> at assigned desk bay</span>
+                </div>
+              </div>
+
+              <div class="flex gap-3 membership-actions" style="flex-wrap:wrap">
+                <button class="btn btn-primary" onclick="openUpgradeModal()">Upgrade / Change Plan</button>
+                <button class="btn btn-secondary"
+                  onclick="showToast('Renewal preferences updated to Manual', '✓')">Manage Auto-Renew</button>
+              </div>
+            </div>
+
+            <!-- Usage Progress Breakdown -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h3 class="dash-card-title">Usage &amp; Quota Consumption</h3>
+                <span class="badge badge-active">31 Days Left in Cycle</span>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:20px">
+                <div>
+                  <div class="flex flex-between" style="font-size:0.88rem;margin-bottom:8px">
+                    <span><strong>Private Pod Hours:</strong> 12 / 40 used</span>
+                    <span style="font-weight:700">28 Hrs Remaining</span>
+                  </div>
+                  <div class="kpi-progress-bar">
+                    <div class="kpi-progress-fill" style="width:70%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex flex-between" style="font-size:0.88rem;margin-bottom:8px">
+                    <span><strong>Print / Scan Pages:</strong> 142 / 500 used</span>
+                    <span style="font-weight:700">358 Pages Remaining</span>
+                  </div>
+                  <div class="kpi-progress-bar">
+                    <div class="kpi-progress-fill" style="width:71%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex flex-between" style="font-size:0.88rem;margin-bottom:8px">
+                    <span><strong>Guest Day Passes:</strong> 1 / 4 used</span>
+                    <span style="font-weight:700">3 Guest Passes Remaining</span>
+                  </div>
+                  <div class="kpi-progress-bar">
+                    <div class="kpi-progress-fill" style="width:75%"></div>
+                  </div>
+                </div>
+
+                <div
+                  style="padding:16px;background:var(--clr-bg-subtle);border-radius:var(--r-sm);border:1px solid var(--clr-border)">
+                  <strong style="font-size:0.88rem;display:block;margin-bottom:4px">Keycard Hardware ID:</strong>
+                  <span
+                    style="font-family:var(--ff-mono);font-size:0.82rem;color:var(--clr-ink-muted)">ATL-BLR-0924-NFC882</span>
+                  <div style="font-size:0.75rem;color:#10b981;margin-top:4px">● Active and synced with Turnstiles 1
+                    &amp; 2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── SECTION 5: DAY PASSES ── -->
+        <section class="dash-section" id="daypasses">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Day Passes &amp; Bundles</h2>
+              <p class="dash-section-sub">Flexible, commitment-free day passes for visiting teammates, study marathons,
+                and weekend sessions.</p>
+            </div>
+          </div>
+
+          <!-- Day Pass Product Cards -->
+          <div class="dash-grid-4"
+            style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:20px;margin-bottom:28px">
+            <div class="dash-card"
+              style="margin-bottom:0;display:flex;flex-direction:column;justify-content:space-between">
+              <div>
+                <span class="badge badge-active" style="margin-bottom:10px">Solo Daily</span>
+                <h4 style="font-family:var(--ff-serif);font-size:1.3rem;margin:0 0 6px">Single Day Pass</h4>
+                <div style="font-family:var(--ff-serif);font-size:1.8rem;font-weight:700;margin-bottom:10px">₹299 <span
+                    style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ day</span></div>
+                <p style="font-size:0.82rem;color:var(--clr-ink-muted);line-height:1.5">Full day unreserved desk access,
+                  gigabit Wi-Fi, and 1 complimentary filter brew.</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:16px"
+                onclick="buyDemoPass('Single Day Pass', '₹299', 1)">Purchase Pass →</button>
+            </div>
+
+            <div class="dash-card"
+              style="margin-bottom:0;display:flex;flex-direction:column;justify-content:space-between;border:2px solid var(--clr-ink)">
+              <div>
+                <span class="badge badge-confirmed" style="margin-bottom:10px">Most Popular · Save 15%</span>
+                <h4 style="font-family:var(--ff-serif);font-size:1.3rem;margin:0 0 6px">5-Day Flex Bundle</h4>
+                <div style="font-family:var(--ff-serif);font-size:1.8rem;font-weight:700;margin-bottom:10px">₹1,299
+                  <span style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ 5 days</span>
+                </div>
+                <p style="font-size:0.82rem;color:var(--clr-ink-muted);line-height:1.5">Use any 5 days over 90 days.
+                  Includes 2 hours meeting pod credit and locker access.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" style="width:100%;margin-top:16px"
+                onclick="buyDemoPass('5-Day Flex Pass Bundle', '₹1,299', 5)">Buy 5-Pass Bundle →</button>
+            </div>
+
+            <div class="dash-card"
+              style="margin-bottom:0;display:flex;flex-direction:column;justify-content:space-between">
+              <div>
+                <span class="badge badge-occupied" style="margin-bottom:10px">Student Concession</span>
+                <h4 style="font-family:var(--ff-serif);font-size:1.3rem;margin:0 0 6px">Student Day Pass</h4>
+                <div style="font-family:var(--ff-serif);font-size:1.8rem;font-weight:700;margin-bottom:10px">₹199 <span
+                    style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ day</span></div>
+                <p style="font-size:0.82rem;color:var(--clr-ink-muted);line-height:1.5">Valid with active student ID.
+                  Access to Quiet Study Library, outlets, and printing.</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:16px"
+                onclick="buyDemoPass('Student Day Pass', '₹199', 1)">Purchase Pass →</button>
+            </div>
+
+            <div class="dash-card"
+              style="margin-bottom:0;display:flex;flex-direction:column;justify-content:space-between">
+              <div>
+                <span class="badge badge-active" style="margin-bottom:10px">Sat &amp; Sun</span>
+                <h4 style="font-family:var(--ff-serif);font-size:1.3rem;margin:0 0 6px">Weekend Focus Pass</h4>
+                <div style="font-family:var(--ff-serif);font-size:1.8rem;font-weight:700;margin-bottom:10px">₹499 <span
+                    style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ weekend</span></div>
+                <p style="font-size:0.82rem;color:var(--clr-ink-muted);line-height:1.5">Unrestricted Saturday and Sunday
+                  access for deep work, authors, and side-projects.</p>
+              </div>
+              <button class="btn btn-secondary btn-sm" style="width:100%;margin-top:16px"
+                onclick="buyDemoPass('Weekend Focus Pass', '₹499', 2)">Purchase Pass →</button>
+            </div>
+          </div>
+
+          <!-- Active & Historical Passes Table -->
+          <div class="dash-card">
+            <h3 class="dash-card-title" style="margin-bottom:14px">My Day Passes &amp; History</h3>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Pass ID</th>
+                    <th>Pass Package</th>
+                    <th>Date Purchased</th>
+                    <th>Validity Expiry</th>
+                    <th>Remaining Uses</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="dayPassesTableBody">
+                  <!-- Injected by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── SECTION 6: PAYMENT HISTORY ── -->
+        <section class="dash-section" id="payments">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Payment History &amp; Invoices</h2>
+              <p class="dash-section-sub">Download tax receipts, review transaction dates, and track member billing.</p>
+            </div>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Payment Method</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Invoice / Receipt</th>
+                </tr>
+              </thead>
+              <tbody id="userPaymentsTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 7: PROFILE SETTINGS ── -->
+        <section class="dash-section" id="profile">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Profile &amp; Account Settings</h2>
+              <p class="dash-section-sub">Update your contact credentials, change password, and customize acoustic
+                workspace preferences.</p>
+            </div>
+          </div>
+
+          <div class="dash-grid-2">
+            <!-- Personal Info Form -->
+            <div class="dash-card">
+              <h3 class="dash-card-title" style="margin-bottom:18px">Personal Information</h3>
+              <form id="profileInfoForm">
+                <div class="dash-form-group">
+                  <label class="dash-label" for="profName">Full Name</label>
+                  <input type="text" id="profName" class="dash-input" required value="Maya Krishnan">
+                </div>
+                <div class="dash-form-group">
+                  <label class="dash-label" for="profEmail">Email Address</label>
+                  <input type="email" id="profEmail" class="dash-input" required value="maya@theatelier.space">
+                </div>
+                <div class="dash-form-group">
+                  <label class="dash-label" for="profPhone">Mobile Number (for SMS Alerts)</label>
+                  <input type="tel" id="profPhone" class="dash-input" required value="+91 98765 43210">
+                </div>
+                <div class="dash-form-group">
+                  <label class="dash-label" for="profBio">Professional Headline / Bio</label>
+                  <input type="text" id="profBio" class="dash-input"
+                    value="Independent AI Researcher & Product Designer">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-top:10px">Save Profile Details →</button>
+              </form>
+            </div>
+
+            <!-- Password & Security Form -->
+            <div class="dash-card">
+              <h3 class="dash-card-title" style="margin-bottom:18px">Security &amp; Password</h3>
+              <form id="profileSecurityForm">
+                <div class="dash-form-group">
+                  <label class="dash-label" for="secCurrentPass">Current Password</label>
+                  <div style="position:relative">
+                    <input type="password" id="secCurrentPass" class="dash-input" style="width:100%"
+                      placeholder="••••••••••••" required>
+                    <button type="button" class="password-toggle-btn"
+                      onclick="togglePassField('secCurrentPass', this)">👁</button>
+                  </div>
+                </div>
+                <div class="dash-form-group">
+                  <label class="dash-label" for="secNewPass">New Password (Min. 8 chars)</label>
+                  <div style="position:relative">
+                    <input type="password" id="secNewPass" class="dash-input" style="width:100%"
+                      placeholder="••••••••••••" minlength="8" required>
+                    <button type="button" class="password-toggle-btn"
+                      onclick="togglePassField('secNewPass', this)">👁</button>
+                  </div>
+                </div>
+                <div class="dash-form-group">
+                  <label class="dash-label" for="secConfirmPass">Confirm New Password</label>
+                  <div style="position:relative">
+                    <input type="password" id="secConfirmPass" class="dash-input" style="width:100%"
+                      placeholder="••••••••••••" minlength="8" required>
+                    <button type="button" class="password-toggle-btn"
+                      onclick="togglePassField('secConfirmPass', this)">👁</button>
+                  </div>
+                  <span id="passMatchNote" style="font-size:0.75rem;color:var(--clr-ink-muted);margin-top:4px"></span>
+                </div>
+                <button type="submit" class="btn btn-secondary" style="margin-top:10px">Update Password →</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── SECTION 8: HELP & SUPPORT ── -->
+        <section class="dash-section" id="support">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Help, FAQs &amp; Concierge Support</h2>
+              <p class="dash-section-sub">Quick answers to common workspace questions and direct enquiry dispatch to our
+                reception desk.</p>
+            </div>
+          </div>
+
+          <div class="dash-grid-2">
+            <!-- Searchable FAQs -->
+            <div>
+              <div class="dash-card">
+                <h3 class="dash-card-title" style="margin-bottom:14px">Frequently Asked Questions</h3>
+                <input type="text" id="faqSearchInput" class="dash-input"
+                  placeholder="Search FAQs (Wi-Fi, Guests, Printing...)" style="margin-bottom:16px;width:100%">
+
+                <div class="accordion-wrap" id="supportFaqAccordion">
+                  <div class="accordion-item open">
+                    <button class="accordion-trigger">
+                      <span>How do I connect to DESKORA Gigabit Wi-Fi?</span>
+                      <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel">
+                      <p>Select the network <strong>Atelier_Members_5G</strong> and use your member keycard pass:
+                        <code>DeepWork@2026</code>. We offer 500Mbps symmetrical fiber with zero throttled bandwidth.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <button class="accordion-trigger">
+                      <span>Can I bring a guest or client for meetings?</span>
+                      <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel">
+                      <p>Dedicated Desk and Private Studio members have 4 complimentary guest day passes per month. For
+                        discussions, please reserve a Discussion Pod to preserve the Quiet Study zone acoustics.</p>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <button class="accordion-trigger">
+                      <span>How do I cancel or reschedule my desk booking?</span>
+                      <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel">
+                      <p>Navigate to <strong>My Reservations</strong> and click Reschedule or Cancel up to 1 hour before
+                        your scheduled session. Your quota hours are instantly returned to your balance.</p>
+                    </div>
+                  </div>
+
+                  <div class="accordion-item">
+                    <button class="accordion-trigger">
+                      <span>How do I configure wireless network printing?</span>
+                      <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-panel">
+                      <p>Our HP LaserJet Enterprise printer is available on AirPrint and Windows IPP at
+                        <code>192.168.10.50</code>. Tap your RFID keycard on the printer panel to release your print
+                        jobs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Support Enquiry Form -->
+            <div>
+              <div class="dash-card">
+                <h3 class="dash-card-title" style="margin-bottom:14px">Submit a Support Enquiry</h3>
+                <form id="supportEnquiryForm">
+                  <div class="dash-form-group">
+                    <label class="dash-label" for="enqCategory">Issue Category</label>
+                    <select id="enqCategory" class="dash-select">
+                      <option value="Wi-Fi & Tech">Wi-Fi, Hardware &amp; Displays</option>
+                      <option value="Keycard & Access">RFID Keycard &amp; Turnstile</option>
+                      <option value="Billing & Invoices">Billing, Tax Invoices &amp; Plan</option>
+                      <option value="Desk Amenities">Desk Amenities &amp; Cleanliness</option>
+                      <option value="Artisan Café">Artisan Café &amp; Catering</option>
+                    </select>
+                  </div>
+                  <div class="dash-form-group">
+                    <label class="dash-label" for="enqSubject">Subject Summary</label>
+                    <input type="text" id="enqSubject" class="dash-input"
+                      placeholder="e.g. Dual 4K display cable adapter needed" required>
+                  </div>
+                  <div class="dash-form-group">
+                    <label class="dash-label" for="enqPriority">Priority</label>
+                    <select id="enqPriority" class="dash-select">
+                      <option value="Normal">Normal — Response within 2 hours</option>
+                      <option value="High">High Priority — Response within 30 mins</option>
+                      <option value="Urgent">Urgent Floor Assistance</option>
+                    </select>
+                  </div>
+                  <div class="dash-form-group">
+                    <label class="dash-label" for="enqMessage">Detailed Message</label>
+                    <textarea id="enqMessage" class="dash-textarea" placeholder="Describe the assistance you need..."
+                      required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary" style="width:100%">Dispatch Ticket to Concierge Desk
+                    →</button>
+                </form>
+              </div>
+
+              <!-- Contact Info Card -->
+              <div class="dash-card" style="background:var(--clr-bg-subtle)">
+                <div style="font-weight:700;font-size:0.92rem;margin-bottom:6px">Atelier Concierge Hotline</div>
+                <div style="font-size:0.82rem;color:var(--clr-ink-muted);line-height:1.6">
+                  📍 Front Desk: Ext. 101 · Ground Floor<br>
+                  📞 Direct WhatsApp: +91 98765 43210<br>
+                  ✉ Concierge Email: concierge@theatelier.space
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       MODALS: CONFIRMATION, RESCHEDULE, UPGRADE
+  ══════════════════════════════════════════════ -->
+  <!-- Booking Confirmed Modal -->
+  <div class="dash-modal-backdrop" id="bookingConfirmedModal">
+    <div class="dash-modal-box">
+      <button class="dash-modal-close" onclick="closeModal('bookingConfirmedModal')">✕</button>
+      <div style="text-align:center;margin-bottom:20px">
+        <div style="font-size:2.4rem;margin-bottom:8px">🎉</div>
+        <h3 style="font-family:var(--ff-serif);font-size:1.8rem;margin:0">Reservation Confirmed!</h3>
+        <p style="font-size:0.88rem;color:var(--clr-ink-muted);margin:4px 0 0">Your desk has been locked in and synced
+          to your member RFID pass.</p>
+      </div>
+      <div id="confirmedDetailsBox"
+        style="background:var(--clr-bg-subtle);padding:18px;border-radius:var(--r-md);margin-bottom:20px;display:flex;flex-direction:column;gap:8px">
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-primary" style="flex:1"
+          onclick="closeModal('bookingConfirmedModal');navigateToSection('reservations')">View My Reservations</button>
+        <button class="btn btn-secondary" style="flex:1" onclick="closeModal('bookingConfirmedModal')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reschedule Modal -->
+  <div class="dash-modal-backdrop" id="rescheduleModal">
+    <div class="dash-modal-box">
+      <button class="dash-modal-close" onclick="closeModal('rescheduleModal')">✕</button>
+      <h3 style="font-family:var(--ff-serif);font-size:1.5rem;margin:0 0 10px">Reschedule Reservation</h3>
+      <p style="font-size:0.85rem;color:var(--clr-ink-muted);margin:0 0 18px" id="rescheduleTargetText"></p>
+      <form id="rescheduleForm">
+        <input type="hidden" id="rescheduleBookingId">
+        <div class="dash-form-group">
+          <label class="dash-label" for="rescheduleNewDate">New Preferred Date</label>
+          <input type="date" id="rescheduleNewDate" class="dash-input" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="rescheduleNewSlot">New Time Slot</label>
+          <select id="rescheduleNewSlot" class="dash-select">
+            <option value="08:00 – 11:00 AM">Morning Session (08:00 – 11:00 AM)</option>
+            <option value="11:30 AM – 02:30 PM">Midday Focus (11:30 AM – 02:30 PM)</option>
+            <option value="03:00 – 06:00 PM">Afternoon Peak (03:00 – 06:00 PM)</option>
+            <option value="06:30 – 09:30 PM">Evening Study (06:30 – 09:30 PM)</option>
+          </select>
+        </div>
+        <div class="flex gap-2" style="margin-top:20px">
+          <button type="submit" class="btn btn-primary" style="flex:1">Confirm Reschedule →</button>
+          <button type="button" class="btn btn-secondary" onclick="closeModal('rescheduleModal')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Upgrade Modal -->
+  <div class="dash-modal-backdrop" id="upgradeModal">
+    <div class="dash-modal-box">
+      <button class="dash-modal-close" onclick="closeModal('upgradeModal')">✕</button>
+      <h3 style="font-family:var(--ff-serif);font-size:1.5rem;margin:0 0 8px">Change Membership Plan</h3>
+      <p style="font-size:0.85rem;color:var(--clr-ink-muted);margin:0 0 18px">Select an upgraded tier to unlock private
+        meeting suites or flex roaming.</p>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
+        <label
+          style="border:1px solid var(--clr-border);padding:14px;border-radius:var(--r-sm);display:flex;justify-content:space-between;align-items:center;cursor:pointer">
+          <div>
+            <div style="font-weight:700">Flex Roaming Tier</div>
+            <div style="font-size:0.75rem;color:var(--clr-ink-muted)">Hot desk anywhere in café, 20 hrs/mo</div>
+          </div>
+          <div style="text-align:right">
+            <strong>₹890/mo</strong><br>
+            <input type="radio" name="planUpgrade" value="Flex Roaming Tier">
+          </div>
+        </label>
+        <label
+          style="border:2px solid var(--clr-ink);padding:14px;border-radius:var(--r-sm);display:flex;justify-content:space-between;align-items:center;cursor:pointer;background:var(--clr-bg-subtle)">
+          <div>
+            <div style="font-weight:700">Dedicated Desk Tier (Current)</div>
+            <div style="font-size:0.75rem;color:var(--clr-ink-muted)">Fixed desk, lockable pedestal, 40 hrs/mo</div>
+          </div>
+          <div style="text-align:right">
+            <strong>₹2,499/mo</strong><br>
+            <input type="radio" name="planUpgrade" value="Dedicated Desk Tier" checked>
+          </div>
+        </label>
+        <label
+          style="border:1px solid var(--clr-border);padding:14px;border-radius:var(--r-sm);display:flex;justify-content:space-between;align-items:center;cursor:pointer">
+          <div>
+            <div style="font-weight:700">Private Studio Suite</div>
+            <div style="font-size:0.75rem;color:var(--clr-ink-muted)">Acoustic glass enclosed pod, 100 hrs/mo</div>
+          </div>
+          <div style="text-align:right">
+            <strong>₹6,499/mo</strong><br>
+            <input type="radio" name="planUpgrade" value="Private Studio Suite">
+          </div>
+        </label>
+      </div>
+      <button class="btn btn-primary" style="width:100%" onclick="confirmPlanChange()">Update Membership Tier →</button>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/dashboard.js"></script>
+  <script>
+    /* ── User Dashboard Page Specific Interactive Logic ── */
+    let selectedDesk = null;
+
+    function renderUserDashboard() {
+      const profile = AtelierStore.get('user_profile', DEFAULT_PROFILE);
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      const inventory = AtelierStore.get('inventory', DEFAULT_INVENTORY);
+      const passes = AtelierStore.get('passes', DEFAULT_PASSES);
+      const payments = AtelierStore.get('payments', DEFAULT_PAYMENTS);
+
+      // 1. Profile bindings
+      document.getElementById('dashWelcomeTitle').textContent = `Welcome Back, ${profile.name.split(' ')[0]}`;
+      document.getElementById('dashWelcomeSub').textContent = `${profile.role} · Studio A · Koramangala`;
+      document.getElementById('dashSidebarName').textContent = profile.name;
+      const initials = profile.name.split(' ').map(p => p[0]).join('').substring(0, 2);
+      document.getElementById('dashSidebarAvatar').textContent = initials;
+      document.getElementById('dashHeaderAvatarText').textContent = initials;
+      document.getElementById('popoverUserName').textContent = profile.name;
+      document.getElementById('popoverUserEmail').textContent = profile.email;
+      document.getElementById('kpiPlanName').textContent = profile.plan;
+      document.getElementById('kpiHoursVal').innerHTML = `${profile.podHoursRemaining}.0 <span style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">/ ${profile.podHoursTotal} Hrs</span>`;
+
+      // 2. Counts
+      const myBookings = bookings.filter(b => b.member === profile.name || b.email === profile.email);
+      const upcoming = myBookings.filter(b => b.status === 'Confirmed' || b.status === 'Checked In');
+      document.getElementById('kpiUpcomingVal').innerHTML = `${upcoming.length} <span style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">Bookings</span>`;
+      document.getElementById('navUpcomingBadge').textContent = upcoming.length;
+      document.getElementById('kpiTotalBookingsVal').innerHTML = `${myBookings.length} <span style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">Sessions</span>`;
+      const activePasses = passes.filter(p => p.status === 'Active');
+      document.getElementById('kpiPassesVal').innerHTML = `${activePasses.length} <span style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">Passes</span>`;
+
+      // 3. Render Upcoming mini list in Overview
+      const upcomingContainer = document.getElementById('overviewUpcomingList');
+      if (upcoming.length === 0) {
+        upcomingContainer.innerHTML = `<p style="font-size:0.85rem;color:var(--clr-ink-muted);padding:10px 0">No upcoming reservations scheduled. Book a desk to get started.</p>`;
+      } else {
+        upcomingContainer.innerHTML = upcoming.map(b => `
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid var(--clr-border);border-radius:var(--r-sm);background:var(--clr-bg-card)">
+            <div>
+              <div style="font-weight:700;font-size:0.9rem">${b.space}</div>
+              <div style="font-size:0.75rem;color:var(--clr-ink-muted)">${b.date} · ${b.time}</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="badge ${b.status === 'Checked In' ? 'badge-confirmed' : 'badge-active'}">${b.status}</span>
+              <button class="btn-action" onclick="openRescheduleModal('${b.id}')">Reschedule</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // 4. Render Desks in Booking Section
+      renderDesks(inventory);
+
+      // 5. Render Reservations Table
+      renderReservationsTable(myBookings);
+
+      // 6. Render Day Passes Table
+      renderDayPassesTable(passes);
+
+      // 7. Render Payments Table
+      renderPaymentsTable(payments);
+    }
+
+    function renderDesks(inventory, filterZone = 'all') {
+      const container = document.getElementById('userDesksContainer');
+      const filtered = filterZone === 'all' ? inventory : inventory.filter(d => d.zone === filterZone);
+
+      container.innerHTML = filtered.map(d => {
+        const isOccupied = d.status === 'Occupied';
+        const isSelected = selectedDesk && selectedDesk.id === d.id;
+        return `
+          <div class="desk-card-item ${isOccupied ? 'occupied' : ''} ${isSelected ? 'selected' : ''}" onclick="selectDesk('${d.id}')">
+            <div class="desk-card-top">
+              <span class="desk-id">${d.id}</span>
+              <span class="badge ${isOccupied ? 'badge-occupied' : 'badge-available'}">${d.status}</span>
+            </div>
+            <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px">${d.name}</div>
+            <div class="desk-features">
+              <span>${d.amenities}</span>
+            </div>
+            <div class="desk-rate">₹${d.rate} / hr</div>
+          </div>
+        `;
+      }).join('');
+
+      if (!selectedDesk && filtered.length > 0) {
+        const firstAvailable = filtered.find(d => d.status === 'Available') || filtered[0];
+        selectDesk(firstAvailable.id);
+      }
+    }
+
+    function selectDesk(deskId) {
+      const inventory = AtelierStore.get('inventory', DEFAULT_INVENTORY);
+      const desk = inventory.find(d => d.id === deskId);
+      if (!desk || desk.status === 'Occupied') {
+        showToast('Desk is currently occupied. Please pick another spot.', '⚠');
+        return;
+      }
+      selectedDesk = desk;
+      document.querySelectorAll('.desk-card-item').forEach(el => {
+        el.classList.toggle('selected', el.querySelector('.desk-id')?.textContent === deskId);
+      });
+      updateBookingCalculations();
+    }
+
+    function updateBookingCalculations() {
+      if (!selectedDesk) return;
+      const hours = parseInt(document.getElementById('bookingHoursSelect').value) || 3;
+      const slot = document.getElementById('bookingSlotSelect').value;
+      const dateVal = document.getElementById('bookingDateInput').value;
+
+      document.getElementById('summaryDeskName').textContent = selectedDesk.name;
+      document.getElementById('summaryDeskId').textContent = selectedDesk.id;
+      document.getElementById('summaryRateDisplay').textContent = `₹${selectedDesk.rate} / hr`;
+      document.getElementById('summaryDurationDisplay').textContent = `${hours} Hours`;
+      document.getElementById('summarySlotDisplay').textContent = slot;
+      document.getElementById('summaryDateDisplay').textContent = dateVal || 'Tomorrow';
+
+      const base = selectedDesk.rate * hours;
+      const discount = Math.round(base * 0.15);
+      const finalPrice = base - discount;
+
+      document.getElementById('summaryBasePrice').textContent = `₹${base.toFixed(2)}`;
+      document.getElementById('summaryDiscount').textContent = `- ₹${discount.toFixed(2)}`;
+      document.getElementById('summaryFinalPrice').textContent = `₹${finalPrice.toFixed(2)}`;
+    }
+
+    function renderReservationsTable(bookingsList) {
+      const tbody = document.getElementById('reservationsTableBody');
+      if (!bookingsList.length) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;padding:24px;color:var(--clr-ink-muted)">No matching reservations found.</td></tr>`;
+        return;
+      }
+      tbody.innerHTML = bookingsList.map(b => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${b.id}</strong></td>
+          <td>${b.space}</td>
+          <td>${b.date}<br><span style="font-size:0.75rem;color:var(--clr-ink-muted)">${b.time}</span></td>
+          <td>${b.hours} Hours</td>
+          <td><strong>${b.price}</strong></td>
+          <td><span class="badge ${b.status === 'Confirmed' || b.status === 'Checked In' ? 'badge-confirmed' : (b.status === 'Completed' ? 'badge-active' : 'badge-cancelled')}">${b.status}</span></td>
+          <td>
+            <div class="action-btn-group">
+              ${b.status === 'Confirmed' ? `
+                <button class="btn-action" onclick="openRescheduleModal('${b.id}')">Reschedule</button>
+                <button class="btn-action btn-danger" onclick="cancelBooking('${b.id}')">Cancel</button>
+              ` : ''}
+              <button class="btn-action" onclick="openReceiptModal({id:'${b.id}', space:'${b.space}', date:'${b.date}', price:'${b.price}'})">Receipt</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderDayPassesTable(passesList) {
+      const tbody = document.getElementById('dayPassesTableBody');
+      tbody.innerHTML = passesList.map(p => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${p.id}</strong></td>
+          <td><strong>${p.title}</strong></td>
+          <td>${p.purchased}</td>
+          <td>${p.validUntil}</td>
+          <td>${p.remaining} / ${p.totalUses} uses remaining</td>
+          <td><span class="badge ${p.status === 'Active' ? 'badge-active' : 'badge-occupied'}">${p.status}</span></td>
+          <td>
+            <button class="btn-action" onclick="openReceiptModal({id:'${p.id}', desc:'${p.title}', purchased:'${p.purchased}', amount:'₹1,299.00'})">Receipt</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderPaymentsTable(paymentsList) {
+      const tbody = document.getElementById('userPaymentsTableBody');
+      tbody.innerHTML = paymentsList.map(py => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${py.id}</strong></td>
+          <td>${py.date}</td>
+          <td>${py.desc}</td>
+          <td>${py.method}</td>
+          <td><strong>${py.amount}</strong></td>
+          <td><span class="badge badge-paid">${py.status}</span></td>
+          <td>
+            <button class="btn-action" onclick="openReceiptModal({id:'${py.id}', desc:'${py.desc}', date:'${py.date}', method:'${py.method}', amount:'${py.amount}'})">📄 View Receipt</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function navigateToSection(sectionId) {
+      const targetLink = document.querySelector(`.dash-nav-item[data-section="${sectionId}"]`);
+      if (targetLink) targetLink.click();
+    }
+
+    function closePopovers() {
+      document.querySelectorAll('.dash-popover').forEach(p => p.classList.remove('open'));
+    }
+
+    function openWifiModal() {
+      showToast('Wi-Fi: Atelier_Members_5G · Pass: DeepWork@2026', '📶');
+    }
+
+    function demoLogout() {
+      showToast('Logged out of demo session. Redirecting...', '✓');
+      setTimeout(() => window.location.href = 'login.html', 800);
+    }
+
+    /* ── Confirm Desk Booking Action ── */
+    document.getElementById('btnConfirmBooking')?.addEventListener('click', () => {
+      if (!selectedDesk) {
+        showToast('Please select a desk first.', '⚠');
+        return;
+      }
+      const profile = AtelierStore.get('user_profile', DEFAULT_PROFILE);
+      const hours = parseInt(document.getElementById('bookingHoursSelect').value) || 3;
+      const slot = document.getElementById('bookingSlotSelect').value;
+      const dateVal = document.getElementById('bookingDateInput').value || 'Tomorrow (Oct 2, 2026)';
+      const finalPrice = document.getElementById('summaryFinalPrice').textContent;
+
+      const newId = 'ATL-' + Math.floor(1000 + Math.random() * 9000);
+      const newBooking = {
+        id: newId,
+        member: profile.name,
+        email: profile.email,
+        space: selectedDesk.name,
+        deskId: selectedDesk.id,
+        date: dateVal,
+        time: slot,
+        hours: hours,
+        price: finalPrice,
+        status: 'Confirmed',
+        upcoming: true
+      };
+
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      bookings.unshift(newBooking);
+      AtelierStore.set('bookings', bookings);
+
+      // Deduct hours if applicable
+      if (profile.podHoursRemaining >= hours) {
+        profile.podHoursRemaining -= hours;
+        AtelierStore.set('user_profile', profile);
+      }
+
+      // Show confirmation modal
+      const detailsBox = document.getElementById('confirmedDetailsBox');
+      detailsBox.innerHTML = `
+        <div><strong>Booking ID:</strong> <span style="font-family:var(--ff-mono)">${newId}</span></div>
+        <div><strong>Workspace:</strong> ${selectedDesk.name} (${selectedDesk.id})</div>
+        <div><strong>Date & Time:</strong> ${dateVal} · ${slot} (${hours} Hours)</div>
+        <div><strong>Total Logged:</strong> ${finalPrice}</div>
+      `;
+      document.getElementById('bookingConfirmedModal').classList.add('open');
+      showToast(`Booking ${newId} confirmed!`, '🎉');
+      renderUserDashboard();
+    });
+
+    /* ── Cancellation Action ── */
+    function cancelBooking(bookingId) {
+      if (!confirm(`Are you sure you wish to cancel reservation ${bookingId}? Your hours will be refunded.`)) return;
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      const booking = bookings.find(b => b.id === bookingId);
+      if (booking) {
+        booking.status = 'Cancelled';
+        booking.upcoming = false;
+        AtelierStore.set('bookings', bookings);
+
+        // Refund hours
+        const profile = AtelierStore.get('user_profile', DEFAULT_PROFILE);
+        profile.podHoursRemaining = Math.min(profile.podHoursTotal, profile.podHoursRemaining + booking.hours);
+        AtelierStore.set('user_profile', profile);
+
+        showToast(`Reservation ${bookingId} cancelled. Hours refunded.`, '✓');
+        renderUserDashboard();
+      }
+    }
+
+    /* ── Reschedule Action ── */
+    function openRescheduleModal(bookingId) {
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      const booking = bookings.find(b => b.id === bookingId);
+      if (!booking) return;
+
+      document.getElementById('rescheduleBookingId').value = bookingId;
+      document.getElementById('rescheduleTargetText').textContent = `Currently scheduled for: ${booking.space} on ${booking.date} (${booking.time})`;
+      document.getElementById('rescheduleModal').classList.add('open');
+    }
+
+    document.getElementById('rescheduleForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const bookingId = document.getElementById('rescheduleBookingId').value;
+      const newDate = document.getElementById('rescheduleNewDate').value;
+      const newSlot = document.getElementById('rescheduleNewSlot').value;
+
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      const booking = bookings.find(b => b.id === bookingId);
+      if (booking) {
+        booking.date = newDate;
+        booking.time = newSlot;
+        AtelierStore.set('bookings', bookings);
+        closeModal('rescheduleModal');
+        showToast(`Booking ${bookingId} rescheduled to ${newDate}!`, '📅');
+        renderUserDashboard();
+      }
+    });
+
+    /* ── Day Pass Purchase ── */
+    function buyDemoPass(title, price, days) {
+      if (!confirm(`Confirm purchase of ${title} for ${price}?`)) return;
+      const passId = 'PASS-' + Math.floor(100 + Math.random() * 900);
+      const passes = AtelierStore.get('passes', DEFAULT_PASSES);
+      const payments = AtelierStore.get('payments', DEFAULT_PAYMENTS);
+
+      passes.unshift({
+        id: passId,
+        title: title,
+        purchased: 'Today (Demo)',
+        validUntil: '90 Days from today',
+        totalUses: days,
+        remaining: days,
+        status: 'Active'
+      });
+      AtelierStore.set('passes', passes);
+
+      payments.unshift({
+        id: 'TXN-' + Math.floor(10000 + Math.random() * 90000),
+        date: 'Today',
+        desc: title,
+        method: 'Visa •••• 4242',
+        amount: price,
+        status: 'Paid'
+      });
+      AtelierStore.set('payments', payments);
+
+      showToast(`Purchased ${title}! Added to active passes.`, '🎉');
+      renderUserDashboard();
+    }
+
+    /* ── Upgrade Plan ── */
+    function openUpgradeModal() {
+      document.getElementById('upgradeModal').classList.add('open');
+    }
+
+    function confirmPlanChange() {
+      const selected = document.querySelector('input[name="planUpgrade"]:checked')?.value || 'Dedicated Desk Tier';
+      const profile = AtelierStore.get('user_profile', DEFAULT_PROFILE);
+      profile.plan = selected;
+      profile.role = selected.includes('Studio') ? 'Private Studio Member' : (selected.includes('Flex') ? 'Flex Member' : 'Dedicated Desk Member');
+      AtelierStore.set('user_profile', profile);
+      closeModal('upgradeModal');
+      showToast(`Membership successfully updated to ${selected}!`, '✓');
+      renderUserDashboard();
+    }
+
+    /* ── Profile & Security Forms ── */
+    document.getElementById('profileInfoForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const profile = AtelierStore.get('user_profile', DEFAULT_PROFILE);
+      profile.name = document.getElementById('profName').value;
+      profile.email = document.getElementById('profEmail').value;
+      profile.phone = document.getElementById('profPhone').value;
+      profile.bio = document.getElementById('profBio').value;
+      AtelierStore.set('user_profile', profile);
+      showToast('Profile information updated successfully.', '✓');
+      renderUserDashboard();
+    });
+
+    document.getElementById('profileSecurityForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const newPass = document.getElementById('secNewPass').value;
+      const confirmPass = document.getElementById('secConfirmPass').value;
+      if (newPass !== confirmPass) {
+        showToast('New passwords do not match. Please verify.', '⚠');
+        return;
+      }
+      showToast('Password updated successfully for next login.', '🔒');
+      document.getElementById('profileSecurityForm').reset();
+    });
+
+    function togglePassField(fieldId, btn) {
+      const input = document.getElementById(fieldId);
+      if (!input) return;
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.textContent = '🔒';
+      } else {
+        input.type = 'password';
+        btn.textContent = '👁';
+      }
+    }
+
+    /* ── Support Enquiry Form ── */
+    document.getElementById('supportEnquiryForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const profile = AtelierStore.get('user_profile', DEFAULT_PROFILE);
+      const cat = document.getElementById('enqCategory').value;
+      const sub = document.getElementById('enqSubject').value;
+      const prio = document.getElementById('enqPriority').value;
+      const msg = document.getElementById('enqMessage').value;
+
+      const tktId = 'TKT-' + Math.floor(1000 + Math.random() * 9000);
+      const enquiries = AtelierStore.get('enquiries', DEFAULT_ENQUIRIES);
+      enquiries.unshift({
+        id: tktId,
+        name: profile.name,
+        email: profile.email,
+        category: cat,
+        subject: sub,
+        priority: prio,
+        date: 'Just now',
+        status: 'Open',
+        message: msg
+      });
+      AtelierStore.set('enquiries', enquiries);
+
+      showToast(`Support Ticket #${tktId} dispatched to Concierge Desk!`, '✉');
+      document.getElementById('supportEnquiryForm').reset();
+    });
+
+    /* ── Event Listeners for Dynamic Booking Form ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set today as min date
+      const todayStr = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('bookingDateInput');
+      if (dateInput) {
+        dateInput.value = todayStr;
+        dateInput.min = todayStr;
+        dateInput.addEventListener('change', updateBookingCalculations);
+      }
+      document.getElementById('bookingSlotSelect')?.addEventListener('change', updateBookingCalculations);
+      document.getElementById('bookingHoursSelect')?.addEventListener('change', updateBookingCalculations);
+
+      // Zone category tabs
+      document.querySelectorAll('.workspace-cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.workspace-cat-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const inventory = AtelierStore.get('inventory', DEFAULT_INVENTORY);
+          renderDesks(inventory, btn.dataset.zone);
+        });
+      });
+
+      // Reservations table filter
+      document.querySelectorAll('.res-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.res-filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          const profile = AtelierStore.get('user_profile', DEFAULT_PROFILE);
+          const all = AtelierStore.get('bookings', DEFAULT_BOOKINGS).filter(b => b.member === profile.name || b.email === profile.email);
+          if (filter === 'all') renderReservationsTable(all);
+          else if (filter === 'upcoming') renderReservationsTable(all.filter(b => b.status === 'Confirmed' || b.status === 'Checked In'));
+          else if (filter === 'completed') renderReservationsTable(all.filter(b => b.status === 'Completed'));
+          else if (filter === 'cancelled') renderReservationsTable(all.filter(b => b.status === 'Cancelled'));
+        });
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('#supportFaqAccordion .accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.closest('.accordion-item');
+          const wasOpen = item.classList.contains('open');
+          document.querySelectorAll('#supportFaqAccordion .accordion-item').forEach(i => i.classList.remove('open'));
+          if (!wasOpen) item.classList.add('open');
+        });
+      });
+
+      // Initialize all data
+      renderUserDashboard();
+    });
+  </script>
+</body>
+
+</html>

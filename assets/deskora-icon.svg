@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <!-- DESKORA Architectural Monogram Icon (currentColor for dynamic theme adaptation) -->
+  <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <!-- D Spine -->
+    <path d="M30 16V64" stroke-width="5" />
+    <!-- D Arch -->
+    <path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30" stroke-width="5" />
+    <!-- Desk Horizontal Surface -->
+    <path d="M16 45H74" stroke-width="5" />
+    <!-- Left Leg -->
+    <path d="M22 45V64" stroke-width="4.5" />
+    <!-- Right Leg -->
+    <path d="M68 45V64" stroke-width="4.5" />
+  </g>
+</svg>

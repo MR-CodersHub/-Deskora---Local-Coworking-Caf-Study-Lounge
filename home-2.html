@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DESKORA — a premium coworking space and study café for students, founders, and remote teams. Discover niche-specific workspace options tailored to your craft.">
+  <title>Home 2 — Niche Spaces · DESKORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/deskora-favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <style>
+    /* Home 2 – Specific Styles */
+    .hero-home2 {
+      position: relative;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--clr-bg);
+      border-bottom: 1px solid var(--clr-border);
+    }
+    @media (min-width: 993px) {
+      .hero-home2 {
+        min-height: var(--hero-unified-height);
+        height: auto;
+        padding: var(--sp-8) 0 !important;
+      }
+    }
+    [data-theme="dark"] .hero-home2 {
+      background: #111110;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-stats-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-4);
+      margin-top: var(--sp-6);
+      padding-top: var(--sp-4);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .hero-stat-item span.stat-val {
+      display: block;
+      font-family: var(--ff-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .hero-stat-item span.stat-lbl {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+    }
+    .persona-card {
+      position: relative;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      height: 440px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--sp-8);
+      cursor: default;
+      transition: all var(--t-base) var(--ease);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .persona-card::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to top, rgba(10,10,10,0.96) 0%, rgba(10,10,10,0.72) 50%, rgba(10,10,10,0.15) 100%);
+      z-index:1;
+    }
+    .persona-card img {
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;
+      transition: transform var(--t-smooth) var(--ease);
+    }
+    .persona-card:hover {
+      transform:translateY(-5px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.3);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .persona-card:hover img { transform:scale(1.05); }
+    .persona-content {
+      position:relative;z-index:2;color:#fff;
+      width: 100%;
+    }
+    .persona-tag {
+      display:inline-block;
+      font-family:var(--ff-mono);
+      font-size:0.62rem;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.16);
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,.25);
+      padding:0.2rem 0.65rem;
+      border-radius:var(--r-full);
+      margin-bottom:var(--sp-3);
+      color:#fff;
+    }
+    .persona-title {
+      font-family:var(--ff-serif);
+      font-size:1.6rem;
+      font-weight:600;
+      letter-spacing:-0.02em;
+      margin-bottom:var(--sp-2);
+      color:#ffffff !important;
+      line-height: 1.2;
+    }
+    .persona-text {
+      font-size:var(--fs-xs);
+      color:rgba(255,255,255,.8);
+      line-height:1.55;
+      margin-bottom:var(--sp-5);
+    }
+    .marquee-wrap {
+      overflow:hidden;
+      background:var(--clr-bg-subtle);
+      padding:1.1rem 0;
+      border-top:1px solid var(--clr-border);
+      border-bottom:1px solid var(--clr-border);
+      transition: background var(--t-base) var(--ease), border-color var(--t-base) var(--ease);
+    }
+    .marquee-track {
+      display:flex;
+      gap:var(--sp-12);
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover { animation-play-state:paused; }
+    @keyframes marquee {
+      from { transform:translateX(0); }
+      to { transform:translateX(-50%); }
+    }
+    .marquee-item {
+      font-family:var(--ff-serif);
+      font-size:1.08rem;
+      font-style:italic;
+      color:var(--clr-ink-soft);
+      white-space:nowrap;
+      display:flex;align-items:center;gap:var(--sp-4);
+      letter-spacing: 0.02em;
+      transition: color var(--t-base) var(--ease);
+    }
+    .marquee-dot {
+      width:5px;height:5px;border-radius:50%;
+      background:var(--clr-border-med);flex-shrink:0;
+    }
+    [data-theme="dark"] .marquee-wrap {
+      background: #141412;
+      border-top-color: rgba(255, 255, 255, 0.08);
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="dark"] .marquee-item {
+      color: rgba(255, 255, 255, 0.75);
+    }
+    [data-theme="dark"] .marquee-dot {
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .niche-table-wrap {
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--r-xl);
+      overflow:hidden;
+      margin-top:var(--sp-10);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+    .niche-table {
+      width:100%;
+      border-collapse:collapse;
+    }
+    .niche-table th {
+      text-align:left;
+      padding:var(--sp-5) var(--sp-6);
+      font-family:var(--ff-mono);
+      font-size:0.65rem;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.5);
+      border-bottom:1px solid rgba(255,255,255,.1);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .niche-table td {
+      padding:var(--sp-5) var(--sp-6);
+      font-size:var(--fs-sm);
+      color:rgba(255,255,255,.8);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      vertical-align:middle;
+    }
+    .niche-table tr:last-child td { border-bottom:none; }
+    .niche-table tr:hover td { background:rgba(255,255,255,.05); }
+    .niche-table .space-name {
+      font-family:var(--ff-serif);
+      font-size:1.15rem;
+      font-weight: 600;
+      color:#fff;
+    }
+    .niche-badge {
+      display:inline-block;
+      font-family:var(--ff-mono);
+      font-size:0.65rem;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      padding:0.25rem 0.65rem;
+      border-radius:var(--r-full);
+      font-weight: 600;
+    }
+    .badge-green {
+      background:rgba(16,185,129,.18);
+      color:#10b981;
+      border:1px solid rgba(16,185,129,.35);
+    }
+    .badge-amber {
+      background:rgba(245,158,11,.18);
+      color:#f59e0b;
+      border:1px solid rgba(245,158,11,.35);
+    }
+    /* Modern Day Schedule Cards */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-10);
+    }
+    .schedule-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--t-base) var(--ease);
+      position: relative;
+    }
+    .schedule-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--clr-ink);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+    }
+    .schedule-img {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      background: var(--clr-bg-subtle);
+    }
+    .schedule-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--t-smooth) var(--ease);
+    }
+    .schedule-card:hover .schedule-img img {
+      transform: scale(1.08);
+    }
+    .schedule-time-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(14, 14, 14, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--r-full);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .schedule-step-num {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 6px;
+      border-radius: var(--r-full);
+      background: rgba(14, 14, 14, 0.84);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    .schedule-body {
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .schedule-title {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--clr-ink);
+      margin-bottom: 8px;
+    }
+    .schedule-text {
+      font-size: var(--fs-xs);
+      color: var(--clr-ink-muted);
+      line-height: 1.6;
+      margin-bottom: var(--sp-5);
+      flex: 1;
+    }
+    .schedule-spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-top: var(--sp-3);
+      border-top: 1px solid var(--clr-border);
+      margin-bottom: var(--sp-4);
+    }
+    .schedule-spec-item {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      color: var(--clr-ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .schedule-spec-item::before {
+      content: '✦';
+      font-size: 0.55rem;
+      color: var(--clr-ink);
+    }
+    .schedule-tag {
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--clr-ink);
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--r-full);
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: auto;
+      transition: all var(--t-fast) var(--ease);
+    }
+    .schedule-card:hover .schedule-tag {
+      border-color: var(--clr-ink);
+    }
+    [data-theme="dark"] .schedule-tag {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: #f2f2ee;
+    }
+    [data-theme="dark"] .schedule-card:hover .schedule-tag {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* ══════ UNIQUE SECTION 1: ACOUSTIC FOCUS SPECTRUM ══════ */
+    .acoustic-section {
+      background: #111110;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--r-xl);
+      padding: var(--sp-16) var(--sp-12);
+      position: relative;
+      overflow: hidden;
+      margin: var(--sp-16) 0;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+    }
+    [data-theme="dark"] .acoustic-section {
+      background: #141412;
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.55);
+    }
+    .acoustic-section .eyebrow {
+      background: rgba(255, 255, 255, 0.12) !important;
+      color: #ffffff !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+      box-shadow: none;
+    }
+    .acoustic-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .acoustic-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--sp-6);
+      margin-bottom: var(--sp-10);
+      flex-wrap: wrap;
+    }
+    .acoustic-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-5);
+    }
+    .acoustic-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--r-lg);
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      transition: all var(--t-base) var(--ease);
+    }
+    .acoustic-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-4px);
+    }
+    .acoustic-zone-pill {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: var(--sp-3);
+    }
+    .acoustic-title {
+      font-family: var(--ff-serif);
+      font-size: 1.35rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: var(--sp-2);
+    }
+    .acoustic-meter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px 12px;
+      border-radius: var(--r-full);
+      margin: var(--sp-4) 0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .acoustic-meter-db {
+      font-family: var(--ff-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #86efac;
+    }
+    .acoustic-bars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .acoustic-bar {
+      width: 3px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .acoustic-card:nth-child(1) .acoustic-bar:nth-child(1) { height: 6px; background: #86efac; }
+    .acoustic-card:nth-child(1) .acoustic-bar:nth-child(2) { height: 10px; background: #86efac; }
+    .acoustic-card:nth-child(1) .acoustic-bar:nth-child(3) { height: 4px; }
+    .acoustic-card:nth-child(1) .acoustic-bar:nth-child(4) { height: 8px; }
+    .acoustic-card:nth-child(2) .acoustic-bar:nth-child(1) { height: 4px; background: #86efac; }
+    .acoustic-card:nth-child(2) .acoustic-bar:nth-child(2) { height: 6px; background: #86efac; }
+    .acoustic-card:nth-child(2) .acoustic-bar:nth-child(3) { height: 4px; }
+    .acoustic-card:nth-child(2) .acoustic-bar:nth-child(4) { height: 4px; }
+    .acoustic-card:nth-child(3) .acoustic-bar:nth-child(1) { height: 12px; background: #fde047; }
+    .acoustic-card:nth-child(3) .acoustic-bar:nth-child(2) { height: 16px; background: #fde047; }
+    .acoustic-card:nth-child(3) .acoustic-bar:nth-child(3) { height: 8px; background: #fde047; }
+    .acoustic-card:nth-child(3) .acoustic-bar:nth-child(4) { height: 14px; background: #fde047; }
+    .acoustic-card:nth-child(4) .acoustic-bar:nth-child(1) { height: 8px; background: #60a5fa; }
+    .acoustic-card:nth-child(4) .acoustic-bar:nth-child(2) { height: 14px; background: #60a5fa; }
+    .acoustic-card:nth-child(4) .acoustic-bar:nth-child(3) { height: 10px; background: #60a5fa; }
+    .acoustic-card:nth-child(4) .acoustic-bar:nth-child(4) { height: 6px; background: #60a5fa; }
+    .acoustic-desc {
+      font-size: var(--fs-xs);
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .acoustic-feature {
+      margin-top: var(--sp-4);
+      padding-top: var(--sp-3);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ══════ UNIQUE SECTION 2: WEEKLY COMMUNITY RITUALS ══════ */
+    .rituals-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-10);
+    }
+    .ritual-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all var(--t-base) var(--ease);
+    }
+    .ritual-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--clr-ink);
+      box-shadow: var(--sh-md);
+    }
+    .ritual-day-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #111110;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--r-full);
+      margin-bottom: var(--sp-4);
+      align-self: flex-start;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    }
+    [data-theme="dark"] .ritual-day-badge {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+    .ritual-time {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      color: var(--clr-ink-muted);
+      margin-bottom: 4px;
+    }
+    .ritual-title {
+      font-family: var(--ff-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-2);
+      line-height: 1.25;
+    }
+    .ritual-desc {
+      font-size: var(--fs-xs);
+      color: var(--clr-ink-muted);
+      line-height: 1.6;
+      margin-bottom: var(--sp-5);
+      flex: 1;
+    }
+    .ritual-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--clr-border);
+      gap: var(--sp-3);
+    }
+    .avatar-stack {
+      display: flex;
+      align-items: center;
+    }
+    .avatar-stack img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--clr-bg-card);
+      margin-left: -8px;
+      object-fit: cover;
+    }
+    .avatar-stack img:first-child {
+      margin-left: 0;
+    }
+    .avatar-count {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      color: var(--clr-ink-muted);
+      margin-left: 6px;
+    }
+    .btn-rsvp {
+      background: transparent;
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-full);
+      padding: 0.3rem 0.85rem;
+      font-family: var(--ff-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--clr-ink);
+      transition: all var(--t-base) var(--ease);
+    }
+    .btn-rsvp:hover {
+      background: var(--clr-ink);
+      color: var(--clr-bg);
+      border-color: var(--clr-ink);
+    }
+    [data-theme="dark"] .btn-rsvp {
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #f2f2ee;
+    }
+    [data-theme="dark"] .btn-rsvp:hover {
+      background: #ffffff;
+      color: #111110;
+      border-color: #ffffff;
+    }
+
+    @media (max-width: 1024px) {
+      .schedule-grid, .acoustic-grid, .rituals-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .persona-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats-band { grid-template-columns: 1fr 1fr; gap: var(--sp-6); }
+    }
+    @media (max-width: 640px) {
+      .hero-home2 {
+        min-height: auto;
+        padding-top: 3.25rem;
+        padding-bottom: 2.5rem;
+      }
+      .persona-grid { grid-template-columns: 1fr; }
+      .persona-card { height: 380px; }
+      .schedule-grid, .acoustic-grid, .rituals-grid { grid-template-columns: 1fr; }
+      .acoustic-section { padding: var(--sp-10) var(--sp-6); }
+      .hero-stats-band { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-home2 {
+        min-height: auto;
+        padding-top: 3.25rem;
+        padding-bottom: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-item"><span class="status-dot"></span>&nbsp; Open today · 7:00 AM – 11:00 PM</span>
+          <span class="top-bar-item">📍 12 Crescent Lane, Koramangala, Bengaluru</span>
+          <span class="top-bar-item">📞 +91 98765 43210</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="login.html" class="top-bar-portal-link">Member Portal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link active" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+            <li class="nav-item-dropdown" id="navDashboardDropdown">
+              <a href="user-dashboard.html" class="nav-link nav-dropdown-toggle" id="nav-dashboard" aria-haspopup="true" aria-expanded="false">
+                <span>Dashboard</span>
+                <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="nav-dropdown-menu" id="dashboardDropdownMenu" role="menu" aria-label="Dashboard options">
+                <a href="admin-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">Admin Dashboard</span>
+                    <span class="nav-dropdown-sub">Management &amp; occupancy</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">User Dashboard</span>
+                    <span class="nav-dropdown-sub">Bookings &amp; membership</span>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)" title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true" aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button (Last Position) -->
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link active">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+          <li class="mobile-nav-item-dropdown">
+            <button class="mobile-nav-link mobile-nav-dropdown-toggle" id="mobile-nav-dashboard" type="button" aria-haspopup="true" aria-expanded="false">
+              <span>Dashboard</span>
+              <svg class="mobile-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-nav-submenu" id="mobileDashboardSubmenu">
+              <a href="admin-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                    <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                    <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span>Admin Dashboard</span>
+              </a>
+              <a href="user-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <span>User Dashboard</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking style="width: 100%;">Book a Desk</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       HERO – Dark Full-Width with Background Image
+  ══════════════════════════════════════════════ -->
+  <section class="hero-home2" aria-label="Hero">
+    <div class="container">
+      <div class="hero-split">
+        <div class="hero-text-pane" data-reveal>
+          <span class="eyebrow">
+            <span class="status-dot"></span>
+            Find Your People. Find Your Space.
+          </span>
+          <h1 class="hero-display" style="margin-bottom:var(--sp-4)">
+            Built for the<br><em>Way You Work Best</em>
+          </h1>
+          <p class="lead" style="margin-bottom:var(--sp-6)">
+            Whether you're a startup founder, a student ace-ing your finals, a writer in the middle of a manuscript, or a creative director between campaigns — there's a space here with your name on it.
+          </p>
+          <div class="flex gap-4" style="flex-wrap:wrap;margin-bottom:var(--sp-6)">
+            <button class="btn btn-primary btn-lg" data-open-booking>Try a Free Day →</button>
+            <a href="memberships.html" class="btn btn-outline btn-lg">See All Plans</a>
+          </div>
+
+          <div class="hero-stats-band">
+            <div class="hero-stat-item">
+              <span class="stat-val">1 Gbps</span>
+              <span class="stat-lbl">Dual Fibre</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-val">6 Zones</span>
+              <span class="stat-lbl">Sound-Treated</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-val">7 AM – 11 PM</span>
+              <span class="stat-lbl">Open Daily</span>
+            </div>
+            <div class="hero-stat-item">
+              <span class="stat-val">Unlimited</span>
+              <span class="stat-lbl">Artisan Brews</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="home2-hero-visual-card" data-reveal data-delay="1">
+          <div class="home2-hero-img-wrap">
+            <img src="assets/hero-lounge.jpg" alt="Collaborative open-plan coworking lounge at DESKORA" loading="eager">
+            <span class="home2-hero-badge">✦ Curated Focus Zones · 6 Dynamic Spaces</span>
+          </div>
+          <div class="hero-float-card" style="bottom:16px;left:16px;">
+            <div class="float-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+              </svg>
+            </div>
+            <div>
+              <span class="float-title">Collaborative Hub</span>
+              <span class="float-sub">Quiet mezzanine &amp; lounge</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       MARQUEE TICKER
+  ══════════════════════════════════════════════ -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Freelancers<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Remote Teams<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Students & Scholars<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Startup Founders<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Writers & Creatives<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Designers & Artists<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Consultants<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Developers & Engineers<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Freelancers<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Remote Teams<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Students & Scholars<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Startup Founders<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Writers & Creatives<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Designers & Artists<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Consultants<span class="marquee-dot"></span></span>
+      <span class="marquee-item">Developers & Engineers<span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PERSONA CARDS (Overlay Grid)
+  ══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="personas-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">Who Works Here</span>
+        <h2 class="display-section" id="personas-heading">A Space Crafted<br>for <em>Your Craft</em></h2>
+      </div>
+      <div class="persona-grid">
+        <div class="persona-card" data-reveal data-delay="1">
+          <img src="assets/persona-freelancer.jpg" alt="Freelancer working at a bright desk with dual monitors">
+          <div class="persona-content">
+            <span class="persona-tag">Freelancer</span>
+            <h3 class="persona-title">The Solo Creator</h3>
+            <p class="persona-text">Dedicated hot desks, fibre internet, and the café buzz that fuels your best ideas.</p>
+            <a href="memberships.html" class="btn btn-white btn-sm">Day Passes from ₹299</a>
+          </div>
+        </div>
+        <div class="persona-card" data-reveal data-delay="2">
+          <img src="assets/persona-student.jpg" alt="Student studying with books and laptop in quiet lounge">
+          <div class="persona-content">
+            <span class="persona-tag">Student</span>
+            <h3 class="persona-title">The Focused Scholar</h3>
+            <p class="persona-text">Quiet zones, zero distraction, and affordable student day passes for exam-ready sessions.</p>
+            <a href="memberships.html" class="btn btn-white btn-sm">Student Pass ₹199</a>
+          </div>
+        </div>
+        <div class="persona-card" data-reveal data-delay="3">
+          <img src="assets/persona-team.jpg" alt="Small startup team collaborating at a round table">
+          <div class="persona-content">
+            <span class="persona-tag">Startup Team</span>
+            <h3 class="persona-title">The Growing Team</h3>
+            <p class="persona-text">Private studios for 2–12, whiteboard walls, and a community of peers to learn from.</p>
+            <a href="services.html" class="btn btn-white btn-sm">Private Studios →</a>
+          </div>
+        </div>
+        <div class="persona-card" data-reveal data-delay="1">
+          <img src="assets/persona-writer.jpg" alt="Writer with notebook at a window-side desk overlooking city">
+          <div class="persona-content">
+            <span class="persona-tag">Writer</span>
+            <h3 class="persona-title">The Wordsmith</h3>
+            <p class="persona-text">Silent reading corners, analogue-friendly ambiance, and coffee that never runs cold.</p>
+            <a href="services.html#study" class="btn btn-white btn-sm">Study Lounge →</a>
+          </div>
+        </div>
+        <div class="persona-card" data-reveal data-delay="2">
+          <img src="assets/persona-designer.jpg" alt="Graphic designer with large monitor and drawing tablet">
+          <div class="persona-content">
+            <span class="persona-tag">Designer</span>
+            <h3 class="persona-title">The Visual Thinker</h3>
+            <p class="persona-text">Wide desks, 4K displays available, and a curated aesthetic that sparks creativity.</p>
+            <a href="services.html" class="btn btn-white btn-sm">Creative Desks →</a>
+          </div>
+        </div>
+        <div class="persona-card" data-reveal data-delay="3">
+          <img src="assets/persona-podcast.jpg" alt="Podcaster recording in a soundproofed booth">
+          <div class="persona-content">
+            <span class="persona-tag">Podcaster</span>
+            <h3 class="persona-title">The Storyteller</h3>
+            <p class="persona-text">Acoustically treated recording booths with professional mics — book by the hour.</p>
+            <a href="services.html#podcast" class="btn btn-white btn-sm">Podcast Booth →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FEATURE – HORIZONTAL (Student Study Focus)
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="study-feat-heading">
+    <div class="container">
+      <div class="h-feature">
+        <div class="h-feature-img" data-reveal>
+          <img src="assets/study-feat.jpg" alt="Beautiful quiet study lounge with rows of individual desks and warm lighting">
+        </div>
+        <div class="h-feature-content" data-reveal data-delay="2">
+          <span class="eyebrow">Study Lounge Highlight</span>
+          <h2 class="display-section" id="study-feat-heading">The Quietest Desk<br>in <em>Koramangala</em></h2>
+          <p class="lead">Our dedicated Study Lounge was built for students, researchers, and anyone who needs distraction-free hours. No calls. No noise. No interruptions.</p>
+          <ul class="feature-check-list">
+            <li class="feature-check"><span class="feature-check-icon">✓</span><span>Noise-level strictly monitored — whisper policy enforced</span></li>
+            <li class="feature-check"><span class="feature-check-icon">✓</span><span>Individual power outlets and reading lamps at every seat</span></li>
+            <li class="feature-check"><span class="feature-check-icon">✓</span><span>Curated ambient music playlist — no jarring transitions</span></li>
+            <li class="feature-check"><span class="feature-check-icon">✓</span><span>Student-friendly pricing: ₹199/day, ₹1,499/month</span></li>
+            <li class="feature-check"><span class="feature-check-icon">✓</span><span>Unlimited coffee and herbal tea for lounge members</span></li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="btn btn-primary btn-lg" data-open-booking>Reserve a Seat</button>
+            <a href="memberships.html#student" class="btn btn-outline btn-lg">Student Plans</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       AVAILABILITY TABLE — Dark
+  ══════════════════════════════════════════════ -->
+  <section class="section section-dark" aria-labelledby="availability-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">Live Availability</span>
+        <h2 class="heading-lg" id="availability-heading" style="color:#fff">Today's Open Spaces</h2>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-md);overflow:hidden;margin-top:var(--sp-10)" data-reveal>
+        <table class="niche-table" role="table">
+          <thead>
+            <tr>
+              <th>Space</th>
+              <th>Type</th>
+              <th>Capacity</th>
+              <th>Available</th>
+              <th>Rate</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="space-name">Open Floor – Zone A</span></td>
+              <td>Hot Desk</td>
+              <td>40 seats</td>
+              <td><span class="niche-badge badge-green">14 Open</span></td>
+              <td>₹299/day</td>
+              <td><button class="btn btn-dark-outline btn-sm" data-open-booking>Book</button></td>
+            </tr>
+            <tr>
+              <td><span class="space-name">Quiet Study Lounge</span></td>
+              <td>Study Zone</td>
+              <td>24 seats</td>
+              <td><span class="niche-badge badge-amber">6 Open</span></td>
+              <td>₹199/day</td>
+              <td><button class="btn btn-dark-outline btn-sm" data-open-booking>Book</button></td>
+            </tr>
+            <tr>
+              <td><span class="space-name">Dedicated Row – East</span></td>
+              <td>Dedicated Desk</td>
+              <td>12 desks</td>
+              <td><span class="niche-badge badge-green">3 Open</span></td>
+              <td>₹5,999/mo</td>
+              <td><button class="btn btn-dark-outline btn-sm" data-open-booking>Book</button></td>
+            </tr>
+            <tr>
+              <td><span class="space-name">Studio A – Glass</span></td>
+              <td>Private Studio</td>
+              <td>4–6 people</td>
+              <td><span class="niche-badge badge-green">Available</span></td>
+              <td>₹15,999/mo</td>
+              <td><button class="btn btn-dark-outline btn-sm" data-open-booking>Book</button></td>
+            </tr>
+            <tr>
+              <td><span class="space-name">Studio B – Loft</span></td>
+              <td>Private Studio</td>
+              <td>6–10 people</td>
+              <td><span class="niche-badge badge-amber">Waitlist</span></td>
+              <td>₹24,999/mo</td>
+              <td><button class="btn btn-dark-outline btn-sm" data-open-booking>Join Waitlist</button></td>
+            </tr>
+            <tr>
+              <td><span class="space-name">Podcast Booth</span></td>
+              <td>Recording</td>
+              <td>1–2 people</td>
+              <td><span class="niche-badge badge-green">Available</span></td>
+              <td>₹499/hr</td>
+              <td><button class="btn btn-dark-outline btn-sm" data-open-booking>Book</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center" style="margin-top:var(--sp-8)" data-reveal>
+        <p style="color:rgba(255,255,255,.4);font-size:var(--fs-xs);font-family:var(--ff-mono);letter-spacing:0.06em">Availability updates every 15 minutes · Last refreshed: just now</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       DAILY SCHEDULE — Redesigned Modern Cards
+  ══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="schedule-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">A Day at DESKORA</span>
+        <h2 class="heading-lg" id="schedule-heading">Your Ideal Work Day, <em>Mapped Out</em></h2>
+        <p class="section-intro">Experience a flow state designed from morning coffee to evening wind-down.</p>
+      </div>
+
+      <div class="schedule-grid" data-reveal>
+        <!-- Card 1 -->
+        <article class="schedule-card">
+          <div class="schedule-img">
+            <img src="assets/hero-coffee.jpg" alt="Morning pour-over coffee crafted by barista">
+            <span class="schedule-time-badge">☕ 7:00 – 10:00 AM</span>
+            <span class="schedule-step-num">01</span>
+          </div>
+          <div class="schedule-body">
+            <h3 class="schedule-title">Morning Ritual</h3>
+            <p class="schedule-text">Grab your complimentary single-origin pour-over, choose your favourite sunny desk, and set your intentions for the day.</p>
+            <div class="schedule-spec-list">
+              <span class="schedule-spec-item">Single-origin roast included</span>
+              <span class="schedule-spec-item">Fresh croissants & pastries</span>
+              <span class="schedule-spec-item">Effortless seat selection</span>
+            </div>
+            <span class="schedule-tag">Gentle Start</span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="schedule-card">
+          <div class="schedule-img">
+            <img src="assets/space-dedicated.jpg" alt="Dedicated quiet workspace with natural daylight">
+            <span class="schedule-time-badge">⚡ 10:00 AM – 1:00 PM</span>
+            <span class="schedule-step-num">02</span>
+          </div>
+          <div class="schedule-body">
+            <h3 class="schedule-title">Deep Work Block</h3>
+            <p class="schedule-text">Step into the quiet sanctuary. Zero ringtones, dual 1 Gbps fiber lines, and ergonomic seating let you crush your hardest tasks.</p>
+            <div class="schedule-spec-list">
+              <span class="schedule-spec-item">Strict &lt;28 dB silent zone</span>
+              <span class="schedule-spec-item">Herman Miller Aeron chairs</span>
+              <span class="schedule-spec-item">Sub-5ms ultra-low latency</span>
+            </div>
+            <span class="schedule-tag">Flow State</span>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="schedule-card">
+          <div class="schedule-img">
+            <img src="assets/about-interior.jpg" alt="Café lounge and communal lunch seating">
+            <span class="schedule-time-badge">🥗 1:00 – 2:00 PM</span>
+            <span class="schedule-step-num">03</span>
+          </div>
+          <div class="schedule-body">
+            <h3 class="schedule-title">Nourish &amp; Connect</h3>
+            <p class="schedule-text">Chef-crafted healthy grain bowls, freshly pressed juices, and spontaneous conversations with founders and creators at the common table.</p>
+            <div class="schedule-spec-list">
+              <span class="schedule-spec-item">Farm-to-table lunch bowls</span>
+              <span class="schedule-spec-item">Artisan espresso bar</span>
+              <span class="schedule-spec-item">Peer community networking</span>
+            </div>
+            <span class="schedule-tag">Mindful Pause</span>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="schedule-card">
+          <div class="schedule-img">
+            <img src="assets/hero-lounge.jpg" alt="Evening collaborative lounge and phone pods">
+            <span class="schedule-time-badge">🌆 2:00 – 7:00 PM</span>
+            <span class="schedule-step-num">04</span>
+          </div>
+          <div class="schedule-body">
+            <h3 class="schedule-title">Afternoon Flow</h3>
+            <p class="schedule-text">Client calls in acoustic phone pods, collaborative whiteboard sessions, or review sprints over iced matcha on the garden terrace.</p>
+            <div class="schedule-spec-list">
+              <span class="schedule-spec-item">Sound-isolated call booths</span>
+              <span class="schedule-spec-item">Whiteboard team breakout</span>
+              <span class="schedule-spec-item">Garden sunset wind-down</span>
+            </div>
+            <span class="schedule-tag">Collaborative</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       UNIQUE NEW SECTION 1: ACOUSTIC FOCUS SPECTRUM
+  ══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="acoustic-heading" style="padding-top:0">
+    <div class="container">
+      <div class="acoustic-section" data-reveal>
+        <div class="acoustic-header">
+          <div>
+            <span class="eyebrow">Sound Architecture</span>
+            <h2 id="acoustic-heading" style="font-size:clamp(1.9rem,4vw,2.8rem);color:#fff;margin-bottom:var(--sp-2)">Four Calibrated Acoustic Zones.<br><em style="font-style:normal;color:rgba(255,255,255,.6)">Noise-Engineered for Real Focus.</em></h2>
+          </div>
+          <p style="max-width:440px;color:rgba(255,255,255,.65);font-size:var(--fs-sm);line-height:1.7;margin:0">
+            No unexpected chatter during your critical code review, and no awkward silence when you want to bounce ideas with your cofounder.
+          </p>
+        </div>
+
+        <div class="acoustic-grid">
+          <!-- Zone 1 -->
+          <div class="acoustic-card">
+            <span class="acoustic-zone-pill">Zone 01 · Library Grade</span>
+            <h3 class="acoustic-title">Silent Sanctuary</h3>
+            <div class="acoustic-meter">
+              <span class="acoustic-meter-db">&lt; 28 dB</span>
+              <div class="acoustic-bars">
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+              </div>
+            </div>
+            <p class="acoustic-desc">No phone calls, no meetings, strict whispering rules. Fitted with acoustic felt wall tiles and focused warm task lighting.</p>
+            <span class="acoustic-feature">✦ Deep Focus · Solo Study</span>
+          </div>
+
+          <!-- Zone 2 -->
+          <div class="acoustic-card">
+            <span class="acoustic-zone-pill">Zone 02 · Ultra-Isolated</span>
+            <h3 class="acoustic-title">Phone &amp; Audio Pods</h3>
+            <div class="acoustic-meter">
+              <span class="acoustic-meter-db">0 dB Leakage</span>
+              <div class="acoustic-bars">
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+              </div>
+            </div>
+            <p class="acoustic-desc">Dual-glazed acoustic glass, internal quiet ventilation, and high-gain boom mics. Pitch your biggest clients with zero background hum.</p>
+            <span class="acoustic-feature">✦ 8 On-Demand Pods · 4K A/V</span>
+          </div>
+
+          <!-- Zone 3 -->
+          <div class="acoustic-card">
+            <span class="acoustic-zone-pill">Zone 03 · Vibrant Beats</span>
+            <h3 class="acoustic-title">Café &amp; Commons</h3>
+            <div class="acoustic-meter">
+              <span class="acoustic-meter-db" style="color:#fde047">52 – 60 dB</span>
+              <div class="acoustic-bars">
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+              </div>
+            </div>
+            <p class="acoustic-desc">Gentle lo-fi vinyl warmth, steam from the La Marzocco machine, and energetic communal oak tables built for collaborative brainstorms.</p>
+            <span class="acoustic-feature">✦ Artisan Barista · Team Pairing</span>
+          </div>
+
+          <!-- Zone 4 -->
+          <div class="acoustic-card">
+            <span class="acoustic-zone-pill">Zone 04 · Open Air</span>
+            <h3 class="acoustic-title">Garden Terrace</h3>
+            <div class="acoustic-meter">
+              <span class="acoustic-meter-db" style="color:#93c5fd">Natural Ambient</span>
+              <div class="acoustic-bars">
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+                <span class="acoustic-bar"></span>
+              </div>
+            </div>
+            <p class="acoustic-desc">Lush tropical greenery, gentle Bangalore breeze, and shaded wooden pergolas. The ultimate breather between demanding work sprints.</p>
+            <span class="acoustic-feature">✦ Outdoor Wi-Fi · Sunset Lounge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       UNIQUE NEW SECTION 2: WEEKLY COMMUNITY RITUALS
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="rituals-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">Curated Community</span>
+        <h2 class="heading-lg" id="rituals-heading">Weekly Rituals That <em>Keep You Connected</em></h2>
+        <p class="section-intro">Work independently, but never in isolation. Join weekly events designed around craft, coffee, and peer feedback.</p>
+      </div>
+
+      <div class="rituals-grid" data-reveal>
+        <!-- Ritual 1 -->
+        <article class="ritual-card">
+          <span class="ritual-day-badge">Monday · 9:00 AM</span>
+          <div class="ritual-time">Head Barista Tasting</div>
+          <h3 class="ritual-title">Single-Origin Cupping &amp; Weekly Goals</h3>
+          <p class="ritual-desc">Sample newly sourced micro-lot beans, learn tasting notes, and share your three core priorities for the week with fellow members.</p>
+          <div class="ritual-footer">
+            <div class="avatar-stack">
+              <img src="assets/avatar-1.jpg" alt="Member attending">
+              <img src="assets/avatar-2.jpg" alt="Member attending">
+              <img src="assets/avatar-3.jpg" alt="Member attending">
+              <span class="avatar-count">+18</span>
+            </div>
+            <button class="btn-rsvp" data-open-booking>RSVP Free →</button>
+          </div>
+        </article>
+
+        <!-- Ritual 2 -->
+        <article class="ritual-card">
+          <span class="ritual-day-badge">Wednesday · 4:30 PM</span>
+          <div class="ritual-time">Interactive Demo</div>
+          <h3 class="ritual-title">10-Minute Lightning Pitch &amp; Feedback</h3>
+          <p class="ritual-desc">Three members demo what they built this week. Get instant design, engineering, and product validation from experienced resident mentors.</p>
+          <div class="ritual-footer">
+            <div class="avatar-stack">
+              <img src="assets/avatar-2.jpg" alt="Member attending">
+              <img src="assets/avatar-1.jpg" alt="Member attending">
+              <img src="assets/avatar-3.jpg" alt="Member attending">
+              <span class="avatar-count">+24</span>
+            </div>
+            <button class="btn-rsvp" data-open-booking>RSVP Free →</button>
+          </div>
+        </article>
+
+        <!-- Ritual 3 -->
+        <article class="ritual-card">
+          <span class="ritual-day-badge">Thursday · 6:00 PM</span>
+          <div class="ritual-time">Flow Club</div>
+          <h3 class="ritual-title">The 90-Minute Silent Sprint Block</h3>
+          <p class="ritual-desc">Synchronized silent deep focus powered by low-frequency focus soundscapes and endless cold brew refills. Ship what you've put off all week.</p>
+          <div class="ritual-footer">
+            <div class="avatar-stack">
+              <img src="assets/avatar-3.jpg" alt="Member attending">
+              <img src="assets/avatar-1.jpg" alt="Member attending">
+              <img src="assets/avatar-2.jpg" alt="Member attending">
+              <span class="avatar-count">+31</span>
+            </div>
+            <button class="btn-rsvp" data-open-booking>RSVP Free →</button>
+          </div>
+        </article>
+
+        <!-- Ritual 4 -->
+        <article class="ritual-card">
+          <span class="ritual-day-badge">Friday · 5:30 PM</span>
+          <div class="ritual-time">Community Mixer</div>
+          <h3 class="ritual-title">Sunset Vinyl &amp; Craft Kombucha Mixer</h3>
+          <p class="ritual-desc">Unplug your laptop, head out to the garden terrace, and celebrate the week with locally brewed cold kombucha, warm vinyl beats, and great company.</p>
+          <div class="ritual-footer">
+            <div class="avatar-stack">
+              <img src="assets/avatar-1.jpg" alt="Member attending">
+              <img src="assets/avatar-2.jpg" alt="Member attending">
+              <img src="assets/avatar-3.jpg" alt="Member attending">
+              <span class="avatar-count">+45</span>
+            </div>
+            <button class="btn-rsvp" data-open-booking>RSVP Free →</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       DARK PROMO CTA
+  ══════════════════════════════════════════════ -->
+  <section class="section-sm" aria-label="Call to action">
+    <div class="container">
+      <div class="promo-panel" data-reveal>
+        <span class="eyebrow" style="justify-content:center">Join 220+ Members</span>
+        <h2 class="display-section" style="color:#fff;margin-bottom:var(--sp-5)">Ready to Find <em>Your Space?</em></h2>
+        <p class="lead" style="max-width:540px;margin:0 auto var(--sp-10)">One complimentary trial day. No commitment. Just show up and discover why DESKORA is Bengaluru's most loved workspace.</p>
+        <div class="flex flex-center gap-4" style="flex-wrap:wrap">
+          <button class="btn btn-white btn-xl" data-open-booking>Claim Your Free Day</button>
+          <a href="contact.html" class="btn btn-dark-outline btn-xl">Chat With Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand-name" aria-label="DESKORA Home"><div class="footer-brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>DESKORA</a>
+          <p class="footer-brand-blurb">A refined workspace where artisan coffee, focused design, and a like-minded community converge. 12 Crescent Lane, Koramangala, Bengaluru 560034.</p>
+          <div class="flex gap-4"><span class="footer-badge"><span class="status-dot"></span> Open Today</span><span class="footer-badge">7AM–11PM</span></div>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li><li><a href="home-2.html">Home 2</a></li>
+            <li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li>
+            <li><a href="memberships.html">Memberships</a></li><li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Spaces</p>
+          <ul class="footer-links">
+            <li><a href="services.html">Hot Desks</a></li><li><a href="services.html">Dedicated Desks</a></li>
+            <li><a href="services.html">Private Studios</a></li><li><a href="services.html">Conference Rooms</a></li>
+            <li><a href="services.html">Quiet Study Lounge</a></li><li><a href="services.html">Podcast Booth</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Stay in the Loop</p>
+          <p class="footer-newsletter-lead">Monthly insights on productivity, community events, and exclusive member offers.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="your@email.com" aria-label="Email for newsletter">
+            <button class="btn btn-white btn-sm">Subscribe</button>
+          </div>
+          <p class="footer-newsletter-sub">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 DESKORA Coworking Café · All rights reserved</span>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Twitter">Twitter</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+        <span>Crafted with care in Bengaluru</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-bg" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal>✕</button>
+      <div style="margin-bottom:var(--sp-6)"><span class="eyebrow">Reserve Your Spot</span><h2 class="heading-md" id="modalTitle">Book a Desk at DESKORA</h2><p style="font-size:var(--fs-sm);color:var(--clr-ink-muted);margin-top:var(--sp-2)">We'll confirm within 30 minutes.</p></div>
+      <form id="bookingForm" novalidate>
+        <div class="form-group"><label class="form-label" for="bookName">Full Name</label><input class="form-input" type="text" id="bookName" placeholder="Jane Doe" required></div>
+        <div class="form-group"><label class="form-label" for="bookEmail">Email Address</label><input class="form-input" type="email" id="bookEmail" placeholder="jane@example.com" required></div>
+        <div class="form-group"><label class="form-label" for="bookType">Space Type</label><select class="form-select" id="bookType"><option>Hot Desk (Day Pass)</option><option>Student Day Pass</option><option>Dedicated Desk</option><option>Private Studio</option><option>Podcast Booth</option></select></div>
+        <div class="form-group"><label class="form-label" for="bookDate">Preferred Date</label><input class="form-input" type="date" id="bookDate" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:0.85rem">Confirm Booking →</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>

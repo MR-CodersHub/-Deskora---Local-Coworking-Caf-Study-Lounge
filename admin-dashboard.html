@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations Admin Console — DESKORA Coworking Café</title>
+  <meta name="description" content="Workspace management console for desk availability, member accounts, booking records, café inventory, and day passes at DESKORA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="assets/deskora-favicon.svg">
+</head>
+<body class="dash-body">
+
+  <div class="dash-layout">
+
+    <!-- ══════════════════════════════════════════════
+         ADMIN SIDEBAR
+    ══════════════════════════════════════════════ -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="dash-brand" aria-label="DESKORA Home">
+          <div class="dash-brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="dash-brand-text">
+            <span class="dash-brand-title">DESKORA</span>
+            <span class="dash-brand-role" style="color:#b8976a">Ops Administrator</span>
+          </div>
+        </a>
+        <button class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close sidebar">✕</button>
+      </div>
+
+      <!-- Admin Identity Card -->
+      <div class="dash-user-card" style="background:var(--clr-bg-card)">
+        <div class="dash-user-avatar" style="background:#111110;border-color:#b8976a;color:#b8976a">AD</div>
+        <div class="dash-user-info">
+          <span class="dash-user-name">Operations Console</span>
+          <span class="dash-user-tag"><span class="dash-live-dot"></span> Admin Level 1 · Live Sync</span>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="dash-nav" aria-label="Administrator navigation">
+        <span class="dash-nav-category">Workspace Overview</span>
+        <a href="#admin-overview" class="dash-nav-item active" data-section="admin-overview">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </span>
+          <span>Admin Overview</span>
+        </a>
+
+        <span class="dash-nav-category">Members &amp; Spaces</span>
+        <a href="#admin-members" class="dash-nav-item" data-section="admin-members">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
+          <span>Member Accounts</span>
+          <span class="dash-nav-badge" id="adminNavMemberCount">348</span>
+        </a>
+        <a href="#admin-inventory" class="dash-nav-item" data-section="admin-inventory">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </span>
+          <span>Desk &amp; Inventory</span>
+          <span class="dash-nav-badge" id="adminNavDeskCount">60</span>
+        </a>
+        <a href="#admin-bookings" class="dash-nav-item" data-section="admin-bookings">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          </span>
+          <span>Booking Records</span>
+          <span class="dash-nav-badge" id="adminNavBookingsCount">42</span>
+        </a>
+
+        <span class="dash-nav-category">Products &amp; Sales</span>
+        <a href="#admin-plans" class="dash-nav-item" data-section="admin-plans">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </span>
+          <span>Membership Plans</span>
+        </a>
+        <a href="#admin-passes" class="dash-nav-item" data-section="admin-passes">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </span>
+          <span>Day Pass Packages</span>
+        </a>
+        <a href="#admin-payments" class="dash-nav-item" data-section="admin-payments">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </span>
+          <span>Payment Records</span>
+        </a>
+
+        <span class="dash-nav-category">Operations &amp; Support</span>
+        <a href="#admin-cafe" class="dash-nav-item" data-section="admin-cafe">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+          </span>
+          <span>Café Menu Items</span>
+        </a>
+        <a href="#admin-enquiries" class="dash-nav-item" data-section="admin-enquiries">
+          <span class="dash-nav-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </span>
+          <span>Customer Enquiries</span>
+          <span class="dash-nav-badge" id="adminNavEnquiriesCount" style="background:#ef4444;color:#fff">3</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="dash-sidebar-footer">
+        <a href="user-dashboard.html" class="dash-sidebar-btn" title="Switch to Member User Portal">
+          <span>👤 View Member Dashboard</span>
+        </a>
+        <a href="index.html" class="dash-sidebar-btn" title="Return to Main Coworking Café">
+          <span>← Back to Website</span>
+        </a>
+        <button class="dash-sidebar-btn" onclick="demoLogout()" style="color:#ef4444" title="Exit admin console">
+          <span>↪ Log Out (Admin)</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ══════════════════════════════════════════════
+         MAIN CONTENT AREA
+    ══════════════════════════════════════════════ -->
+    <div class="dash-main">
+
+      <!-- Admin Header -->
+      <header class="dash-header">
+        <div class="dash-header-left">
+          <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="Open sidebar menu">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="2"><line x1="0" y1="1" x2="20" y2="1"></line><line x1="0" y1="7" x2="14" y2="7"></line><line x1="0" y1="13" x2="20" y2="13"></line></svg>
+          </button>
+          <div>
+            <h1 class="dash-greeting-title" id="adminWelcomeTitle">Welcome Back, Administrator</h1>
+            <p class="dash-greeting-sub" id="adminWelcomeSub">Workspace Operations &amp; Live Space Control · Koramangala Hub</p>
+          </div>
+        </div>
+
+        <div class="dash-header-right">
+          <!-- Theme & RTL -->
+          <button class="dash-icon-btn dash-theme-btn" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+          <button class="dash-icon-btn dash-rtl-btn" aria-label="Toggle text direction" title="Switch RTL/LTR" style="font-family:var(--ff-mono);font-size:0.68rem;font-weight:700">
+            ⇄
+          </button>
+
+          <!-- Admin Profile Popover -->
+          <div class="dash-dropdown-wrap">
+            <button class="dash-icon-btn" data-popover-target="popoverAdminProfile" aria-label="Admin menu" style="color:#b8976a">
+              <span style="font-weight:700;font-size:0.85rem">AD</span>
+            </button>
+            <div class="dash-popover" id="popoverAdminProfile" style="width:240px">
+              <div style="padding:4px 6px 8px;border-bottom:1px solid var(--clr-border)">
+                <div style="font-weight:700;font-size:0.92rem">Admin Operations</div>
+                <div style="font-size:0.75rem;color:var(--clr-ink-muted)">admin@theatelier.space</div>
+              </div>
+              <a href="user-dashboard.html" class="dash-nav-item">👤 View Member Portal</a>
+              <a href="index.html" class="dash-nav-item">🏠 Website Home</a>
+              <button class="dash-nav-item" onclick="demoLogout()" style="color:#ef4444;width:100%;text-align:left">↪ Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ══════════════════════════════════════════════
+           ADMIN CONTENT SECTIONS
+      ══════════════════════════════════════════════ -->
+      <main class="dash-content">
+
+        <!-- ── SECTION 1: OVERVIEW ── -->
+        <section class="dash-section active" id="admin-overview">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Facility Performance Overview</h2>
+              <p class="dash-section-sub">Real-time floor occupancy, daily revenue stream, and active pass utilization.</p>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn btn-primary btn-sm" onclick="openAddMemberModal()">+ Add Member</button>
+              <button class="btn btn-secondary btn-sm" onclick="navigateToSection('admin-inventory')">Floor Map</button>
+            </div>
+          </div>
+
+          <!-- 6 Mandatory Overview KPI Cards -->
+          <div class="kpi-grid" style="grid-template-columns:repeat(auto-fit, minmax(200px, 1fr))">
+            <!-- 1. Total Members -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Total Members</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="adminKpiTotalMembers">348</div>
+              <div class="kpi-footer">
+                <span class="kpi-delta">+14 this month</span>
+                <span style="font-size:0.72rem;color:var(--clr-ink-muted)">96% retention</span>
+              </div>
+            </div>
+
+            <!-- 2. Today's Bookings -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Today's Bookings</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="adminKpiTodayBookings">42</div>
+              <div class="kpi-footer">
+                <span class="badge badge-active">85% Floor Capacity</span>
+              </div>
+            </div>
+
+            <!-- 3. Available Desks -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Available Desks</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="adminKpiAvailableDesks">18 <span style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">/ 60</span></div>
+              <div class="kpi-footer">
+                <span style="font-size:0.75rem;color:#10b981">● Ready for walk-ins</span>
+              </div>
+            </div>
+
+            <!-- 4. Active Memberships -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Active Memberships</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="adminKpiActivePlans">215</div>
+              <div class="kpi-footer">
+                <span style="font-size:0.75rem;color:var(--clr-ink-muted)">Dedicated &amp; Flex Tiers</span>
+              </div>
+            </div>
+
+            <!-- 5. Day Pass Sales -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Day Pass Sales</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="adminKpiPassSales">86 <span style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">Passes</span></div>
+              <div class="kpi-footer">
+                <span class="kpi-delta">+18% this week</span>
+              </div>
+            </div>
+
+            <!-- 6. Total Revenue -->
+            <div class="kpi-card">
+              <div class="kpi-top">
+                <span class="kpi-label">Monthly Revenue</span>
+                <span class="kpi-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </span>
+              </div>
+              <div class="kpi-value" id="adminKpiRevenue">₹3,48,200</div>
+              <div class="kpi-footer">
+                <span class="kpi-delta">+12.4% MoM</span>
+                <span style="font-size:0.72rem;color:var(--clr-ink-muted)">All streams</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Occupancy by Zone Visual Breakdown -->
+          <div class="dash-grid-2">
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h3 class="dash-card-title">Zone Occupancy Utilization</h3>
+                <span class="badge badge-active">Live Sensor Feed</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:16px">
+                <div>
+                  <div class="flex flex-between" style="font-size:0.85rem;margin-bottom:6px">
+                    <span>Silent Study Pods (Floor 2)</span>
+                    <strong>75% Occupied (3 / 4 In Use)</strong>
+                  </div>
+                  <div class="kpi-progress-bar"><div class="kpi-progress-fill" style="width:75%"></div></div>
+                </div>
+                <div>
+                  <div class="flex flex-between" style="font-size:0.85rem;margin-bottom:6px">
+                    <span>Hot Desk Café Lounge (Floor 1)</span>
+                    <strong>66% Occupied (2 / 3 In Use)</strong>
+                  </div>
+                  <div class="kpi-progress-bar"><div class="kpi-progress-fill" style="width:66%"></div></div>
+                </div>
+                <div>
+                  <div class="flex flex-between" style="font-size:0.85rem;margin-bottom:6px">
+                    <span>Standing Desks Oasis (Mezzanine)</span>
+                    <strong>66% Occupied (2 / 3 In Use)</strong>
+                  </div>
+                  <div class="kpi-progress-bar"><div class="kpi-progress-fill" style="width:66%"></div></div>
+                </div>
+                <div>
+                  <div class="flex flex-between" style="font-size:0.85rem;margin-bottom:6px">
+                    <span>A/V Discussion Pods &amp; Suites</span>
+                    <strong>50% Occupied (1 / 2 In Use)</strong>
+                  </div>
+                  <div class="kpi-progress-bar"><div class="kpi-progress-fill" style="width:50%"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Check-ins & Activity Feed -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h3 class="dash-card-title">Real-Time Facility Stream</h3>
+                <span style="font-size:0.75rem;color:var(--clr-ink-muted)">Turnstile &amp; App Events</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px;font-size:0.85rem">
+                <div class="flex items-center gap-3" style="padding-bottom:10px;border-bottom:1px solid var(--clr-border)">
+                  <span class="badge badge-confirmed">Check-In</span>
+                  <div>
+                    <strong>Rahul Verma</strong> scanned RFID keycard at Main Turnstile A.
+                    <div style="font-size:0.72rem;color:var(--clr-ink-muted)">Standing Desk Oasis #02 · 12 mins ago</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3" style="padding-bottom:10px;border-bottom:1px solid var(--clr-border)">
+                  <span class="badge badge-active">Booking</span>
+                  <div>
+                    <strong>Maya Krishnan</strong> reserved Silent Study Pod #04.
+                    <div style="font-size:0.72rem;color:var(--clr-ink-muted)">Tomorrow 09:00 AM · 28 mins ago</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3" style="padding-bottom:10px;border-bottom:1px solid var(--clr-border)">
+                  <span class="badge badge-occupied">Café Order</span>
+                  <div>
+                    <strong>Arjun Nambiar</strong> ordered Cold Brew Nitro Reserve + Almond Croissant.
+                    <div style="font-size:0.72rem;color:var(--clr-ink-muted)">Billed to Member Wallet · 45 mins ago</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="badge badge-confirmed">Pass Sale</span>
+                  <div>
+                    <strong>Guest User</strong> purchased 5-Day Flex Pass Bundle via UPI.
+                    <div style="font-size:0.72rem;color:var(--clr-ink-muted)">TXN-91840 · 1 hour ago</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── SECTION 2: MEMBER ACCOUNTS ── -->
+        <section class="dash-section" id="admin-members">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Member Accounts Management</h2>
+              <p class="dash-section-sub">View member subscription profiles, suspend or activate keycard access, and issue credentials.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openAddMemberModal()">+ Add New Member</button>
+          </div>
+
+          <div class="table-filter-bar">
+            <input type="text" id="memberSearchInput" class="table-search-input" placeholder="Search members by name, email, or ID...">
+            <div class="flex gap-2">
+              <select id="memberStatusFilter" class="filter-select">
+                <option value="all">All Statuses</option>
+                <option value="Active">Active Accounts</option>
+                <option value="Paused">Paused / Suspended</option>
+              </select>
+              <select id="memberPlanFilter" class="filter-select">
+                <option value="all">All Membership Tiers</option>
+                <option value="Dedicated Desk">Dedicated Desk</option>
+                <option value="Private Studio Suite">Private Studio</option>
+                <option value="Flex Roaming">Flex Roaming</option>
+                <option value="Student Focus">Student Focus</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Member ID</th>
+                  <th>Member Details</th>
+                  <th>Contact Info</th>
+                  <th>Membership Tier</th>
+                  <th>Joined Date</th>
+                  <th>Keycard</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminMembersTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 3: WORKSPACE INVENTORY & DESK AVAILABILITY ── -->
+        <section class="dash-section" id="admin-inventory">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Workspace Inventory &amp; Desk Availability</h2>
+              <p class="dash-section-sub">Control floor inventory in real time. Toggle desks between Available, Occupied, or Under Maintenance.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openAddDeskModal()">+ Add Workspace Unit</button>
+          </div>
+
+          <div class="workspace-category-tabs">
+            <button class="workspace-cat-btn active admin-inv-zone-btn" data-zone="all">All Desks &amp; Units (12)</button>
+            <button class="workspace-cat-btn admin-inv-zone-btn" data-zone="pod">Silent Pods</button>
+            <button class="workspace-cat-btn admin-inv-zone-btn" data-zone="cafe">Café Hot Desks</button>
+            <button class="workspace-cat-btn admin-inv-zone-btn" data-zone="standing">Standing Desks</button>
+            <button class="workspace-cat-btn admin-inv-zone-btn" data-zone="meeting">Meeting Suites</button>
+            <button class="workspace-cat-btn admin-inv-zone-btn" data-zone="booth">Phone Booths</button>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Unit ID</th>
+                  <th>Workspace Name</th>
+                  <th>Zone Category</th>
+                  <th>Capacity</th>
+                  <th>Amenities &amp; Setup</th>
+                  <th>Hourly Rate</th>
+                  <th>Live Status</th>
+                  <th>Status Controls</th>
+                </tr>
+              </thead>
+              <tbody id="adminInventoryTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 4: BOOKING RECORDS ── -->
+        <section class="dash-section" id="admin-bookings">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Master Booking Records</h2>
+              <p class="dash-section-sub">Comprehensive reservation audit trail across all desks, focus pods, and meeting suites.</p>
+            </div>
+          </div>
+
+          <div class="table-filter-bar">
+            <input type="text" id="adminBookingSearchInput" class="table-search-input" placeholder="Search by booking reference or member name...">
+            <div class="flex gap-2">
+              <select id="adminBookingStatusFilter" class="filter-select">
+                <option value="all">All Statuses</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Checked In">Checked In</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Booking Ref</th>
+                  <th>Member Name</th>
+                  <th>Workspace Unit</th>
+                  <th>Scheduled Date &amp; Time</th>
+                  <th>Duration</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Admin Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminBookingsTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 5: MEMBERSHIP PLANS ── -->
+        <section class="dash-section" id="admin-plans">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Membership Plans &amp; Tiers</h2>
+              <p class="dash-section-sub">Configure recurring membership pricing, pod hour allowances, and member perks.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="showToast('New Plan configuration template opened', '✓')">+ Create New Tier</button>
+          </div>
+
+          <div class="dash-grid-4" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:20px">
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h4 style="margin:0;font-size:1.15rem">Student Focus Plan</h4>
+                <span class="badge badge-active">Active</span>
+              </div>
+              <div style="font-family:var(--ff-serif);font-size:2rem;font-weight:700">₹490 <span style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ mo</span></div>
+              <div style="font-size:0.82rem;color:var(--clr-ink-muted);margin:8px 0 16px;line-height:1.6">
+                • 15 Hours / month Study Zone<br>
+                • 100 Free laser print pages<br>
+                • 10% Café concession
+              </div>
+              <div class="flex flex-between" style="font-size:0.78rem;padding-top:10px;border-top:1px solid var(--clr-border)">
+                <span>Active Subscribers: <strong>48</strong></span>
+                <button class="btn-action" onclick="showToast('Editing Student Focus Plan', '✏')">Edit</button>
+              </div>
+            </div>
+
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h4 style="margin:0;font-size:1.15rem">Flex Roaming Tier</h4>
+                <span class="badge badge-active">Active</span>
+              </div>
+              <div style="font-family:var(--ff-serif);font-size:2rem;font-weight:700">₹890 <span style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ mo</span></div>
+              <div style="font-size:0.82rem;color:var(--clr-ink-muted);margin:8px 0 16px;line-height:1.6">
+                • 20 Hours / month Café Desks<br>
+                • 200 Free laser print pages<br>
+                • 15% Café discount
+              </div>
+              <div class="flex flex-between" style="font-size:0.78rem;padding-top:10px;border-top:1px solid var(--clr-border)">
+                <span>Active Subscribers: <strong>84</strong></span>
+                <button class="btn-action" onclick="showToast('Editing Flex Roaming Plan', '✏')">Edit</button>
+              </div>
+            </div>
+
+            <div class="dash-card" style="border:2px solid var(--clr-ink)">
+              <div class="dash-card-header">
+                <h4 style="margin:0;font-size:1.15rem">Dedicated Desk Bay</h4>
+                <span class="badge badge-confirmed">Flagship</span>
+              </div>
+              <div style="font-family:var(--ff-serif);font-size:2rem;font-weight:700">₹2,499 <span style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ mo</span></div>
+              <div style="font-size:0.82rem;color:var(--clr-ink-muted);margin:8px 0 16px;line-height:1.6">
+                • 24/7 Access + Assigned Desk<br>
+                • 40 Hours Private Pods<br>
+                • 500 Pages + Lockable pedestal
+              </div>
+              <div class="flex flex-between" style="font-size:0.78rem;padding-top:10px;border-top:1px solid var(--clr-border)">
+                <span>Active Subscribers: <strong>62</strong></span>
+                <button class="btn-action" onclick="showToast('Editing Dedicated Desk Tier', '✏')">Edit</button>
+              </div>
+            </div>
+
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <h4 style="margin:0;font-size:1.15rem">Private Studio Suite</h4>
+                <span class="badge badge-active">Enterprise</span>
+              </div>
+              <div style="font-family:var(--ff-serif);font-size:2rem;font-weight:700">₹6,499 <span style="font-size:0.8rem;color:var(--clr-ink-muted);font-weight:400">/ mo</span></div>
+              <div style="font-size:0.82rem;color:var(--clr-ink-muted);margin:8px 0 16px;line-height:1.6">
+                • Acoustic glass enclosed studio<br>
+                • 100 Hours Meeting Pods<br>
+                • Unlimited laser printing &amp; tea
+              </div>
+              <div class="flex flex-between" style="font-size:0.78rem;padding-top:10px;border-top:1px solid var(--clr-border)">
+                <span>Active Subscribers: <strong>21</strong></span>
+                <button class="btn-action" onclick="showToast('Editing Studio Suite Plan', '✏')">Edit</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── SECTION 6: DAY PASS PACKAGES ── -->
+        <section class="dash-section" id="admin-passes">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Day Pass Packages &amp; Sales</h2>
+              <p class="dash-section-sub">Manage day pass offerings, pricing structures, and track walk-in customer revenue.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="showToast('Create pass package modal opened', '✓')">+ Create Day Pass Package</button>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Package Name</th>
+                  <th>Price</th>
+                  <th>Validity Period</th>
+                  <th>Included Perks</th>
+                  <th>Sales This Month</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Single Day Pass</strong></td>
+                  <td>₹299</td>
+                  <td>1 Day</td>
+                  <td>Unreserved Desk, 1 Filter Coffee</td>
+                  <td><strong>34 Sold</strong></td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td><button class="btn-action" onclick="showToast('Settings saved for Single Day Pass', '✓')">Configure</button></td>
+                </tr>
+                <tr>
+                  <td><strong>5-Day Flex Bundle</strong></td>
+                  <td>₹1,299</td>
+                  <td>90 Days</td>
+                  <td>Any 5 days, 2 hrs pod credit, locker</td>
+                  <td><strong>28 Sold</strong></td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td><button class="btn-action" onclick="showToast('Settings saved for Flex Bundle', '✓')">Configure</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Student Day Pass</strong></td>
+                  <td>₹199</td>
+                  <td>1 Day</td>
+                  <td>Quiet study zone with valid college ID</td>
+                  <td><strong>16 Sold</strong></td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td><button class="btn-action" onclick="showToast('Settings saved for Student Pass', '✓')">Configure</button></td>
+                </tr>
+                <tr>
+                  <td><strong>Weekend Focus Pass</strong></td>
+                  <td>₹499</td>
+                  <td>Sat &amp; Sun</td>
+                  <td>Saturday &amp; Sunday full access</td>
+                  <td><strong>8 Sold</strong></td>
+                  <td><span class="badge badge-active">Active</span></td>
+                  <td><button class="btn-action" onclick="showToast('Settings saved for Weekend Pass', '✓')">Configure</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 7: PAYMENT RECORDS ── -->
+        <section class="dash-section" id="admin-payments">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Payment &amp; Transaction Records</h2>
+              <p class="dash-section-sub">Full financial log of membership charges, day pass purchases, and café top-ups.</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="showToast('Financial CSV export generated', '📥')">Export CSV Report</button>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Member / Customer</th>
+                  <th>Item Description</th>
+                  <th>Date &amp; Time</th>
+                  <th>Payment Gateway</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminPaymentsTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 8: CAFE MENU ITEMS ── -->
+        <section class="dash-section" id="admin-cafe">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Artisan Café Menu &amp; Inventory</h2>
+              <p class="dash-section-sub">Manage specialty coffee, cold brews, and fresh bakery inventory available to members.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openAddMenuItemModal()">+ Add Menu Item</button>
+          </div>
+
+          <div class="table-filter-bar">
+            <input type="text" id="cafeSearchInput" class="table-search-input" placeholder="Search menu items (espresso, croissant...)...">
+            <select id="cafeCatFilter" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="Coffee">Coffee &amp; Espresso</option>
+              <option value="Tea">Artisanal Tea</option>
+              <option value="Bakery">Fresh Bakery</option>
+              <option value="Meals">Light Bowls &amp; Meals</option>
+            </select>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Item ID</th>
+                  <th>Item Name</th>
+                  <th>Category</th>
+                  <th>Specialty Tag</th>
+                  <th>Price</th>
+                  <th>Stock Status</th>
+                  <th>Toggle Stock</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminCafeTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── SECTION 9: CUSTOMER ENQUIRIES ── -->
+        <section class="dash-section" id="admin-enquiries">
+          <div class="dash-section-header">
+            <div>
+              <h2 class="dash-section-title">Customer &amp; Member Enquiries</h2>
+              <p class="dash-section-sub">Support desk inbox for floor inquiries, Wi-Fi pairing assistance, and billing questions.</p>
+            </div>
+          </div>
+
+          <div class="table-filter-bar">
+            <input type="text" id="enquirySearchInput" class="table-search-input" placeholder="Search enquiries by subject, sender...">
+            <select id="enquiryStatusFilter" class="filter-select">
+              <option value="all">All Statuses</option>
+              <option value="Open">Open Tickets</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </div>
+
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Sender</th>
+                  <th>Category</th>
+                  <th>Subject</th>
+                  <th>Priority</th>
+                  <th>Received</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminEnquiriesTableBody">
+                <!-- Injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       ADMIN MODALS
+  ══════════════════════════════════════════════ -->
+  <!-- Add Member Modal -->
+  <div class="dash-modal-backdrop" id="addMemberModal">
+    <div class="dash-modal-box">
+      <button class="dash-modal-close" onclick="closeModal('addMemberModal')">✕</button>
+      <h3 style="font-family:var(--ff-serif);font-size:1.5rem;margin:0 0 14px">Register New Member</h3>
+      <form id="formAddMember">
+        <div class="dash-form-group">
+          <label class="dash-label" for="addMemName">Full Legal Name</label>
+          <input type="text" id="addMemName" class="dash-input" placeholder="e.g. Liam Ross" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="addMemEmail">Email Address</label>
+          <input type="email" id="addMemEmail" class="dash-input" placeholder="e.g. liam@firm.com" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="addMemPhone">Phone Number</label>
+          <input type="tel" id="addMemPhone" class="dash-input" placeholder="+91 98765 00000" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="addMemPlan">Membership Tier</label>
+          <select id="addMemPlan" class="dash-select">
+            <option value="Dedicated Desk">Dedicated Desk (₹2,499/mo)</option>
+            <option value="Private Studio Suite">Private Studio Suite (₹6,499/mo)</option>
+            <option value="Flex Roaming">Flex Roaming (₹890/mo)</option>
+            <option value="Student Focus">Student Focus (₹490/mo)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:12px">Create Member &amp; Issue RFID →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Desk / Space Modal -->
+  <div class="dash-modal-backdrop" id="addDeskModal">
+    <div class="dash-modal-box">
+      <button class="dash-modal-close" onclick="closeModal('addDeskModal')">✕</button>
+      <h3 style="font-family:var(--ff-serif);font-size:1.5rem;margin:0 0 14px">Add Workspace Inventory Unit</h3>
+      <form id="formAddDesk">
+        <div class="dash-form-group">
+          <label class="dash-label" for="newDeskId">Unit ID (e.g. POD-05, DESK-15)</label>
+          <input type="text" id="newDeskId" class="dash-input" placeholder="e.g. POD-05" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="newDeskName">Workspace Label</label>
+          <input type="text" id="newDeskName" class="dash-input" placeholder="e.g. Silent Study Pod #05" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="newDeskZone">Zone Category</label>
+          <select id="newDeskZone" class="dash-select">
+            <option value="pod">Silent Study Pods</option>
+            <option value="cafe">Café Hot Desks</option>
+            <option value="standing">Standing Desks</option>
+            <option value="meeting">Discussion Meeting Suites</option>
+            <option value="booth">Phone Booths</option>
+          </select>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="newDeskRate">Hourly Rate (₹)</label>
+          <input type="number" id="newDeskRate" class="dash-input" value="250" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="newDeskAmenities">Key Amenities</label>
+          <input type="text" id="newDeskAmenities" class="dash-input" placeholder="e.g. Dual 4K Displays · Ergonomic Chair" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:12px">Register Workspace Unit →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Café Item Modal -->
+  <div class="dash-modal-backdrop" id="addMenuItemModal">
+    <div class="dash-modal-box">
+      <button class="dash-modal-close" onclick="closeModal('addMenuItemModal')">✕</button>
+      <h3 style="font-family:var(--ff-serif);font-size:1.5rem;margin:0 0 14px">Add Artisan Café Item</h3>
+      <form id="formAddMenuItem">
+        <div class="dash-form-group">
+          <label class="dash-label" for="newCafeName">Item Name</label>
+          <input type="text" id="newCafeName" class="dash-input" placeholder="e.g. Single Origin Cold Brew Reserve" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="newCafeCat">Category</label>
+          <select id="newCafeCat" class="dash-select">
+            <option value="Coffee">Coffee &amp; Espresso</option>
+            <option value="Tea">Artisanal Tea</option>
+            <option value="Bakery">Fresh Bakery</option>
+            <option value="Meals">Light Bowls &amp; Meals</option>
+          </select>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="newCafePrice">Price (₹)</label>
+          <input type="text" id="newCafePrice" class="dash-input" placeholder="₹220" required>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="newCafeTag">Specialty Tag</label>
+          <input type="text" id="newCafeTag" class="dash-input" placeholder="e.g. House Specialty, Vegan" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:12px">Add to Café Inventory →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Enquiry View & Reply Modal -->
+  <div class="dash-modal-backdrop" id="enquiryReplyModal">
+    <div class="dash-modal-box">
+      <button class="dash-modal-close" onclick="closeModal('enquiryReplyModal')">✕</button>
+      <h3 style="font-family:var(--ff-serif);font-size:1.5rem;margin:0 0 6px" id="enqModalSubject">Enquiry Details</h3>
+      <div style="font-size:0.8rem;color:var(--clr-ink-muted);margin-bottom:16px" id="enqModalMeta"></div>
+      <div style="background:var(--clr-bg-subtle);padding:14px;border-radius:var(--r-sm);font-size:0.88rem;line-height:1.6;margin-bottom:18px" id="enqModalBody"></div>
+      <form id="formReplyEnquiry">
+        <input type="hidden" id="enqModalId">
+        <div class="dash-form-group">
+          <label class="dash-label" for="enqReplyText">Concierge Response Note</label>
+          <textarea id="enqReplyText" class="dash-textarea" placeholder="Type reply message dispatched to member email..." required></textarea>
+        </div>
+        <div class="dash-form-group">
+          <label class="dash-label" for="enqStatusUpdate">Update Status</label>
+          <select id="enqStatusUpdate" class="dash-select">
+            <option value="Resolved">Mark as Resolved</option>
+            <option value="In Progress">Keep In Progress</option>
+            <option value="Open">Keep Open</option>
+          </select>
+        </div>
+        <div class="flex gap-2">
+          <button type="submit" class="btn btn-primary" style="flex:1">Dispatch Reply &amp; Save →</button>
+          <button type="button" class="btn btn-secondary" onclick="closeModal('enquiryReplyModal')">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/dashboard.js"></script>
+  <script>
+    /* ── Admin Dashboard Logic ── */
+    function renderAdminDashboard() {
+      const members = AtelierStore.get('members', DEFAULT_MEMBERS);
+      const inventory = AtelierStore.get('inventory', DEFAULT_INVENTORY);
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      const cafe = AtelierStore.get('cafe_menu', DEFAULT_CAFE_ITEMS);
+      const enquiries = AtelierStore.get('enquiries', DEFAULT_ENQUIRIES);
+      const payments = AtelierStore.get('payments', DEFAULT_PAYMENTS);
+
+      // 1. KPI Counts
+      document.getElementById('adminKpiTotalMembers').textContent = members.length + 342; // seed offset for realistic numbers
+      document.getElementById('adminNavMemberCount').textContent = members.length;
+      document.getElementById('adminKpiTodayBookings').textContent = bookings.length + 36;
+      document.getElementById('adminNavBookingsCount').textContent = bookings.length;
+      const avail = inventory.filter(d => d.status === 'Available').length;
+      document.getElementById('adminKpiAvailableDesks').innerHTML = `${avail} <span style="font-size:1rem;color:var(--clr-ink-muted);font-weight:400">/ ${inventory.length}</span>`;
+      document.getElementById('adminNavDeskCount').textContent = inventory.length;
+      const openEnq = enquiries.filter(e => e.status !== 'Resolved').length;
+      document.getElementById('adminNavEnquiriesCount').textContent = openEnq;
+
+      // 2. Render Tables
+      renderAdminMembers(members);
+      renderAdminInventory(inventory);
+      renderAdminBookings(bookings);
+      renderAdminPayments(payments);
+      renderAdminCafe(cafe);
+      renderAdminEnquiries(enquiries);
+    }
+
+    /* ── Members Table ── */
+    function renderAdminMembers(membersList) {
+      const tbody = document.getElementById('adminMembersTableBody');
+      tbody.innerHTML = membersList.map(m => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${m.id}</strong></td>
+          <td>
+            <strong>${m.name}</strong>
+            <div style="font-size:0.75rem;color:var(--clr-ink-muted)">${m.email}</div>
+          </td>
+          <td>${m.phone}</td>
+          <td><span class="badge badge-confirmed">${m.plan}</span></td>
+          <td>${m.joined}</td>
+          <td><span class="badge ${m.keycard === 'Active' ? 'badge-active' : 'badge-cancelled'}">${m.keycard}</span></td>
+          <td><span class="badge ${m.status === 'Active' ? 'badge-active' : 'badge-occupied'}">${m.status}</span></td>
+          <td>
+            <div class="action-btn-group">
+              <button class="btn-action" onclick="toggleMemberStatus('${m.id}')">${m.status === 'Active' ? 'Pause' : 'Activate'}</button>
+              <button class="btn-action" onclick="resetMemberKeycard('${m.id}')">Reset RFID</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function toggleMemberStatus(memId) {
+      const members = AtelierStore.get('members', DEFAULT_MEMBERS);
+      const mem = members.find(m => m.id === memId);
+      if (mem) {
+        mem.status = mem.status === 'Active' ? 'Paused' : 'Active';
+        mem.keycard = mem.status === 'Active' ? 'Active' : 'Suspended';
+        AtelierStore.set('members', members);
+        showToast(`Member ${mem.name} status updated to ${mem.status}`, '✓');
+        renderAdminDashboard();
+      }
+    }
+
+    function resetMemberKeycard(memId) {
+      showToast(`RFID hardware pass regenerated for member #${memId}. Syncing turnstiles...`, '🔄');
+    }
+
+    /* ── Inventory Table ── */
+    function renderAdminInventory(inventoryList) {
+      const tbody = document.getElementById('adminInventoryTableBody');
+      tbody.innerHTML = inventoryList.map(d => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${d.id}</strong></td>
+          <td><strong>${d.name}</strong></td>
+          <td><span class="badge badge-active">${d.zone.toUpperCase()}</span></td>
+          <td>${d.capacity} Person${d.capacity > 1 ? 's' : ''}</td>
+          <td style="font-size:0.75rem;color:var(--clr-ink-muted)">${d.amenities}</td>
+          <td><strong>₹${d.rate}/hr</strong></td>
+          <td>
+            <span class="badge ${d.status === 'Available' ? 'badge-available' : (d.status === 'Occupied' ? 'badge-occupied' : 'badge-maintenance')}">
+              ${d.status}
+            </span>
+          </td>
+          <td>
+            <div class="action-btn-group">
+              <button class="btn-action" onclick="toggleDeskStatus('${d.id}')">
+                ${d.status === 'Available' ? 'Set Occupied' : (d.status === 'Occupied' ? 'Set Maintenance' : 'Set Available')}
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function toggleDeskStatus(deskId) {
+      const inventory = AtelierStore.get('inventory', DEFAULT_INVENTORY);
+      const desk = inventory.find(d => d.id === deskId);
+      if (desk) {
+        if (desk.status === 'Available') desk.status = 'Occupied';
+        else if (desk.status === 'Occupied') desk.status = 'Maintenance';
+        else desk.status = 'Available';
+        AtelierStore.set('inventory', inventory);
+        showToast(`${desk.name} (${desk.id}) status set to ${desk.status}`, '✓');
+        renderAdminDashboard();
+      }
+    }
+
+    /* ── Bookings Table ── */
+    function renderAdminBookings(bookingsList) {
+      const tbody = document.getElementById('adminBookingsTableBody');
+      tbody.innerHTML = bookingsList.map(b => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${b.id}</strong></td>
+          <td>
+            <strong>${b.member}</strong>
+            <div style="font-size:0.75rem;color:var(--clr-ink-muted)">${b.email}</div>
+          </td>
+          <td>${b.space}</td>
+          <td>${b.date}<br><span style="font-size:0.75rem;color:var(--clr-ink-muted)">${b.time}</span></td>
+          <td>${b.hours} Hours</td>
+          <td><strong>${b.price}</strong></td>
+          <td><span class="badge ${b.status === 'Checked In' ? 'badge-confirmed' : (b.status === 'Confirmed' ? 'badge-active' : (b.status === 'Completed' ? 'badge-paid' : 'badge-cancelled'))}">${b.status}</span></td>
+          <td>
+            <div class="action-btn-group">
+              ${b.status === 'Confirmed' ? `
+                <button class="btn-action" onclick="adminCheckIn('${b.id}')">Check In</button>
+                <button class="btn-action btn-danger" onclick="adminCancelBooking('${b.id}')">Cancel</button>
+              ` : ''}
+              <button class="btn-action" onclick="openReceiptModal({id:'${b.id}', space:'${b.space}', date:'${b.date}', price:'${b.price}'})">Receipt</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function adminCheckIn(bookingId) {
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      const b = bookings.find(item => item.id === bookingId);
+      if (b) {
+        b.status = 'Checked In';
+        AtelierStore.set('bookings', bookings);
+        showToast(`Member ${b.member} checked in for ${b.space}! Turnstile unlocked.`, '✓');
+        renderAdminDashboard();
+      }
+    }
+
+    function adminCancelBooking(bookingId) {
+      if (!confirm(`Cancel booking ${bookingId} as admin?`)) return;
+      const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+      const b = bookings.find(item => item.id === bookingId);
+      if (b) {
+        b.status = 'Cancelled';
+        AtelierStore.set('bookings', bookings);
+        showToast(`Booking ${bookingId} cancelled by admin.`, '✓');
+        renderAdminDashboard();
+      }
+    }
+
+    /* ── Payments Table ── */
+    function renderAdminPayments(paymentsList) {
+      const tbody = document.getElementById('adminPaymentsTableBody');
+      tbody.innerHTML = paymentsList.map(py => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${py.id}</strong></td>
+          <td>Maya Krishnan</td>
+          <td>${py.desc}</td>
+          <td>${py.date}</td>
+          <td>${py.method}</td>
+          <td><strong>${py.amount}</strong></td>
+          <td><span class="badge badge-paid">${py.status}</span></td>
+          <td>
+            <div class="action-btn-group">
+              <button class="btn-action" onclick="openReceiptModal({id:'${py.id}', desc:'${py.desc}', date:'${py.date}', method:'${py.method}', amount:'${py.amount}'})">Receipt</button>
+              <button class="btn-action" onclick="showToast('Refund processed for ${py.id}', '💸')">Refund</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    /* ── Café Inventory Table ── */
+    function renderAdminCafe(cafeList) {
+      const tbody = document.getElementById('adminCafeTableBody');
+      tbody.innerHTML = cafeList.map(item => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">${item.id}</strong></td>
+          <td><strong>${item.name}</strong></td>
+          <td><span class="badge badge-active">${item.cat}</span></td>
+          <td><span style="font-size:0.75rem;color:var(--clr-ink-muted)">${item.tag}</span></td>
+          <td><strong>${item.price}</strong></td>
+          <td>
+            <span class="badge ${item.status === 'In Stock' ? 'badge-available' : (item.status === 'Low Stock' ? 'badge-low' : 'badge-sold-out')}">
+              ${item.status}
+            </span>
+          </td>
+          <td>
+            <button class="btn-action" onclick="toggleCafeStock('${item.id}')">
+              ${item.status === 'In Stock' ? 'Mark Sold Out' : 'Mark In Stock'}
+            </button>
+          </td>
+          <td>
+            <button class="btn-action btn-danger" onclick="deleteCafeItem('${item.id}')">Delete</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function toggleCafeStock(itemId) {
+      const cafe = AtelierStore.get('cafe_menu', DEFAULT_CAFE_ITEMS);
+      const item = cafe.find(c => c.id === itemId);
+      if (item) {
+        item.status = item.status === 'In Stock' ? 'Sold Out' : 'In Stock';
+        AtelierStore.set('cafe_menu', cafe);
+        showToast(`${item.name} marked as ${item.status}`, '☕');
+        renderAdminDashboard();
+      }
+    }
+
+    function deleteCafeItem(itemId) {
+      if (!confirm('Remove this item from the café menu?')) return;
+      let cafe = AtelierStore.get('cafe_menu', DEFAULT_CAFE_ITEMS);
+      cafe = cafe.filter(c => c.id !== itemId);
+      AtelierStore.set('cafe_menu', cafe);
+      showToast('Item deleted from menu.', '✓');
+      renderAdminDashboard();
+    }
+
+    /* ── Enquiries Table ── */
+    function renderAdminEnquiries(enquiriesList) {
+      const tbody = document.getElementById('adminEnquiriesTableBody');
+      tbody.innerHTML = enquiriesList.map(enq => `
+        <tr>
+          <td><strong style="font-family:var(--ff-mono)">#${enq.id}</strong></td>
+          <td>
+            <strong>${enq.name}</strong>
+            <div style="font-size:0.75rem;color:var(--clr-ink-muted)">${enq.email}</div>
+          </td>
+          <td><span class="badge badge-active">${enq.category}</span></td>
+          <td><strong>${enq.subject}</strong></td>
+          <td>
+            <span class="badge ${enq.priority === 'Urgent' ? 'badge-cancelled' : (enq.priority === 'High' ? 'badge-low' : 'badge-confirmed')}">
+              ${enq.priority}
+            </span>
+          </td>
+          <td>${enq.date}</td>
+          <td><span class="badge ${enq.status === 'Resolved' ? 'badge-available' : (enq.status === 'In Progress' ? 'badge-low' : 'badge-cancelled')}">${enq.status}</span></td>
+          <td>
+            <button class="btn-action" onclick="openEnquiryReplyModal('${enq.id}')">View &amp; Reply</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function openEnquiryReplyModal(enqId) {
+      const enquiries = AtelierStore.get('enquiries', DEFAULT_ENQUIRIES);
+      const enq = enquiries.find(e => e.id === enqId);
+      if (!enq) return;
+
+      document.getElementById('enqModalId').value = enq.id;
+      document.getElementById('enqModalSubject').textContent = `Ticket #${enq.id}: ${enq.subject}`;
+      document.getElementById('enqModalMeta').textContent = `From: ${enq.name} (${enq.email}) · Category: ${enq.category} · Priority: ${enq.priority}`;
+      document.getElementById('enqModalBody').textContent = enq.message;
+      document.getElementById('enqStatusUpdate').value = enq.status;
+      document.getElementById('enquiryReplyModal').classList.add('open');
+    }
+
+    document.getElementById('formReplyEnquiry')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enqId = document.getElementById('enqModalId').value;
+      const status = document.getElementById('enqStatusUpdate').value;
+      const reply = document.getElementById('enqReplyText').value;
+
+      const enquiries = AtelierStore.get('enquiries', DEFAULT_ENQUIRIES);
+      const enq = enquiries.find(item => item.id === enqId);
+      if (enq) {
+        enq.status = status;
+        AtelierStore.set('enquiries', enquiries);
+        closeModal('enquiryReplyModal');
+        showToast(`Reply sent to ${enq.name}! Ticket #${enqId} set to ${status}.`, '✓');
+        renderAdminDashboard();
+      }
+    });
+
+    /* ── Modals Triggers & Forms ── */
+    function openAddMemberModal() { document.getElementById('addMemberModal').classList.add('open'); }
+    function openAddDeskModal() { document.getElementById('addDeskModal').classList.add('open'); }
+    function openAddMenuItemModal() { document.getElementById('addMenuItemModal').classList.add('open'); }
+
+    document.getElementById('formAddMember')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('addMemName').value;
+      const email = document.getElementById('addMemEmail').value;
+      const phone = document.getElementById('addMemPhone').value;
+      const plan = document.getElementById('addMemPlan').value;
+
+      const newId = 'MEM-' + Math.floor(100 + Math.random() * 900);
+      const members = AtelierStore.get('members', DEFAULT_MEMBERS);
+      members.unshift({
+        id: newId,
+        name: name,
+        email: email,
+        phone: phone,
+        plan: plan,
+        joined: 'Today',
+        keycard: 'Active',
+        status: 'Active'
+      });
+      AtelierStore.set('members', members);
+      closeModal('addMemberModal');
+      showToast(`Member ${name} (${newId}) registered with active RFID pass!`, '🎉');
+      renderAdminDashboard();
+    });
+
+    document.getElementById('formAddDesk')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const id = document.getElementById('newDeskId').value.toUpperCase();
+      const name = document.getElementById('newDeskName').value;
+      const zone = document.getElementById('newDeskZone').value;
+      const rate = parseInt(document.getElementById('newDeskRate').value) || 200;
+      const amenities = document.getElementById('newDeskAmenities').value;
+
+      const inventory = AtelierStore.get('inventory', DEFAULT_INVENTORY);
+      inventory.push({
+        id: id,
+        name: name,
+        zone: zone,
+        capacity: zone === 'meeting' ? 4 : 1,
+        rate: rate,
+        status: 'Available',
+        amenities: amenities
+      });
+      AtelierStore.set('inventory', inventory);
+      closeModal('addDeskModal');
+      showToast(`Workspace unit ${id} created and available for booking!`, '✓');
+      renderAdminDashboard();
+    });
+
+    document.getElementById('formAddMenuItem')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('newCafeName').value;
+      const cat = document.getElementById('newCafeCat').value;
+      const price = document.getElementById('newCafePrice').value;
+      const tag = document.getElementById('newCafeTag').value;
+
+      const newId = 'CAF-' + Math.floor(10 + Math.random() * 90);
+      const cafe = AtelierStore.get('cafe_menu', DEFAULT_CAFE_ITEMS);
+      cafe.push({
+        id: newId,
+        name: name,
+        cat: cat,
+        price: price,
+        tag: tag,
+        status: 'In Stock'
+      });
+      AtelierStore.set('cafe_menu', cafe);
+      closeModal('addMenuItemModal');
+      showToast(`${name} added to the artisan café menu!`, '☕');
+      renderAdminDashboard();
+    });
+
+    function navigateToSection(sectionId) {
+      const targetLink = document.querySelector(`.dash-nav-item[data-section="${sectionId}"]`);
+      if (targetLink) targetLink.click();
+    }
+
+    function demoLogout() {
+      showToast('Exited Admin Operations. Redirecting...', '✓');
+      setTimeout(() => window.location.href = 'login.html', 800);
+    }
+
+    /* ── Zone Filters & Search Listeners ── */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Zone filter for Inventory
+      document.querySelectorAll('.admin-inv-zone-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.admin-inv-zone-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const zone = btn.dataset.zone;
+          const inventory = AtelierStore.get('inventory', DEFAULT_INVENTORY);
+          if (zone === 'all') renderAdminInventory(inventory);
+          else renderAdminInventory(inventory.filter(d => d.zone === zone));
+        });
+      });
+
+      // Member search
+      document.getElementById('memberSearchInput')?.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        const members = AtelierStore.get('members', DEFAULT_MEMBERS);
+        const filtered = members.filter(m => m.name.toLowerCase().includes(q) || m.email.toLowerCase().includes(q) || m.id.toLowerCase().includes(q));
+        renderAdminMembers(filtered);
+      });
+
+      // Member filter dropdowns
+      const filterMembers = () => {
+        const status = document.getElementById('memberStatusFilter').value;
+        const plan = document.getElementById('memberPlanFilter').value;
+        let members = AtelierStore.get('members', DEFAULT_MEMBERS);
+        if (status !== 'all') members = members.filter(m => m.status === status);
+        if (plan !== 'all') members = members.filter(m => m.plan.includes(plan));
+        renderAdminMembers(members);
+      };
+      document.getElementById('memberStatusFilter')?.addEventListener('change', filterMembers);
+      document.getElementById('memberPlanFilter')?.addEventListener('change', filterMembers);
+
+      // Bookings search & filter
+      document.getElementById('adminBookingSearchInput')?.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+        const filtered = bookings.filter(b => b.id.toLowerCase().includes(q) || b.member.toLowerCase().includes(q) || b.space.toLowerCase().includes(q));
+        renderAdminBookings(filtered);
+      });
+      document.getElementById('adminBookingStatusFilter')?.addEventListener('change', (e) => {
+        const status = e.target.value;
+        const bookings = AtelierStore.get('bookings', DEFAULT_BOOKINGS);
+        if (status === 'all') renderAdminBookings(bookings);
+        else renderAdminBookings(bookings.filter(b => b.status === status));
+      });
+
+      // Café search & category filter
+      document.getElementById('cafeSearchInput')?.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        const cafe = AtelierStore.get('cafe_menu', DEFAULT_CAFE_ITEMS);
+        renderAdminCafe(cafe.filter(c => c.name.toLowerCase().includes(q) || c.cat.toLowerCase().includes(q)));
+      });
+      document.getElementById('cafeCatFilter')?.addEventListener('change', (e) => {
+        const cat = e.target.value;
+        const cafe = AtelierStore.get('cafe_menu', DEFAULT_CAFE_ITEMS);
+        if (cat === 'all') renderAdminCafe(cafe);
+        else renderAdminCafe(cafe.filter(c => c.cat === cat));
+      });
+
+      // Enquiry search & filter
+      document.getElementById('enquirySearchInput')?.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        const enquiries = AtelierStore.get('enquiries', DEFAULT_ENQUIRIES);
+        renderAdminEnquiries(enquiries.filter(enq => enq.subject.toLowerCase().includes(q) || enq.name.toLowerCase().includes(q) || enq.id.toLowerCase().includes(q)));
+      });
+      document.getElementById('enquiryStatusFilter')?.addEventListener('change', (e) => {
+        const status = e.target.value;
+        const enquiries = AtelierStore.get('enquiries', DEFAULT_ENQUIRIES);
+        if (status === 'all') renderAdminEnquiries(enquiries);
+        else renderAdminEnquiries(enquiries.filter(enq => enq.status === status));
+      });
+
+      renderAdminDashboard();
+    });
+  </script>
+</body>
+</html>

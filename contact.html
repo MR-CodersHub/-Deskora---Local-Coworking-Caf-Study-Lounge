@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Visit Concierge — DESKORA Coworking Café</title>
+  <meta name="description"
+    content="Visit DESKORA at 12 Crescent Lane, Koramangala 4th Block, Bengaluru. Schedule a guided space walkthrough, claim your complimentary first-day pass, or connect with our concierge.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/deskora-favicon.svg">
+  <style>
+    /* =========================================================
+       CONTACT PAGE — BESPOKE ARCHITECTURAL STYLES
+    ========================================================= */
+
+    /* Standardized Hero (Unified 560px height) */
+    .contact-hero-section {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      background: var(--clr-bg);
+      border-bottom: 1px solid var(--clr-border);
+      position: relative;
+    }
+    @media (min-width: 993px) {
+      .contact-hero-section {
+        min-height: var(--hero-unified-height);
+        height: auto;
+        padding: var(--sp-8) 0 !important;
+      }
+    }
+    [data-theme="dark"] .contact-hero-section {
+      background: #111110;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .contact-hero-section .lead {
+      color: #242420 !important;
+      font-weight: 500;
+    }
+    [data-theme="dark"] .contact-hero-section .lead {
+      color: #d8d8d0 !important;
+      font-weight: 400;
+    }
+    .contact-hero-actions .btn-outline {
+      background: var(--clr-bg-card) !important;
+      border-color: var(--clr-border-med) !important;
+      color: var(--clr-ink) !important;
+      box-shadow: var(--sh-sm);
+    }
+    .contact-hero-actions .btn-outline:hover {
+      background: var(--clr-ink) !important;
+      color: var(--clr-bg) !important;
+      border-color: var(--clr-ink) !important;
+    }
+    .contact-jump-pill {
+      background: var(--clr-bg-card) !important;
+      border-color: var(--clr-border-med) !important;
+      color: var(--clr-ink) !important;
+      font-weight: 600;
+      box-shadow: var(--sh-xs);
+    }
+
+    .contact-hero-section::before {
+      display: none;
+    }
+
+    .contact-hero-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--sp-12);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      margin-top: var(--sp-6);
+      padding-top: var(--sp-5);
+      border-top: 1px dashed var(--clr-border);
+    }
+
+    .contact-jump-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--r-full);
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-medium);
+      color: var(--clr-ink-soft);
+      text-decoration: none;
+      transition: all var(--t-fast) var(--ease);
+    }
+
+    .contact-jump-pill:hover {
+      border-color: var(--clr-ink);
+      color: var(--clr-ink);
+      transform: translateY(-1px);
+    }
+
+    /* Concierge Console Card */
+    .concierge-console-card {
+      background: linear-gradient(145deg, #181817 0%, #0d0d0c 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8);
+      color: #fff;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .concierge-console-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--sp-5);
+      padding-bottom: var(--sp-4);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .concierge-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.15);
+      padding: 3px 10px;
+      border-radius: var(--r-full);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+
+    .tour-slots-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      margin: var(--sp-5) 0 var(--sp-6);
+    }
+
+    .tour-slot-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--r-sm);
+      padding: var(--sp-3) var(--sp-4);
+      font-size: var(--fs-xs);
+      transition: background var(--t-fast) var(--ease);
+    }
+
+    .tour-slot-item:hover {
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .tour-slot-time {
+      font-family: var(--ff-mono);
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tour-slot-status {
+      font-size: 0.68rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ── 3-Column Direct Channels Grid ── */
+    .channels-trio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-10);
+    }
+
+    .channel-trio-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8) var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all var(--t-base) var(--ease);
+    }
+
+    .channel-trio-card:hover {
+      border-color: var(--clr-ink);
+      transform: translateY(-4px);
+      box-shadow: var(--sh-md);
+    }
+
+    .channel-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-md);
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-5);
+    }
+
+    .channel-trio-title {
+      font-family: var(--ff-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-2);
+    }
+
+    .channel-trio-body {
+      font-size: var(--fs-xs);
+      color: var(--clr-ink-muted);
+      line-height: 1.6;
+      margin-bottom: var(--sp-6);
+      flex: 1;
+    }
+
+    .channel-trio-link {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--clr-ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: gap var(--t-fast) var(--ease);
+    }
+
+    .channel-trio-link:hover {
+      gap: 10px;
+    }
+
+    /* ── Main Booking & Location Split ── */
+    .contact-split-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: var(--sp-10);
+      align-items: start;
+    }
+
+    .form-panel-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-10);
+      box-shadow: var(--sh-sm);
+    }
+
+    .location-panel-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-8);
+      box-shadow: var(--sh-sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-6);
+    }
+
+    .map-embed-frame {
+      width: 100%;
+      height: 240px;
+      border: none;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      filter: contrast(1.05) grayscale(0.2);
+    }
+
+    .hours-strip {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      padding-top: var(--sp-5);
+      border-top: 1px solid var(--clr-border);
+    }
+
+    .hours-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--fs-xs);
+    }
+
+    .hours-day {
+      font-weight: 600;
+      color: var(--clr-ink);
+    }
+
+    .hours-val {
+      font-family: var(--ff-mono);
+      color: var(--clr-ink-muted);
+    }
+
+    /* Transit Mini-Grid */
+    .transit-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-3);
+      padding-top: var(--sp-5);
+      border-top: 1px solid var(--clr-border);
+    }
+
+    .transit-mini-box {
+      background: var(--clr-bg-subtle);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-sm);
+      padding: var(--sp-3);
+      text-align: center;
+    }
+
+    .transit-mini-icon {
+      color: var(--clr-ink);
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .transit-mini-name {
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--clr-ink);
+    }
+
+    .transit-mini-desc {
+      font-size: 0.65rem;
+      color: var(--clr-ink-muted);
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+
+    /* ── Floorplan Navigation Strip ── */
+    .floorplan-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-6);
+      margin-top: var(--sp-10);
+    }
+
+    .floorplan-card {
+      background: var(--clr-bg-card);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-lg);
+      padding: var(--sp-6);
+      transition: all var(--t-base) var(--ease);
+    }
+
+    .floorplan-card:hover {
+      border-color: var(--clr-ink);
+      transform: translateY(-2px);
+    }
+
+    .floorplan-level {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clr-ink-muted);
+      margin-bottom: var(--sp-2);
+    }
+
+    .floorplan-name {
+      font-family: var(--ff-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--clr-ink);
+      margin-bottom: var(--sp-2);
+    }
+
+    .floorplan-desc {
+      font-size: var(--fs-xs);
+      color: var(--clr-ink-muted);
+      line-height: 1.55;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .channels-trio-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-split-grid {
+        grid-template-columns: 1fr;
+      }
+      .floorplan-preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .contact-hero-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-panel-card {
+        padding: var(--sp-6) var(--sp-4);
+      }
+      .location-panel-card {
+        padding: var(--sp-6) var(--sp-4);
+      }
+      .concierge-console-card {
+        padding: var(--sp-6) var(--sp-4);
+      }
+      .transit-mini-grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-2);
+      }
+      .contact-hero-section {
+        min-height: auto;
+        padding: var(--sp-8) 0;
+      }
+      #inquiry {
+        scroll-margin-top: 80px;
+      }
+      .contact-hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--sp-3);
+      }
+      .contact-hero-actions .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Contact Hero CTA Buttons Alignment */
+    .contact-hero-actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--sp-4);
+      flex-wrap: nowrap;
+      margin-bottom: var(--sp-8);
+    }
+    .contact-hero-actions .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 52px;
+      line-height: 1;
+      padding: 0 1.75rem;
+      box-sizing: border-box;
+      font-size: var(--fs-md);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-item"><span class="status-dot"></span>&nbsp; Open today · 7:00 AM – 11:00 PM</span>
+          <span class="top-bar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" style="vertical-align:middle;margin-right:4px">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>12 Crescent Lane, Koramangala, Bengaluru</span>
+          <span class="top-bar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" style="vertical-align:middle;margin-right:4px">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>+91 98765 43210</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="login.html" class="top-bar-portal-link">Member Portal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link active" id="nav-contact">Contact</a></li>
+            <li class="nav-item-dropdown" id="navDashboardDropdown">
+              <a href="user-dashboard.html" class="nav-link nav-dropdown-toggle" id="nav-dashboard" aria-haspopup="true" aria-expanded="false">
+                <span>Dashboard</span>
+                <svg class="nav-dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </a>
+              <div class="nav-dropdown-menu" id="dashboardDropdownMenu" role="menu" aria-label="Dashboard options">
+                <a href="admin-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">Admin Dashboard</span>
+                    <span class="nav-dropdown-sub">Management &amp; occupancy</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="nav-dropdown-item" role="menuitem">
+                  <span class="nav-dropdown-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="nav-dropdown-text">
+                    <span class="nav-dropdown-title">User Dashboard</span>
+                    <span class="nav-dropdown-sub">Bookings &amp; membership</span>
+                  </div>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)" title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true" aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Button (Last Position) -->
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link active">Contact</a></li>
+          <li class="mobile-nav-item-dropdown">
+            <button class="mobile-nav-link mobile-nav-dropdown-toggle" id="mobile-nav-dashboard" type="button" aria-haspopup="true" aria-expanded="false">
+              <span>Dashboard</span>
+              <svg class="mobile-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="mobile-nav-submenu" id="mobileDashboardSubmenu">
+              <a href="admin-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                    <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                    <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                    <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                  </svg>
+                </span>
+                <span>Admin Dashboard</span>
+              </a>
+              <a href="user-dashboard.html" class="mobile-nav-sublink">
+                <span class="mobile-sublink-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <span>User Dashboard</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking style="width: 100%;">Book a Desk</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PAGE HERO (UNIFIED HEIGHT: 560px)
+  ══════════════════════════════════════════════ -->
+  <section class="contact-hero-section" aria-label="Contact hero">
+    <div class="container">
+      <div class="contact-hero-layout">
+
+        <!-- Left Column: Copy & Quick Badges -->
+        <div>
+          <span class="eyebrow"><span class="status-dot"></span> Concierge Active · Koramangala 4th Block · Walk-Ins
+            Welcome</span>
+          <h1 class="display-section" style="margin-bottom:var(--sp-5)">Come for a Tour.<br>Stay for the <em>Deep
+              Focus.</em></h1>
+          <p class="lead" style="max-width:540px;margin-bottom:var(--sp-8)">We're tucked beneath ancient rain trees in
+            leafy Koramangala 4th Block, five minutes from Sony World Junction. Walk in anytime for single-origin
+            pour-over coffee, quiet study desks, or a guided floor walkthrough.</p>
+          <div class="contact-hero-actions">
+            <a href="#inquiry" class="btn btn-primary btn-lg">Schedule Space Walkthrough</a>
+            <a href="tel:+919876543210" class="btn btn-outline btn-lg">Call Concierge Desk</a>
+          </div>
+
+          <!-- Quick Navigation Badges -->
+          <div class="contact-hero-pills">
+            <span class="contact-jump-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>5 Min Walk from Sony World</span>
+            <span class="contact-jump-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>Open 7:00 AM – 11:00 PM Daily</span>
+            <span class="contact-jump-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              </svg>Pour-Over on Arrival</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Live Concierge Console Card -->
+        <div class="concierge-console-card" data-reveal>
+          <div style="border-radius:var(--r-md);overflow:hidden;margin-bottom:var(--sp-3);height:120px;">
+            <img src="assets/about-wide.jpg" alt="DESKORA Koramangala Hub Reception & Workspaces" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+          <div class="concierge-console-header">
+            <div>
+              <span
+                style="font-family:var(--ff-mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);display:block">Reception
+                Desk · Level 1</span>
+              <span style="font-family:var(--ff-serif);font-size:1.25rem;font-weight:600;color:#fff">Today's
+                Availability</span>
+            </div>
+            <span class="concierge-status-pill"><span class="status-dot"></span> Live Now</span>
+          </div>
+
+          <p style="font-size:var(--fs-xs);color:rgba(255,255,255,0.7);line-height:1.6">
+            Our community host will introduce you to our silent study mezzanine, ergonomic Herman Miller desk wings, and
+            soundproof phone suites.
+          </p>
+
+          <div class="tour-slots-list">
+            <div class="tour-slot-item">
+              <span class="tour-slot-time">11:30 AM · Morning Focus</span>
+              <span class="tour-slot-status" style="color:#86efac">Open · 2 Spots Left</span>
+            </div>
+            <div class="tour-slot-item">
+              <span class="tour-slot-time">03:00 PM · Afternoon Sprints</span>
+              <span class="tour-slot-status" style="color:#86efac">Open · Available</span>
+            </div>
+            <div class="tour-slot-item">
+              <span class="tour-slot-time">05:30 PM · Sunset &amp; Rooftop</span>
+              <span class="tour-slot-status" style="color:#fde047">Filling Fast · 1 Spot</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap">
+            <button class="btn btn-white btn-sm" data-open-booking style="flex:1;justify-content:center">Book Tour Slot Now</button>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="btn btn-white btn-sm"
+              style="flex:1;justify-content:center;display:inline-flex;align-items:center;gap:6px">WhatsApp Host</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       3-COLUMN DIRECT CHANNELS TRIO
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="channels-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">Connect Directly</span>
+        <h2 class="display-section" id="channels-heading">Three Ways to<br><em>Reach DESKORA</em></h2>
+        <p class="section-intro" style="margin-top:var(--sp-4)">Whether you prefer a casual walk-in, an instant WhatsApp
+          message, or an enterprise proposal request.</p>
+      </div>
+
+      <div class="channels-trio-grid" data-reveal>
+
+        <!-- 1. Physical Campus -->
+        <div class="channel-trio-card">
+          <div class="channel-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <h3 class="channel-trio-title">Visit Campus</h3>
+          <p class="channel-trio-body">12 Crescent Lane, 4th Block, Koramangala, Bengaluru, Karnataka 560034. Located 200
+            meters behind Sony World Signal.</p>
+          <a href="https://maps.google.com/?q=Koramangala+4th+Block+Bengaluru" target="_blank" rel="noopener"
+            class="channel-trio-link">
+            <span>Get Directions on Google Maps</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 2. Phone & WhatsApp -->
+        <div class="channel-trio-card">
+          <div class="channel-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+              </path>
+            </svg>
+          </div>
+          <h3 class="channel-trio-title">Concierge &amp; WhatsApp</h3>
+          <p class="channel-trio-body">+91 98765 43210<br>Direct reception desk line and 24/7 automated WhatsApp bot for
+            instant desk reservations and wifi credentials.</p>
+          <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="channel-trio-link">
+            <span>Message on WhatsApp</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- 3. Electronic Mail -->
+        <div class="channel-trio-card">
+          <div class="channel-icon-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <h3 class="channel-trio-title">Email Inquiries</h3>
+          <p class="channel-trio-body">hello@theatelier.space (General &amp; Tours)<br>enterprise@theatelier.space
+            (Private Studios &amp; Offsite Events). Response within 2 hours.</p>
+          <a href="mailto:hello@theatelier.space" class="channel-trio-link">
+            <span>Send an Email</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       MAIN BOOKING FORM & LOCATION SPLIT
+  ══════════════════════════════════════════════ -->
+  <section class="section" id="inquiry" aria-labelledby="inquiry-heading">
+    <div class="container">
+      <div class="contact-split-grid">
+
+        <!-- Left Side: Interactive Inquiry & Tour Form -->
+        <div class="form-panel-card" data-reveal>
+          <div style="margin-bottom:var(--sp-6)">
+            <span class="eyebrow">Personalized Walkthrough</span>
+            <h2 class="heading-md" id="inquiry-heading" style="margin-bottom:var(--sp-2)">Schedule a Tour or Inquire
+            </h2>
+            <p class="body-sm" style="color:var(--clr-ink-muted)">Tell us about your work style. A community concierge
+              will prepare your visitor badge and arrange your single-origin pour-over tasting.</p>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="contactName">Your Full Name <span style="color:red">*</span></label>
+              <input class="form-input" type="text" id="contactName" placeholder="e.g. Maya Krishnan" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactEmail">Work Email Address <span style="color:red">*</span></label>
+              <input class="form-input" type="email" id="contactEmail" placeholder="e.g. maya@domain.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactPhone">Phone Number / WhatsApp</label>
+              <input class="form-input" type="tel" id="contactPhone" placeholder="+91 98765 00000">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactInquiry">What Are You Interested In?</label>
+              <select class="form-select" id="contactInquiry">
+                <option value="tour">Guided Space Tour &amp; Free Discovery Day</option>
+                <option value="daypass">Day Pass or Multi-Pass Bundle (5-Day)</option>
+                <option value="student">Student Academic Pass (₹199 / Day)</option>
+                <option value="dedicated">Dedicated Desk (Monthly / Annual)</option>
+                <option value="studio">Private Team Studio Suite (4–12 people)</option>
+                <option value="event">Host an Event / Workshop / Podcast Recording</option>
+                <option value="other">General Question</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactDate">Preferred Visit Date</label>
+              <input class="form-input" type="date" id="contactDate">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactMessage">Message or Equipment Requirements</label>
+              <textarea class="form-textarea" id="contactMessage" rows="4"
+                placeholder="Tell us about your work cadence, monitor requirements, team size, or questions..."></textarea>
+            </div>
+
+            <div style="margin-bottom:var(--sp-6);display:flex;align-items:flex-start;gap:var(--sp-2)">
+              <input type="checkbox" id="tourConfirmation" style="margin-top:4px" checked>
+              <label for="tourConfirmation"
+                style="font-size:var(--fs-xs);color:var(--clr-ink-muted);line-height:1.5">
+                Have a freshly brewed single-origin pour-over prepared when I arrive at the reception desk.
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;padding:0.95rem">Confirm Walkthrough &amp;
+              Reserve Coffee →</button>
+          </form>
+        </div>
+
+        <!-- Right Side: Location, Operating Hours & Transit Hub -->
+        <div class="location-panel-card" data-reveal data-delay="1">
+          <div>
+            <h3 style="font-family:var(--ff-serif);font-size:1.4rem;font-weight:600;color:var(--clr-ink);margin-bottom:var(--sp-3)">
+              Campus Coordinates</h3>
+            <p style="font-size:var(--fs-xs);color:var(--clr-ink-muted);line-height:1.6">
+              12 Crescent Lane, 4th Block, Koramangala, Bengaluru 560034.<br>Adjacent to Sony World Signal, tucked
+              behind leafy residential canopy.
+            </p>
+          </div>
+
+          <!-- Embedded Map -->
+          <iframe title="DESKORA Location Map" class="map-embed-frame"
+            src="https://maps.google.com/maps?q=Koramangala%204th%20Block,%20Bengaluru&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            loading="lazy" allowfullscreen>
+          </iframe>
+
+          <!-- Operating Hours Matrix -->
+          <div class="hours-strip">
+            <span
+              style="font-family:var(--ff-mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--clr-ink-muted);margin-bottom:2px">Hours
+              of Operation</span>
+            <div class="hours-line">
+              <span class="hours-day">Monday – Friday</span>
+              <span class="hours-val">7:00 AM – 11:00 PM</span>
+            </div>
+            <div class="hours-line">
+              <span class="hours-day">Saturday &amp; Sunday</span>
+              <span class="hours-val">8:00 AM – 10:00 PM</span>
+            </div>
+            <div class="hours-line">
+              <span class="hours-day">Resident Keycard Access</span>
+              <span class="hours-val" style="color:var(--clr-success);font-weight:700">24/7 Biometric</span>
+            </div>
+            <div class="hours-line">
+              <span class="hours-day">Specialty Brew Bar</span>
+              <span class="hours-val">7:30 AM – 8:30 PM Daily</span>
+            </div>
+          </div>
+
+          <!-- Transit Connections Mini-Grid -->
+          <div class="transit-mini-grid">
+            <div class="transit-mini-box">
+              <div class="transit-mini-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="3" width="16" height="16" rx="2"></rect>
+                  <path d="M4 11h16"></path>
+                  <path d="M12 3v8"></path>
+                  <path d="m8 19-2 3"></path>
+                  <path d="m16 19 2 3"></path>
+                </svg>
+              </div>
+              <div class="transit-mini-name">Metro</div>
+              <div class="transit-mini-desc">Purple Line Trinity + 10m feeder</div>
+            </div>
+
+            <div class="transit-mini-box">
+              <div class="transit-mini-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C2.1 11 2 11.5 2 12v4c0 .6.4 1 1 1h2">
+                  </path>
+                  <circle cx="7" cy="17" r="2"></circle>
+                  <path d="M9 17h6"></path>
+                  <circle cx="17" cy="17" r="2"></circle>
+                </svg>
+              </div>
+              <div class="transit-mini-name">Parking</div>
+              <div class="transit-mini-desc">Free 2-wheeler bay &amp; basement valet</div>
+            </div>
+
+            <div class="transit-mini-box">
+              <div class="transit-mini-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                  <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                  <circle cx="15" cy="5" r="1"></circle>
+                  <path d="M12 17.5V14l-3-3 4-3 2 3h2"></path>
+                </svg>
+              </div>
+              <div class="transit-mini-name">Bicycles</div>
+              <div class="transit-mini-desc">Secure interior rack &amp; pump</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       CAMPUS FLOORPLAN PREVIEW STRIP
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt" aria-labelledby="floors-heading">
+    <div class="container">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">Space Navigation</span>
+        <h2 class="display-section" id="floors-heading">Three Levels of<br><em>Calibrated Quietude</em></h2>
+        <p class="section-intro" style="margin-top:var(--sp-4)">Every floor is purpose-zoned by acoustic decibel threshold to eliminate friction
+          between collaborative meetings and deep flow.</p>
+      </div>
+
+      <div class="floorplan-preview-grid" data-reveal>
+
+        <div class="floorplan-card">
+          <div class="floorplan-level">Level 01 · 54 dB Ambient</div>
+          <h3 class="floorplan-name">Café &amp; Open Hot Desks</h3>
+          <p class="floorplan-desc">Specialty pour-over coffee bar, communal oak collaboration benches, guest welcome
+            concierge, and outdoor shaded garden patio.</p>
+        </div>
+
+        <div class="floorplan-card">
+          <div class="floorplan-level">Level 02 · 42 dB Silent</div>
+          <h3 class="floorplan-name">Silent Study Mezzanine</h3>
+          <p class="floorplan-desc">Dedicated library desks, individual reading carrels, warm task lamps, and 8
+            soundproof acoustic phone suites.</p>
+        </div>
+
+        <div class="floorplan-card">
+          <div class="floorplan-level">Level 03 · Enterprise &amp; Suites</div>
+          <h3 class="floorplan-name">Dedicated Desks &amp; Studios</h3>
+          <p class="floorplan-desc">Permanent Herman Miller Aeron workstations, lockable team suites (4–12 seats), 4K
+            video conference boardrooms, and rooftop terrace.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       VISITOR FAQS
+  ══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="visitor-faq-heading">
+    <div class="container" style="max-width:780px">
+      <div class="section-header center" data-reveal>
+        <span class="eyebrow">Visitor Information</span>
+        <h2 class="display-section" id="visitor-faq-heading">First Visit <em>Questions</em></h2>
+      </div>
+
+      <div class="accordion-wrap" style="margin-top:var(--sp-8)" data-reveal>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Can I simply walk in without booking a tour in advance?</span>
+            <span class="accordion-arrow">▾</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              Yes! Our Ground Floor Café Bar and open hot desks accommodate walk-in visitors daily from 7:00 AM. If you
+              want a personal guided walkthrough with a complimentary coffee tasting, we recommend booking a slot online
+              so our concierge can prepare your guest keycard.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Is high-speed Wi-Fi included for visiting guests?</span>
+            <span class="accordion-arrow">▾</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              Yes. Any coffee or pastry order from our Café Bar includes 2 hours of high-speed guest Wi-Fi (100 Mbps).
+              Full day passes and monthly memberships grant unrestricted access to our symmetric 1 Gbps fiber trunk with
+              automatic ISP failover.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>What is the acoustic and noise level policy?</span>
+            <span class="accordion-arrow">▾</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              DESKORA is zoned by decibel level. The Ground Floor welcomes conversational buzz, light background
+              music, and collaboration. The Second Floor Silent Study Mezzanine requires zero voice calls. For private
+              Zoom or client calls, we provide 8 soundproof phone booths with zero reservations needed.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Can I book a private meeting room for an hour?</span>
+            <span class="accordion-arrow">▾</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              Yes. Our 4-person Focus Pods and 10-person Executive Boardroom can be booked by the hour (starting at
+              ₹499/hr). Every booking includes 4K wireless display projection, ideation whiteboards, and complimentary
+              artisan coffee carafes.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-trigger">
+            <span>Are pets welcomed in the workspace?</span>
+            <span class="accordion-arrow">▾</span>
+          </button>
+          <div class="accordion-body">
+            <div class="accordion-inner">
+              Well-behaved dogs on leashes are warmly welcomed in our outdoor garden terrace and café courtyard! The
+              indoor quiet study areas remain pet-free to preserve hypoallergenic conditions for all members.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       LUXURY HIGH-CONVERSION CTA PANEL
+  ══════════════════════════════════════════════ -->
+  <section class="section-sm" style="padding-top:0">
+    <div class="container">
+      <div class="promo-panel" data-reveal>
+        <span class="eyebrow" style="justify-content:center;background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.28);color:#ffffff">Complimentary Invitation</span>
+        <h2 class="display-section" style="color:#fff;margin-bottom:var(--sp-5)">Step into the Architecture.<br><em>Taste
+            the Difference.</em></h2>
+        <p class="lead" style="max-width:540px;margin:0 auto var(--sp-10);color:rgba(255,255,255,0.8)">Experience how
+          calibrated acoustics, Herman Miller seating, and single-origin pour-overs transform your working day. No
+          credit card required.</p>
+        <div class="flex flex-center gap-4" style="flex-wrap:wrap">
+          <button class="btn btn-white btn-xl" data-open-booking>Claim Free Discovery Day</button>
+          <a href="memberships.html" class="btn btn-dark-outline btn-xl">View All Membership Tiers →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand-name" aria-label="DESKORA Home">
+            <div class="footer-brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>DESKORA
+          </a>
+          <p class="footer-brand-blurb">A refined workspace where artisan coffee, focused design, and a like-minded
+            community converge. 12 Crescent Lane, Koramangala, Bengaluru 560034.</p>
+          <div class="flex gap-4"><span class="footer-badge"><span class="status-dot"></span> Open Today</span><span
+              class="footer-badge">7AM–11PM</span></div>
+        </div>
+        <div>
+          <p class="footer-col-title">Navigate</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="memberships.html">Memberships</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Plans</p>
+          <ul class="footer-links">
+            <li><a href="memberships.html#daypasses">Discovery Pass (Free)</a></li>
+            <li><a href="memberships.html#daypasses">Student Pass (₹199)</a></li>
+            <li><a href="memberships.html#daypasses">Hot Desk Day (₹299)</a></li>
+            <li><a href="memberships.html#monthly">Flex 10 (₹890/mo)</a></li>
+            <li><a href="memberships.html#monthly">Dedicated Desk (₹2,499/mo)</a></li>
+            <li><a href="memberships.html#monthly">Private Studio (₹6,499/mo)</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-title">Stay in the Loop</p>
+          <p
+            style="font-size:var(--fs-sm);color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:var(--sp-4)">
+            Monthly insights on productivity, community events, and exclusive member offers.</p>
+          <div class="footer-newsletter"><input type="email" placeholder="your@email.com"
+              aria-label="Email for newsletter"><button class="btn btn-white btn-sm">Subscribe</button></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 DESKORA Coworking Café · All rights reserved</span>
+        <div class="footer-socials"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Twitter</a></div>
+        <span>Crafted with care in Bengaluru</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div class="modal-bg" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal>✕</button>
+      <div style="margin-bottom:var(--sp-6)"><span class="eyebrow">Reserve Your Spot</span>
+        <h2 class="heading-md" id="modalTitle">Book a Desk or Space Walkthrough</h2>
+      </div>
+      <form id="bookingForm" novalidate>
+        <div class="form-group"><label class="form-label" for="bookName">Full Name</label><input class="form-input"
+            type="text" id="bookName" placeholder="Jane Doe" required></div>
+        <div class="form-group"><label class="form-label" for="bookEmail">Email</label><input class="form-input"
+            type="email" id="bookEmail" placeholder="jane@example.com" required></div>
+        <div class="form-group"><label class="form-label" for="bookType">Type of Visit</label><select
+            class="form-select" id="bookType">
+            <option>Guided Space Tour &amp; Free Day Pass</option>
+            <option>Discovery Day Pass (Free)</option>
+            <option>Student Day Pass (₹199)</option>
+            <option>Hot Desk Day Pass (₹299)</option>
+            <option>Dedicated Desk Walkthrough</option>
+            <option>Private Studio Inspection</option>
+          </select></div>
+        <div class="form-group"><label class="form-label" for="bookDate">Date</label><input class="form-input"
+            type="date" id="bookDate" required></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:0.85rem">Confirm Walkthrough →</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Science of Soundscapes: How We Engineered Zero-Distraction Study Zones — DESKORA</title>
+  <meta name="description" content="An architectural deep-dive into decibel psychology, sound dampening felt geometry, and why acoustic isolation is the foundational pillar of modern creative stamina.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/deskora-favicon.svg">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-left">
+          <span class="top-bar-item"><span class="status-dot"></span>&nbsp; Open today · 7:00 AM – 11:00 PM</span>
+          <span class="top-bar-item">📍 12 Crescent Lane, Koramangala, Bengaluru</span>
+          <span class="top-bar-item">📞 +91 98765 43210</span>
+        </div>
+        <div class="top-bar-right">
+          <a href="login.html" class="top-bar-portal-link">Member Portal →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="home-2.html" class="nav-link" id="nav-home2">Home 2</a></li>
+            <li><a href="about.html" class="nav-link" id="nav-about">About Us</a></li>
+            <li><a href="services.html" class="nav-link" id="nav-services">Services</a></li>
+            <li><a href="memberships.html" class="nav-link" id="nav-memberships">Memberships</a></li>
+            <li><a href="blog.html" class="nav-link active" id="nav-blog">Blog</a></li>
+            <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+            <li><a href="user-dashboard.html" class="nav-link" id="nav-dashboard">Dashboard</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="nav-toggle-btn rtl-toggle" id="rtlToggle" aria-label="Toggle text direction (LTR/RTL)" title="Switch direction">
+            <span class="rtl-badge-text">RTL</span>
+          </button>
+          <button class="nav-toggle-btn theme-toggle" id="themeToggleNav" aria-label="Toggle dark/light theme" title="Toggle theme">
+            <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+          <button class="btn btn-primary btn-sm" data-open-booking id="headerBookBtn">Book a Desk</button>
+
+          <!-- User Account Dropdown -->
+          <div class="user-account-dropdown-wrap">
+            <button class="user-account-btn" id="userAccountBtn" aria-label="User account menu" aria-haspopup="true" aria-expanded="false" title="Account Menu">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </button>
+            <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
+              <div class="account-dropdown-header">
+                <span class="account-dropdown-greeting">DESKORA Portal</span>
+                <span class="account-dropdown-badge">Select Destination</span>
+              </div>
+              <div class="account-dropdown-items">
+                <a href="login.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Login / Sign Up</span>
+                    <span class="account-item-sub">Access your member profile</span>
+                  </div>
+                </a>
+                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">Admin Dashboard</span>
+                    <span class="account-item-sub">Workspace &amp; inventory control</span>
+                  </div>
+                </a>
+                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
+                  <span class="account-item-icon">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  <div class="account-item-text">
+                    <span class="account-item-title">User Dashboard</span>
+                    <span class="account-item-sub">Reservations &amp; pass credits</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <button class="burger-btn" id="burgerBtn" aria-label="Open navigation" aria-expanded="false">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="20" height="2" rx="1" fill="currentColor" />
+              <rect y="6" width="14" height="2" rx="1" fill="currentColor" />
+              <rect y="12" width="20" height="2" rx="1" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-drawer-backdrop"></div>
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand" aria-label="DESKORA Home">
+          <div class="brand-mark"><svg viewBox="0 0 80 80" fill="none" aria-hidden="true" style="width:100%;height:100%"><g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16V64"/><path d="M30 16H45C61 16 65 27 65 40C65 53 61 64 45 64H30"/><path d="M16 45H74"/><path d="M22 45V64" stroke-width="4.5"/><path d="M68 45V64" stroke-width="4.5"/></g></svg></div>
+          <div class="brand-text">
+            <span class="brand-name">DESKORA</span>
+            <span class="brand-sub">Coworking &amp; Café</span>
+          </div>
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close navigation">✕</button>
+      </div>
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="home-2.html" class="mobile-nav-link">Home 2</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+          <li><a href="memberships.html" class="mobile-nav-link">Memberships</a></li>
+          <li><a href="blog.html" class="mobile-nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+          <li><a href="user-dashboard.html" class="mobile-nav-link" id="mobile-nav-dashboard">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Drawer Account Links -->
+      <div class="mobile-drawer-account">
+        <p class="mobile-drawer-section-title">Account &amp; Portals</p>
+        <a href="login.html" class="mobile-account-link">
+          <span>Login / Sign Up</span>
+          <span>→</span>
+        </a>
+        <a href="user-dashboard.html" class="mobile-account-link">
+          <span>User Dashboard</span>
+          <span>→</span>
+        </a>
+        <a href="admin-dashboard.html" class="mobile-account-link">
+          <span>Admin Dashboard</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary" data-open-booking style="width: 100%;">Book a Desk</button>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- SECTION 1: Article Header & Meta -->
+    <article class="section" style="padding-bottom:var(--space-2xl);">
+      <div class="container">
+        <div class="article-header">
+          <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:1.5rem;">
+            <a href="blog.html" class="eyebrow" style="margin-bottom:0;">← Back to Journal</a>
+            <span class="caption">ACOUSTIC RESEARCH</span>
+            <span class="caption">• 9 MIN READ</span>
+          </div>
+          
+          <h1 class="display-1" style="margin-bottom:1.5rem;font-size:clamp(2.2rem, 4.5vw, 3.5rem);">
+            The Science of Soundscapes: How We Engineered Zero-Distraction Study Zones
+          </h1>
+          
+          <p class="lead" style="font-size:1.2rem;max-width:720px;margin:0 auto 2rem auto;">
+            Why the human brain cannot filter unintelligible human chatter, and how vertical zoning, recycled wool felt baffles, and tuned background resonance preserve cognitive flow.
+          </p>
+
+          <!-- Author Info Strip -->
+          <div style="display:inline-flex;align-items:center;gap:16px;background:var(--bg-secondary);padding:0.75rem 1.5rem;border-radius:var(--radius-full);border:1px solid var(--border-subtle);">
+            <div class="author-avatar" style="width:44px;height:44px;">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Mira Al-Mansoor">
+            </div>
+            <div style="text-align:left;">
+              <strong style="display:block;font-size:0.92rem;">Mira Al-Mansoor</strong>
+              <small style="color:var(--text-tertiary);">Co-Founder & Architectural Lead • October 14, 2026</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: Hero Visual Photography -->
+        <div class="article-hero-img">
+          <img src="assets/blog-1.jpg" alt="Acoustic study carrels at DESKORA" loading="eager">
+        </div>
+
+        <!-- SECTION 3: Deep Longform Article Body with Rich Formatting -->
+        <div class="article-content">
+          <p style="font-size:1.25rem;font-family:var(--font-display);font-weight:500;line-height:1.75;color:var(--text-primary);">
+            When we set out to build DESKORA in 2022, we surveyed over 400 remote workers, graduate students, and software engineers in our metropolitan district. One single grievance eclipsed all others by a margin of four to one: <em>sound pollution</em>.
+          </p>
+
+          <p>
+            It wasn’t just the obvious annoyances—screaming toddlers, blaring espresso steam valves, or siren wails from the street outside. The most insidious cognitive toxin was something psychoacousticians call the <strong>"Irrelevant Speech Effect" (ISE)</strong>. Unlike constant ambient mechanical white noise (such as rain or HVAC fans), human speech engages our brain’s phonological loop automatically and involuntarily.
+          </p>
+
+          <blockquote class="article-pullquote">
+            "Your brain is biologically hardwired to decode human phonemes. Even if you don't care about a nearby phone pitch, your subconscious burns 20% of its working memory trying to comprehend it."
+          </blockquote>
+
+          <h2>The 45 Decibel Threshold</h2>
+          <p>
+            In clinical tests conducted by the Sound Environment Research Group, cognitive tasks requiring complex reasoning (such as drafting legal briefs, debugging Python algorithms, or parsing organic chemistry equations) showed immediate error rate spikes when background speech exceeded <strong>45 dBA</strong>.
+          </p>
+
+          <div style="background-color:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1.5rem;margin:2rem 0;">
+            <strong style="font-family:var(--font-display);font-size:1.1rem;display:block;margin-bottom:0.5rem;">Key Takeaways for Your Daily Focus:</strong>
+            <ul style="list-style:disc;padding-left:1.5rem;color:var(--text-secondary);font-size:0.95rem;line-height:1.7;">
+              <li>Speech intelligibility matters far more than overall sound volume.</li>
+              <li>Acoustic isolation requires both sound dampening (absorption) and sound masking (resonance).</li>
+              <li>Vertical segregation is 300% more effective at sound decoupling than horizontal cubicle dividers.</li>
+            </ul>
+          </div>
+
+          <h2>How We Engineered The 3-Tier Decibel Hierarchy</h2>
+          <p>
+            Rather than forcing everyone into a suffocating quiet room or letting the entire building turn into a raucous café, we divided our physical architecture across three distinct floors:
+          </p>
+
+          <p>
+            <strong>Level 0: The Roastery & Social Hub (~58 dB)</strong><br>
+            Here, we intentionally allow social hum. We placed the La Marzocco espresso machine and vinyl turntables here. The acoustics are lined with perforated wood slats to keep reverb warm without producing grating echoes.
+          </p>
+
+          <p>
+            <strong>Level 1: The Focused Coworking Engine (~42 dB)</strong><br>
+            Keyboard clatter, mouse clicks, and soft collaborative exchanges are welcome. All phone calls are sequestered into Framery acoustic pods with -32 dB sound isolation.
+          </p>
+
+          <p>
+            <strong>Level 2: The Silent Study Sanctum (&lt;28 dB)</strong><br>
+            No phone calls. No conference audio. No whisper conversations. Acoustic felt baffles hang from the 14-foot timber ceiling to absorb high frequencies. We tuned the air handling system to generate a soft 400Hz ambient resonance, creating a velvet blanket of complete calm.
+          </p>
+
+          <!-- Social Share & Reaction Strip -->
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle);">
+            <div style="display:flex;gap:0.75rem;">
+              <button class="btn btn-secondary btn-sm" onclick="showToast('Liked! Thank you for supporting our research.', 'success')">❤️ 412 Likes</button>
+              <button class="btn btn-secondary btn-sm" onclick="navigator.clipboard.writeText(window.location.href); showToast('Link copied to clipboard!', 'info');">🔗 Copy Link</button>
+            </div>
+            <div style="font-size:0.85rem;color:var(--text-tertiary);">
+              Published in <a href="blog.html" style="text-decoration:underline;">DESKORA Journal</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: Author Bio Card -->
+        <div class="article-author-card">
+          <div class="author-avatar" style="width:72px;height:72px;flex-shrink:0;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Mira Al-Mansoor">
+          </div>
+          <div>
+            <h4 class="h4" style="margin-bottom:4px;">Written by Mira Al-Mansoor</h4>
+            <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;margin-bottom:0.75rem;">
+              Mira is an architectural acoustician and co-founder of DESKORA. She previously designed performance halls and quiet university archives across Northern Europe.
+            </p>
+            <span class="caption">Follow on <a href="#" style="text-decoration:underline;">LinkedIn</a> or visit her desk on Level 1.</span>
+          </div>
+        </div>
+
+        <!-- SECTION 5: Interactive Reader Discussion / Comments -->
+        <section class="section-sm" style="max-width:780px;margin:0 auto;border-top:1px solid var(--border-subtle);">
+          <h3 class="h3" style="margin-bottom:1.5rem;">Discussion & Community Thoughts (3)</h3>
+
+          <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem;">
+            <div style="background-color:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                <strong style="font-size:0.92rem;">Dr. Jonathan Reese</strong>
+                <span class="caption">2 days ago</span>
+              </div>
+              <p style="font-size:0.9rem;color:var(--text-secondary);">
+                "The Irrelevant Speech Effect is spot on. I’ve noticed my cognitive retention is twice as high in Zone 3 compared to my university departmental office. Kudos on the felt acoustic baffles."
+              </p>
+            </div>
+
+            <div style="background-color:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1.25rem;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;">
+                <strong style="font-size:0.92rem;">Kaitlyn Wu</strong>
+                <span class="caption">5 days ago</span>
+              </div>
+              <p style="font-size:0.9rem;color:var(--text-secondary);">
+                "Can you share the brand of the 400Hz sound conditioning system? Would love to look into this for our boutique agency!"
+              </p>
+            </div>
+          </div>
+
+          <!-- Add Comment Form -->
+          <div style="background-color:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:1.5rem;">
+            <h4 class="h4" style="margin-bottom:1rem;">Leave A Contribution</h4>
+            <form onsubmit="event.preventDefault(); showToast('Comment posted! Pending host moderation.', 'success'); this.reset();">
+              <div class="form-group">
+                <input type="text" class="form-input" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-textarea" rows="3" placeholder="Share your perspective on workspace acoustics..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">Post Comment</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- SECTION 6: Related Articles Grid -->
+        <section class="section-sm" style="border-top:1px solid var(--border-subtle);margin-top:2rem;">
+          <div class="section-header text-center">
+            <span class="eyebrow">Keep Reading</span>
+            <h2 class="display-2" style="font-size:2rem;">Related Essays & Field Notes</h2>
+          </div>
+
+          <div class="editorial-grid">
+            <article class="editorial-card">
+              <div class="card-image-wrap">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80" alt="Pour over coffee craft">
+              </div>
+              <div class="card-body">
+                <span class="caption">COFFEE CRAFT</span>
+                <h4 class="card-title" style="margin-top:4px;">Caffeine Half-Life & Circadian Rhythms: The Barista Guide</h4>
+                <a href="blog.html" class="btn btn-secondary btn-sm" style="margin-top:1rem;">Read Article →</a>
+              </div>
+            </article>
+
+            <article class="editorial-card">
+              <div class="card-image-wrap">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Student study routines">
+              </div>
+              <div class="card-body">
+                <span class="caption">STUDENT STRATEGY</span>
+                <h4 class="card-title" style="margin-top:4px;">Cracking the Bar Exam: A 90-Day Study Protocol</h4>
+                <a href="blog.html" class="btn btn-secondary btn-sm" style="margin-top:1rem;">Read Article →</a>
+              </div>
+            </article>
+
+            <article class="editorial-card">
+              <div class="card-image-wrap">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="The death of open offices">
+              </div>
+              <div class="card-body">
+                <span class="caption">DEEP WORK</span>
+                <h4 class="card-title" style="margin-top:4px;">The Death of the Open Office: Monastic Focus as Luxury</h4>
+                <a href="blog.html" class="btn btn-secondary btn-sm" style="margin-top:1rem;">Read Article →</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </article>
+  </main>
+
+  <!-- Universal Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo" style="color:#ffffff;">
+          <div class="logo-symbol" style="background:#ffffff;color:#0f1012;">▲</div>
+          <span>THE ATELIER</span>
+        </a>
+        <p>A hybrid coworking sanctuary and specialty coffee lounge designed for uninterrupted focus, collaborative energy, and academic excellence.</p>
+        <div class="footer-badge">
+          <span class="status-dot"></span> Open Daily • 7:00 AM – 11:00 PM
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Explore Spaces</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home 1 — Overview</a></li>
+          <li><a href="home-2.html">Home 2 — Student & Focus</a></li>
+          <li><a href="services.html">Workspaces & Desks</a></li>
+          <li><a href="service-details.html">Dedicated Pod Specs</a></li>
+          <li><a href="memberships.html">Memberships & Rates</a></li>
+          <li><a href="amenities.html">Infrastructure & Wi-Fi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Community & Café</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About The Brand</a></li>
+          <li><a href="menu.html">Artisan Drink Menu</a></li>
+          <li><a href="blog.html">Editorial & Research</a></li>
+          <li><a href="blog-details.html">Study Science Guide</a></li>
+          <li><a href="login.html">Member Portal Sign-In</a></li>
+          <li><a href="contact.html">Directions & Parking</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Stay Connected</h4>
+        <p style="font-size:0.86rem;color:var(--text-light-muted);margin-bottom:1rem;">
+          Subscribe for weekly barista single-origin releases, productivity dispatches, and free day pass lotteries.
+        </p>
+        <form class="footer-newsletter-form newsletter-form">
+          <input type="email" placeholder="Your work or student email" required aria-label="Email for newsletter">
+          <button type="submit" class="btn btn-white btn-sm">Join</button>
+        </form>
+        <div style="margin-top:1.5rem;">
+          <p style="font-size:0.8rem;color:var(--text-light-muted);">Direct line: +1 (555) 392-8104</p>
+          <p style="font-size:0.8rem;color:var(--text-light-muted);">hello@theateliercowork.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>© 2026 DESKORA Coworking Café & Study Lounge. All rights reserved. Pure Vanilla HTML5/CSS3/JS.</div>
+      <div class="footer-social-links">
+        <a href="#" class="footer-social-link" aria-label="Instagram">Instagram</a>
+        <a href="#" class="footer-social-link" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" class="footer-social-link" aria-label="Twitter">Twitter / X</a>
+        <a href="#" class="footer-social-link" aria-label="Spotify">Spotify Playlist</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Universal Booking Modal -->
+  <div class="modal-overlay" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-article">
+    <div class="modal-container">
+      <button class="modal-close-btn" data-close-modal aria-label="Close Reservation Window">✕</button>
+      <div style="margin-bottom:1.5rem;">
+        <span class="eyebrow" style="margin-bottom:0.5rem;">Instant Reservation</span>
+        <h3 id="modal-title-article" class="h2">Book A Workspace</h3>
+        <p style="color:var(--text-secondary);font-size:0.9rem;margin-top:4px;">
+          Choose your workspace zone and target arrival date.
+        </p>
+      </div>
+
+      <form id="quick-booking-form">
+        <div class="form-group">
+          <label class="form-label" for="booking-name-article">Full Name</label>
+          <input type="text" id="booking-name-article" name="full_name" class="form-input" placeholder="e.g. Alex Morgan" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="booking-email-article">Email Address</label>
+          <input type="email" id="booking-email-article" name="email" class="form-input" placeholder="alex@domain.com" required>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label class="form-label" for="booking-space-type-article">Space Option</label>
+            <select id="booking-space-type-article" name="space_type" class="form-select">
+              <option value="Day Pass">Day Pass ($20)</option>
+              <option value="Student Pass">Student Day Pass ($12)</option>
+              <option value="Dedicated Pod">Dedicated Desk Pod ($249/mo)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="booking-date-article">Target Date</label>
+            <input type="date" id="booking-date-article" name="booking_date" class="form-input" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem;">
+          Confirm Booking & Get RFID Code
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
