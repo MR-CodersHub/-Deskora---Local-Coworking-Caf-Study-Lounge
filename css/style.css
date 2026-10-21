@@ -1499,10 +1499,10 @@ h1,h2,h3,h4,h5,h6 {
   gap: 8px;
   background: var(--clr-bg-subtle);
   border: 1px solid var(--clr-border);
-  padding: 0.32rem 0.85rem;
+  padding: 0.42rem 1.05rem;
   border-radius: var(--r-full);
   font-family: var(--ff-mono);
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1513,12 +1513,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .hero-display {
   font-family: var(--ff-serif);
-  font-size: clamp(2.3rem, 3.8vw, 3.5rem);
+  font-size: clamp(2.6rem, 4.4vw, 3.85rem);
   font-weight: var(--fw-semibold);
   line-height: 1.12;
   letter-spacing: -0.035em;
   color: var(--clr-ink);
-  margin-bottom: var(--sp-4);
+  margin-bottom: var(--sp-5);
   transition: color var(--t-base) var(--ease);
 }
 
@@ -1532,11 +1532,11 @@ h1,h2,h3,h4,h5,h6 {
 .section-dark .hero-display em { color: rgba(255,255,255,.5); }
 
 .hero-body {
-  font-size: var(--fs-sm);
-  line-height: 1.65;
+  font-size: 1.18rem;
+  line-height: 1.7;
   color: var(--clr-ink-muted);
   margin-bottom: var(--sp-5);
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .hero-actions {
@@ -1608,13 +1608,13 @@ h1,h2,h3,h4,h5,h6 {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.72rem;
+  font-size: 0.84rem;
   color: var(--clr-ink-soft);
 }
 
 .trust-stars {
   color: #eab308;
-  font-size: 0.72rem;
+  font-size: 0.84rem;
   letter-spacing: 1px;
 }
 
@@ -1646,18 +1646,19 @@ h1,h2,h3,h4,h5,h6 {
 
 .hero-stat-num {
   font-family: var(--ff-serif);
-  font-size: 1.55rem;
+  font-size: 1.85rem;
   font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
   color: var(--clr-ink);
   display: block;
   line-height: 1;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .hero-stat-label {
   font-family: var(--ff-mono);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--clr-ink-muted);
@@ -4921,8 +4922,8 @@ a.footer-brand-name:hover {
 #service-hero .hero-description {
   color: #242420 !important;
   font-weight: 500 !important;
-  font-size: 1.0625rem !important;
-  line-height: 1.68 !important;
+  font-size: 1.18rem !important;
+  line-height: 1.7 !important;
   text-shadow: none !important;
 }
 
@@ -5052,9 +5053,9 @@ a.footer-brand-name:hover {
   backdrop-filter: blur(8px);
   color: #ffffff;
   font-family: var(--ff-mono);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   letter-spacing: 0.05em;
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: var(--r-full);
   border: 1px solid rgba(255, 255, 255, 0.2);
   z-index: 2;

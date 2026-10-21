@@ -45,12 +45,12 @@
     .about-hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       background: var(--clr-bg-card);
       border: 1px solid var(--clr-border);
       border-radius: var(--r-full);
-      padding: 6px 18px;
-      font-size: var(--fs-xs);
+      padding: 7px 20px;
+      font-size: 0.82rem;
       font-family: var(--ff-mono);
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -59,11 +59,11 @@
       box-shadow: var(--sh-xs);
     }
     .about-hero-title {
-      font-size: clamp(2rem, 3.4vw, 2.9rem);
+      font-size: clamp(2.4rem, 4.2vw, 3.75rem);
       font-weight: 700;
-      line-height: 1.15;
+      line-height: 1.14;
       letter-spacing: -0.03em;
-      margin: 0 0 var(--sp-4);
+      margin: 0 0 var(--sp-5);
       color: var(--clr-ink);
       text-align: left;
     }
@@ -74,17 +74,17 @@
       color: var(--clr-ink);
     }
     .about-hero-lead {
-      font-size: 0.95rem;
+      font-size: 1.18rem !important;
       color: var(--clr-ink-muted);
-      line-height: 1.6;
-      max-width: 520px;
+      line-height: 1.7;
+      max-width: 580px;
       margin: 0 0 var(--sp-6);
       text-align: left;
     }
     .about-stats-band {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      gap: 12px;
       max-width: 100%;
       margin: 0;
     }
@@ -97,7 +97,7 @@
       background: var(--clr-bg-card);
       border: 1px solid var(--clr-border);
       border-radius: var(--r-md);
-      padding: 10px 8px;
+      padding: 12px 10px;
       text-align: center;
       transition: all var(--t-base) var(--ease);
     }
@@ -107,21 +107,22 @@
       box-shadow: var(--sh-sm);
     }
     .about-stat-val {
-      font-size: 1.45rem;
+      font-size: 1.85rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       color: var(--clr-ink);
       line-height: 1.1;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
       display: block;
     }
     .about-stat-lbl {
       font-family: var(--ff-mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--clr-ink-muted);
       display: block;
+      font-weight: 600;
     }
     .about-hero-cinematic {
       position: relative;
@@ -767,7 +768,7 @@
             <div class="account-dropdown-menu" id="accountDropdownMenu" role="menu" aria-label="Account navigation">
               <div class="account-dropdown-header">
                 <span class="account-dropdown-greeting">DESKORA Portal</span>
-                <span class="account-dropdown-badge">Select Destination</span>
+                <span class="account-dropdown-badge">Member Access</span>
               </div>
               <div class="account-dropdown-items">
                 <a href="login.html" class="account-dropdown-item" role="menuitem">
@@ -781,32 +782,6 @@
                   <div class="account-item-text">
                     <span class="account-item-title">Login / Sign Up</span>
                     <span class="account-item-sub">Access your member profile</span>
-                  </div>
-                </a>
-                <a href="admin-dashboard.html" class="account-dropdown-item" role="menuitem">
-                  <span class="account-item-icon">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="3" width="7" height="9" rx="1"></rect>
-                      <rect x="14" y="3" width="7" height="5" rx="1"></rect>
-                      <rect x="14" y="12" width="7" height="9" rx="1"></rect>
-                      <rect x="3" y="16" width="7" height="5" rx="1"></rect>
-                    </svg>
-                  </span>
-                  <div class="account-item-text">
-                    <span class="account-item-title">Admin Dashboard</span>
-                    <span class="account-item-sub">Workspace &amp; inventory control</span>
-                  </div>
-                </a>
-                <a href="user-dashboard.html" class="account-dropdown-item" role="menuitem">
-                  <span class="account-item-icon">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                  </span>
-                  <div class="account-item-text">
-                    <span class="account-item-title">User Dashboard</span>
-                    <span class="account-item-sub">Reservations &amp; pass credits</span>
                   </div>
                 </a>
               </div>
@@ -889,14 +864,6 @@
         <p class="mobile-drawer-section-title">Account &amp; Portals</p>
         <a href="login.html" class="mobile-account-link">
           <span>Login / Sign Up</span>
-          <span>→</span>
-        </a>
-        <a href="user-dashboard.html" class="mobile-account-link">
-          <span>User Dashboard</span>
-          <span>→</span>
-        </a>
-        <a href="admin-dashboard.html" class="mobile-account-link">
-          <span>Admin Dashboard</span>
           <span>→</span>
         </a>
       </div>
