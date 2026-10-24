@@ -1970,28 +1970,32 @@ h1,h2,h3,h4,h5,h6 {
   gap: var(--sp-4);
 }
 
-/* Enhanced Cafe Card with Image */
+/* Enhanced Cafe Card with Image & Badges */
 .cafe-card {
-  background: var(--clr-dark-card);
-  border: 1px solid var(--clr-dark-muted);
-  border-radius: var(--r-md);
+  background: #181816;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--r-xl);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all var(--t-base) var(--ease);
+  transition: transform var(--t-base) var(--ease), border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
+  position: relative;
+  height: 100%;
 }
 
 .cafe-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255,255,255,.3);
-  box-shadow: 0 12px 30px rgba(0,0,0,.5);
+  transform: translateY(-5px);
+  border-color: rgba(184, 151, 106, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(184, 151, 106, 0.08);
 }
 
 .cafe-card-img {
   width: 100%;
-  height: 160px;
+  height: 180px;
+  min-height: 180px;
+  max-height: 180px;
   overflow: hidden;
-  background: #111;
+  background: #0f0f0e;
   position: relative;
 }
 
@@ -2003,31 +2007,117 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .cafe-card:hover .cafe-card-img img {
-  transform: scale(1.06);
+  transform: scale(1.07);
+}
+
+/* Floating badges over image */
+.cafe-badge-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 15, 14, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--r-full);
+  padding: 3px 10px;
+  font-family: var(--ff-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  color: var(--clr-gold);
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cafe-badge-tag.badge-combo {
+  background: rgba(184, 151, 106, 0.92);
+  color: #111;
+  border-color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+
+.cafe-badge-spec {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-full);
+  padding: 3px 9px;
+  font-family: var(--ff-mono);
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.85);
+  z-index: 2;
 }
 
 .cafe-card-body {
-  padding: var(--sp-5);
+  padding: 1.25rem 1.25rem 1.15rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
+.cafe-origin-tag {
+  font-family: var(--ff-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.42);
+  margin-bottom: 6px;
+  height: 14px;
+  line-height: 14px;
+  display: block;
+}
+
 .cafe-card-title {
   color: #fff;
   font-family: var(--ff-serif);
-  font-size: var(--fs-lg);
+  font-size: 1.22rem;
   font-weight: var(--fw-semibold);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   line-height: 1.25;
+  min-height: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .cafe-card-desc {
-  color: rgba(255,255,255,.65);
+  color: rgba(255, 255, 255, 0.65);
   font-size: var(--fs-xs);
   line-height: 1.55;
+  margin-bottom: var(--sp-3);
+  height: 4.8rem;
+  min-height: 4.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cafe-flavor-tags {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 5px;
   margin-bottom: var(--sp-4);
-  flex: 1;
+  height: 24px;
+  min-height: 24px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cafe-flavor-tags span {
+  font-family: var(--ff-mono);
+  font-size: 0.58rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .cafe-card-footer {
@@ -2035,14 +2125,85 @@ h1,h2,h3,h4,h5,h6 {
   align-items: center;
   justify-content: space-between;
   padding-top: var(--sp-3);
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  margin-top: auto;
+  height: 48px;
+  min-height: 48px;
+  box-sizing: border-box;
 }
 
 .cafe-price {
   font-family: var(--ff-serif);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: var(--fw-semibold);
-  color: #fff;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.btn-cafe-order {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--r-full);
+  padding: 0 0.95rem;
+  height: 32px;
+  min-height: 32px;
+  font-size: 0.72rem;
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.btn-cafe-order:hover {
+  background: #ffffff;
+  color: var(--clr-dark);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Feature highlight strip for Cafe */
+.cafe-features-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+  margin-bottom: var(--sp-8);
+}
+
+.cafe-feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--r-full);
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.cafe-footer-banner {
+  margin-top: var(--sp-12);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-xl);
+  padding: var(--sp-6) var(--sp-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
 }
 
 /* ── Editorial Cards ────────────────────────────────────────────── */
@@ -2157,7 +2318,7 @@ h1,h2,h3,h4,h5,h6 {
   font-size: var(--fs-sm);
   line-height: var(--lh-loose);
   color: var(--clr-ink-muted);
-  flex: 1;
+  min-height: 4.8em;
   margin-bottom: var(--sp-5);
 }
 
@@ -2672,6 +2833,61 @@ h1,h2,h3,h4,h5,h6 {
   height: 400px;
   background: radial-gradient(ellipse at center, rgba(255,255,255,.04) 0%, transparent 70%);
   pointer-events: none;
+}
+
+.promo-panel .flex-center {
+  gap: var(--sp-4);
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-panel .btn {
+  height: 52px;
+  min-height: 52px;
+  padding: 0 2.25rem;
+  font-size: 0.95rem;
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.01em;
+  border-radius: var(--r-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  line-height: 1;
+  transition: all var(--t-base) var(--ease);
+}
+
+.promo-panel .btn-white {
+  background: #ffffff;
+  color: #111110;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.promo-panel .btn-white:hover {
+  background: #f4f4f0;
+  color: #111110;
+  border-color: #f4f4f0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.promo-panel .btn-dark-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(8px);
+}
+
+.promo-panel .btn-dark-outline:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
 /* ── Accordion FAQ ──────────────────────────────────────────────── */
@@ -4653,6 +4869,7 @@ a.footer-brand-name:hover {
   letter-spacing: 0.1em;
   color: var(--clr-ink-muted);
   margin-bottom: 6px;
+  line-height: 1.2;
 }
 
 .amenity-card-title {
@@ -4662,6 +4879,7 @@ a.footer-brand-name:hover {
   color: var(--clr-ink);
   margin-bottom: 8px;
   line-height: 1.25;
+  min-height: 2rem;
 }
 
 .amenity-card-text {
@@ -4669,6 +4887,7 @@ a.footer-brand-name:hover {
   color: var(--clr-ink-muted);
   line-height: 1.6;
   margin-bottom: var(--sp-5);
+  min-height: 4.85em;
 }
 
 .amenity-check-list {
@@ -4677,8 +4896,7 @@ a.footer-brand-name:hover {
   margin: 0 0 var(--sp-5) 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex: 1;
+  gap: 9px;
 }
 
 .amenity-check-item {
@@ -4688,12 +4906,14 @@ a.footer-brand-name:hover {
   font-size: var(--fs-xs);
   color: var(--clr-ink-soft);
   line-height: 1.45;
+  min-height: 1.45em;
 }
 
 .amenity-check-icon {
   color: var(--clr-ink);
   font-weight: bold;
   flex-shrink: 0;
+  line-height: 1.45;
 }
 
 .amenity-card-footer {
@@ -4705,6 +4925,7 @@ a.footer-brand-name:hover {
   font-size: 0.7rem;
   color: var(--clr-ink-muted);
   font-family: var(--ff-mono);
+  margin-top: auto;
 }
 
 .amenity-guarantee-strip {
