@@ -121,8 +121,10 @@ function initMobileDrawer() {
   burgerBtn.addEventListener('click', openDrawer);
   closeBtn?.addEventListener('click', closeDrawer);
   backdrop?.addEventListener('click', closeDrawer);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-  $$('.mobile-nav-link').forEach(link => link.addEventListener('click', closeDrawer));
+  // Close drawer on clicking navigation links, but not on dropdown toggle buttons
+  $$('.mobile-nav-link:not(.mobile-nav-dropdown-toggle), .mobile-nav-sublink, .mobile-account-link').forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
 }
 
 /* ── Booking Modal ────────────────────────────────────────────── */

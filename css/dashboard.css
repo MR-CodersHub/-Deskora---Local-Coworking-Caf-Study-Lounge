@@ -1168,6 +1168,79 @@
 }
 
 /* ── Responsive Rules ───────────────────────────────────────────── */
+/* ── 1024px Tablet Landscape & Small Desktop Redesign ── */
+@media (max-width: 1024px) {
+  .dash-sidebar {
+    width: 240px;
+    transform: none;
+  }
+  .dash-main {
+    margin-left: 240px;
+  }
+  [dir="rtl"] .dash-main {
+    margin-left: 0;
+    margin-right: 240px;
+  }
+  .dash-header {
+    height: 72px;
+    padding: 0 20px;
+  }
+  .dash-greeting-title {
+    font-size: 1.22rem;
+  }
+  .dash-greeting-sub {
+    font-size: 0.76rem;
+  }
+  .dash-content {
+    padding: 24px 20px;
+    max-width: 100%;
+  }
+  .dash-section-header {
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+  .dash-section-title {
+    font-size: 1.65rem;
+  }
+  .dash-section-sub {
+    font-size: 0.85rem;
+  }
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    padding: 18px;
+  }
+  .kpi-value {
+    font-size: 1.9rem;
+  }
+  .dash-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .desk-booking-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .desks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 14px;
+  }
+  .dash-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .dash-card {
+    padding: 20px;
+  }
+  .profile-grid, .support-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
 @media (max-width: 992px) {
   .dash-sidebar {
     transform: translateX(-100%);

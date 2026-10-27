@@ -6698,69 +6698,6 @@ a.footer-brand-name:hover {
   background: #ffffff;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .dash-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    transform: translateX(-100%);
-    box-shadow: 0 0 40px rgba(0,0,0,.4);
-  }
-  [dir="rtl"] .dash-sidebar {
-    left: auto;
-    right: 0;
-    transform: translateX(100%);
-  }
-  .dash-sidebar.open {
-    transform: translateX(0);
-  }
-  .dash-sidebar-toggle {
-    display: inline-flex;
-  }
-  .dash-topbar {
-    padding: 0 var(--sp-5);
-  }
-  .dash-content {
-    padding: var(--sp-5);
-  }
-}
-
-@media (max-width: 768px) {
-  .dash-stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 520px) {
-  .dash-stats-grid {
-    grid-template-columns: 1fr;
-  }
-  .dash-topbar {
-    height: 60px;
-    padding: 0 var(--sp-3);
-  }
-  .dash-content {
-    padding: var(--sp-3);
-  }
-  .account-dropdown {
-    width: 250px;
-  }
-}
-
-@media (max-width: 400px) {
-  .dash-topbar {
-    padding: 0 12px;
-  }
-  .dash-content {
-    padding: 12px;
-  }
-  .account-dropdown {
-    width: calc(100vw - 24px);
-    right: -6px;
-  }
-}
 
 /* Blog Section Header Button */
 .blog-header-btn {
